@@ -1,8 +1,8 @@
-package pera.TripPlanner.model.DAO;
+package pera.trip_planner.model.DAO;
 
-import pera.TripPlanner.exception.DAOException;
-import pera.TripPlanner.model.domain.Country;
-import pera.TripPlanner.model.domain.CountryList;
+import pera.trip_planner.exception.DAOException;
+import pera.trip_planner.model.domain.Country;
+import pera.trip_planner.model.domain.CountryList;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

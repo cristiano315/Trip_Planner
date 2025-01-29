@@ -1,6 +1,6 @@
-package pera.TripPlanner.model.DAO;
+package pera.trip_planner.model.DAO;
 
-import pera.TripPlanner.exception.DAOException;
+import pera.trip_planner.exception.DAOException;
 
 import java.sql.SQLException;
 

@@ -1,4 +1,4 @@
-package pera.TripPlanner.controller.graphic_controller;
+package pera.trip_planner.controller.graphic_controller;
 
 public class GuiGraphicCreateTripController implements GraphicController{
     @Override

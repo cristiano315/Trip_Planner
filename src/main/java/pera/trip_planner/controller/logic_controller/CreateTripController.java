@@ -1,11 +1,11 @@
-package pera.TripPlanner.controller.logic_controller;
+package pera.trip_planner.controller.logic_controller;
 
-import pera.TripPlanner.controller.graphic_controller.GraphicController;
-import pera.TripPlanner.controller.graphic_controller.GuiGraphicCreateTripController;
-import pera.TripPlanner.controller.graphic_controller.TextGraphicCreateTripController;
-import pera.TripPlanner.exception.DAOException;
-import pera.TripPlanner.model.DAO.GetCountriesProcedureDAO;
-import pera.TripPlanner.model.domain.CountryList;
+import pera.trip_planner.controller.graphic_controller.GraphicController;
+import pera.trip_planner.controller.graphic_controller.GuiGraphicCreateTripController;
+import pera.trip_planner.controller.graphic_controller.TextGraphicCreateTripController;
+import pera.trip_planner.exception.DAOException;
+import pera.trip_planner.model.DAO.GetCountriesProcedureDAO;
+import pera.trip_planner.model.domain.CountryList;
 
 public class CreateTripController implements Controller {
     GraphicController graphicController;

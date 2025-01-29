@@ -1,4 +1,4 @@
-package pera.TripPlanner.model.domain;
+package pera.trip_planner.model.domain;
 
 public class Country {
     private String Name;

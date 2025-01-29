@@ -1,4 +1,4 @@
-package pera.TripPlanner.view;
+package pera.trip_planner.view;
 
 import java.io.IOException;
 import java.util.InputMismatchException;

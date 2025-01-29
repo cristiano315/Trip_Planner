@@ -1,4 +1,4 @@
-package pera.TripPlanner.model.DAO;
+package pera.trip_planner.model.DAO;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class ConnectionFactory {    private static Connection connection;
     private ConnectionFactory() {}
 
     static{
-        try (InputStream input = new FileInputStream("./src/main/resources/pera/TripPlanner/DataBase/worldDB.properties")) {
+        try (InputStream input = new FileInputStream("./src/main/resources/pera/trip_planner/DataBase/worldDB.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 

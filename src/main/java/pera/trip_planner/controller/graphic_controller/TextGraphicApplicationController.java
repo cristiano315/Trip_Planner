@@ -1,9 +1,9 @@
-package pera.TripPlanner.controller.graphic_controller;
+package pera.trip_planner.controller.graphic_controller;
 
-import pera.TripPlanner.controller.logic_controller.ApplicationController;
-import pera.TripPlanner.controller.logic_controller.Controller;
-import pera.TripPlanner.controller.logic_controller.CreateTripController;
-import pera.TripPlanner.view.TextGraphicApplicationControllerView;
+import pera.trip_planner.controller.logic_controller.ApplicationController;
+import pera.trip_planner.controller.logic_controller.Controller;
+import pera.trip_planner.controller.logic_controller.CreateTripController;
+import pera.trip_planner.view.TextGraphicApplicationControllerView;
 
 import java.io.IOException;
 

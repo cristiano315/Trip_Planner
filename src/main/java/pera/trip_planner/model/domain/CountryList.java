@@ -1,4 +1,4 @@
-package pera.TripPlanner.model.domain;
+package pera.trip_planner.model.domain;
 
 import java.util.ArrayList;
 import java.util.List;

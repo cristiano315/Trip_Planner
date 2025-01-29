@@ -1,4 +1,4 @@
-package pera.TripPlanner.exception;
+package pera.trip_planner.exception;
 
 public class DAOException extends RuntimeException {
 

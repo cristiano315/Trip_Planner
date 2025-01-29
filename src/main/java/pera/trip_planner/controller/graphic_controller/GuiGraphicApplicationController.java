@@ -1,4 +1,4 @@
-package pera.TripPlanner.controller.graphic_controller;
+package pera.trip_planner.controller.graphic_controller;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pera.TripPlanner.Main;
-import pera.TripPlanner.controller.logic_controller.ApplicationController;
+import pera.trip_planner.Main;
+import pera.trip_planner.controller.logic_controller.ApplicationController;
 
 
 import java.io.IOException;

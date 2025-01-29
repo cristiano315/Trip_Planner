@@ -1,6 +1,6 @@
-package pera.TripPlanner;
+package pera.trip_planner;
 
-import pera.TripPlanner.controller.logic_controller.ApplicationController;
+import pera.trip_planner.controller.logic_controller.ApplicationController;
 
 public class Main{
 
