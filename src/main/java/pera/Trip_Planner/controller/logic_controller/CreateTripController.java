@@ -19,7 +19,7 @@ public class CreateTripController implements Controller {
         } catch (DAOException e) {
             throw new RuntimeException(e);
         }
-        //choose country
+        //choose country sos
 
     }
 
