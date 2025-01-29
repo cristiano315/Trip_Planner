@@ -35,4 +35,6 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store!/src/main/resources/world.sql
+
+!/src/main/java/pera/trip_planner/TEMPLATE GRAFICA/
