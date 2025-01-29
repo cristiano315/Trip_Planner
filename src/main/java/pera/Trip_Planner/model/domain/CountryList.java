@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CountryList {
-    List<Country> countries = new ArrayList<Country>();
+    List<Country> countries = new ArrayList<>();
 
     public void addCountry(Country country) {
         countries.add(country);

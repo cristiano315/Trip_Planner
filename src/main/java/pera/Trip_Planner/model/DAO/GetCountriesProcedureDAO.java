@@ -4,13 +4,11 @@ import pera.Trip_Planner.exception.DAOException;
 import pera.Trip_Planner.model.domain.Country;
 import pera.Trip_Planner.model.domain.CountryList;
 
-import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class GetCountriesProcedureDAO implements GenericProcedureDAO<CountryList>{
     @Override

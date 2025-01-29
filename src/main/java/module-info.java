@@ -5,7 +5,6 @@ module pera.Trip_Planner {
 
     opens pera.Trip_Planner to javafx.fxml;
     exports pera.Trip_Planner;
-    opens pera.Trip_Planner.TEMPLATE_GRAFICA to javafx.fxml;
     exports pera.Trip_Planner.controller.graphic_controller;
     exports pera.Trip_Planner.controller.logic_controller;
 }
