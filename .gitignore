@@ -38,3 +38,4 @@ build/
 .DS_Store!/src/main/resources/world.sql
 
 !/src/main/java/pera/trip_planner/TEMPLATE GRAFICA/
+!/src/main/resources/pera/trip_planner/template grafica
