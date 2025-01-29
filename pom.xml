@@ -41,7 +41,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>pera.Trip_Planner.TEMPLATE_GRAFICA.App</mainClass>
+                            <mainClass>pera.TripPlanner.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
