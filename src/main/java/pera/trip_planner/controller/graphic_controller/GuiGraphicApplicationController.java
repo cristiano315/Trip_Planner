@@ -42,12 +42,12 @@ public class GuiGraphicApplicationController extends Application implements Grap
 
 
     public void setDemo(ActionEvent actionEvent) {
-        ApplicationController.setDemoMode();
+        ApplicationController.setPersistencyMode("In Memory"); //in memoria
         runApplication();
     }
 
     public void setFull(ActionEvent actionEvent) {
-        ApplicationController.setFullMode();
+        ApplicationController.setPersistencyMode("Fyle System");
         runApplication();
     }
 

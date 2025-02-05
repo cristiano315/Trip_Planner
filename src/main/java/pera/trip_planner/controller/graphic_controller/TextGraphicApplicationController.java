@@ -18,12 +18,12 @@ public class TextGraphicApplicationController implements GraphicController {
             throw new RuntimeException(e);
         }
         if(choice == 1){
-            ApplicationController.setDemoMode();
+            ApplicationController.setPersistencyMode("In Memory");
         }
         else if(choice == 2){
-            ApplicationController.setFullMode();
+            ApplicationController.setPersistencyMode("File System");
         }
-        // aggiungere else con eccezione
+        // aggiungere else con eccezione in realtà no, handled dalla view
         runApplication();
     }
 

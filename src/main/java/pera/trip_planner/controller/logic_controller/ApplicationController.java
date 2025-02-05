@@ -1,15 +1,16 @@
 package pera.trip_planner.controller.logic_controller;
 
 import pera.trip_planner.controller.graphic_controller.GraphicController;
-import pera.trip_planner.controller.graphic_controller.GuiGraphicApplicationController;
-import pera.trip_planner.controller.graphic_controller.TextGraphicApplicationController;
+import pera.trip_planner.model.DAO.DaoFactory;
+import pera.trip_planner.model.DAO.GraphicControllerFactory;
+import pera.trip_planner.model.DAO.GraphicProvider;
+import pera.trip_planner.model.DAO.PersistenceProvider;
 import pera.trip_planner.view.ApplicationControllerView;
 
 import java.io.IOException;
 
 public class ApplicationController implements Controller {
     static private boolean demoMode = true; //parameter to decide usage mode
-    static private boolean textMode = true; //parameter to decide graphic mode
 
     @Override
     public void start(){
@@ -20,38 +21,21 @@ public class ApplicationController implements Controller {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if (choice == 1) { //soluzione polimorfica per controller grafico
-            setTextMode();
-            controller = new TextGraphicApplicationController();
-        } else {
-            setGuiMode();
-            controller = new GuiGraphicApplicationController();
+        for(GraphicProvider p : GraphicProvider.values()){
+            if(p.getId() == choice){
+                GraphicControllerFactory.setGraphicProvider(p);
+            }
         }
-
+        controller = GraphicControllerFactory.getGraphicControllerFactory().getGraphicApplicationController();
         controller.showMenu();
     }
 
-    static public void setDemoMode() {
-        demoMode = true;
+    static public void setPersistencyMode(String mode) {
+        for(PersistenceProvider p : PersistenceProvider.values()){
+            if(p.getName() == mode){
+                DaoFactory.setPersistenceProvider(p);
+            }
+        }
     }
 
-    static public void setFullMode(){
-        demoMode = false;
-    }
-
-    static public boolean isDemoMode() {
-        return demoMode;
-    }
-
-    static public void setTextMode() {
-        textMode = true;
-    }
-
-    static public void setGuiMode(){
-        textMode = false;
-    }
-
-    static public boolean isTextMode(){
-        return textMode;
-    }
 }
