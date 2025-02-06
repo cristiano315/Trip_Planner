@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public abstract class EntityList<E> implements Serializable {
-    private ArrayList<E> list = new ArrayList<>();
+    private final ArrayList<E> entityList = new ArrayList<>();
 
     protected abstract String getName(E entity);
 
     public void addEntity(E entity) {
-        list.add(entity);
+        entityList.add(entity);
     }
 
     public void removeEntity(String name) {
-        for(E entity : list){
+        for(E entity : entityList){
             if(getName(entity).equals(name)){
-                list.remove(entity);
+                entityList.remove(entity);
             }
         }
     }
 
     public ArrayList<E> getList() {
-        return list;
+        return entityList;
     }
 
     public void sort(){
-        list.sort(new Comparator<E>() {
+        entityList.sort(new Comparator<E>() {
             public int compare(E o1, E o2) {
                 return getName(o1).compareTo(getName(o2));
             }
@@ -34,7 +34,7 @@ public abstract class EntityList<E> implements Serializable {
     }
 
     public E getEntityByName(String name) {
-        for(E entity : list){
+        for(E entity : entityList){
             if(getName(entity).equals(name)){
                 return entity;
             }
@@ -43,7 +43,7 @@ public abstract class EntityList<E> implements Serializable {
     }
 
     public boolean contains(String name) {
-        for(E entity : list){
+        for(E entity : entityList){
             if(getName(entity).equals(name)){
                 return true;
             }
@@ -54,7 +54,7 @@ public abstract class EntityList<E> implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (E e : list) {
+        for (E e : entityList) {
             sb.append(getName(e)).append("\n");
         }
         return sb.toString();
