@@ -15,11 +15,8 @@ public class ApplicationController implements Controller {
     public void start(){
         GraphicController controller;
         int choice;
-        try{
-            choice = ApplicationControllerView.showMenu();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        choice = ApplicationControllerView.showMenu();
+
         for(GraphicProvider p : GraphicProvider.values()){
             if(p.getId() == choice){
                 GraphicControllerFactory.setGraphicProvider(p);

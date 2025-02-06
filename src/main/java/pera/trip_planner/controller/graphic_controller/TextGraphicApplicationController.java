@@ -12,11 +12,7 @@ public class TextGraphicApplicationController implements GraphicController {
     @Override
     public void showMenu(){
         int choice;
-        try{
-            choice = TextGraphicApplicationControllerView.selectModeView();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        choice = TextGraphicApplicationControllerView.selectModeView();
         if(choice == 1){
             ApplicationController.setPersistencyMode("In Memory");
         }
@@ -30,11 +26,7 @@ public class TextGraphicApplicationController implements GraphicController {
     public void runApplication() {
         int choice;
         while(true){ //application loop
-            try{
-                choice = TextGraphicApplicationControllerView.selectUseCaseView();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            choice = TextGraphicApplicationControllerView.selectUseCaseView();
             switch (choice) {
                 case 1:
                     Controller controller = new CreateTripController();

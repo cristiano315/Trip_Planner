@@ -3,30 +3,30 @@ package pera.trip_planner.model.domain;
 import java.io.Serializable;
 
 public class Country implements Serializable {
-    private String Name;
-    private CityList Cities = new CityList();
+    private String name;
+    private CityList cities = new CityList();
 
-    public Country(String Name) {
-        this.Name = Name;
+    public Country(String name) {
+        this.name = name;
     }
 
     public String countryName() {
-        return Name;
+        return name;
     }
 
     public void addCity(City city) {
-        Cities.addEntity(city);
+        cities.addEntity(city);
     }
 
     public void removeCity(String city) {
-        Cities.removeEntity(city);
+        cities.removeEntity(city);
     }
 
     public CityList getCities() {
-        return Cities;
+        return cities;
     }
 
     public void replaceList(CityList list){
-        Cities = list;
+        cities = list;
     }
 }

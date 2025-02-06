@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class TextGraphicApplicationControllerView {
     private static final String INVALID_CHOICE_MESSAGE = "Invalid choice, try again";
 
-    public static int selectUseCaseView() throws IOException{
+    private TextGraphicApplicationControllerView() {}
+
+    public static int selectUseCaseView(){
         Scanner scanner = new Scanner(System.in);
         int choice;
         while(true){
@@ -36,7 +38,7 @@ public class TextGraphicApplicationControllerView {
         }
     }
 
-    public static int selectModeView() throws IOException{
+    public static int selectModeView(){
         Scanner scanner = new Scanner(System.in);
         int choice;
         while(true){

@@ -47,8 +47,4 @@ public class InMemoryCountryDao extends InMemoryDao<String, Country> implements 
         }
         return list;
     }
-
-//    public Map<String, Country> countryMap(){
-//        return this.memory;
-//    }
 }

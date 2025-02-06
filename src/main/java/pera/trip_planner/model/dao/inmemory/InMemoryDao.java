@@ -14,8 +14,8 @@ public abstract class InMemoryDao<K, V> implements DAO<K, V> {
     }
 
     @Override
-    public V load(K ID){
-        return memory.get(ID);
+    public V load(K id){
+        return memory.get(id);
     }
 
     @Override
@@ -25,13 +25,13 @@ public abstract class InMemoryDao<K, V> implements DAO<K, V> {
     }
 
     @Override
-    public void delete(K ID) {
-        memory.remove(ID);
+    public void delete(K id) {
+        memory.remove(id);
     }
 
     @Override
-    public boolean exists(K ID){
-        return memory.containsKey(ID);
+    public boolean exists(K id){
+        return memory.containsKey(id);
     }
 
     /**

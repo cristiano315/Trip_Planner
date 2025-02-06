@@ -5,11 +5,11 @@ public enum GraphicProvider {
     GUI(2, GUIGraphicControllerFactory.class);
 
     private final int id;
-    private final Class<? extends GraphicControllerFactory> GraphicControllerFactoryClass;
+    private final Class<? extends GraphicControllerFactory> graphicControllerFactoryClass;
 
-    private GraphicProvider(int id, Class<? extends GraphicControllerFactory> GraphicControllerFactoryClass) {
+    private GraphicProvider(int id, Class<? extends GraphicControllerFactory> graphicControllerFactoryClass) {
         this.id = id;
-        this.GraphicControllerFactoryClass = GraphicControllerFactoryClass;
+        this.graphicControllerFactoryClass = graphicControllerFactoryClass;
     }
 
     public int getId() {
@@ -17,7 +17,7 @@ public enum GraphicProvider {
     }
 
     public Class<? extends GraphicControllerFactory> getGraphicControllerFactoryClass() {
-        return GraphicControllerFactoryClass;
+        return graphicControllerFactoryClass;
     }
 
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Announcement implements Serializable {
-    public String name;
+    private String name;
     private String description;
     private LocalDate issuingDate;
 

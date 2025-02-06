@@ -3,30 +3,31 @@ package pera.trip_planner.model.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 public abstract class EntityList<E> implements Serializable {
-    private final ArrayList<E> entityList = new ArrayList<>();
+    private final ArrayList<E> itemsList = new ArrayList<>();
 
     protected abstract String getName(E entity);
 
     public void addEntity(E entity) {
-        entityList.add(entity);
+        itemsList.add(entity);
     }
 
     public void removeEntity(String name) {
-        for(E entity : entityList){
+        for(E entity : itemsList){
             if(getName(entity).equals(name)){
-                entityList.remove(entity);
+                itemsList.remove(entity);
             }
         }
     }
 
-    public ArrayList<E> getList() {
-        return entityList;
+    public List<E> getList() {
+        return itemsList;
     }
 
     public void sort(){
-        entityList.sort(new Comparator<E>() {
+        itemsList.sort(new Comparator<E>() {
             public int compare(E o1, E o2) {
                 return getName(o1).compareTo(getName(o2));
             }
@@ -34,7 +35,7 @@ public abstract class EntityList<E> implements Serializable {
     }
 
     public E getEntityByName(String name) {
-        for(E entity : entityList){
+        for(E entity : itemsList){
             if(getName(entity).equals(name)){
                 return entity;
             }
@@ -43,7 +44,7 @@ public abstract class EntityList<E> implements Serializable {
     }
 
     public boolean contains(String name) {
-        for(E entity : entityList){
+        for(E entity : itemsList){
             if(getName(entity).equals(name)){
                 return true;
             }
@@ -54,7 +55,7 @@ public abstract class EntityList<E> implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (E e : entityList) {
+        for (E e : itemsList) {
             sb.append(getName(e)).append("\n");
         }
         return sb.toString();

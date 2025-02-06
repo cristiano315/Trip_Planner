@@ -1,11 +1,15 @@
 package pera.trip_planner.view;
 
-import java.io.IOException;
+import pera.trip_planner.controller.logic_controller.ApplicationController;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ApplicationControllerView {
-    public static int showMenu() throws IOException{
+
+    private ApplicationControllerView(){}
+
+    public static int showMenu(){
         Scanner scanner = new Scanner(System.in);
         int choice;
         while(true){
