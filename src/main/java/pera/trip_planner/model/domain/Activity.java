@@ -7,7 +7,7 @@ public class Activity {
     private String description;
     private String location;
     private ArrayList<DayInfo> dayInfos = new ArrayList<>();
-    private ArrayList<Announcement> announcements = new ArrayList<>();
+    private ActivityAnnouncementList announcements = new ActivityAnnouncementList();
 
     public Activity(String name) {
         this.name = name;
@@ -51,11 +51,11 @@ public class Activity {
             return null;
     }
 
-    public void addAnnouncement(Announcement announcement) {
-        announcements.add(announcement);
+    public void addAnnouncement(ActivityAnnouncement announcement) {
+        announcements.addEntity(announcement);
     }
 
-    public ArrayList<Announcement> getAnnouncements() {
+    public ActivityAnnouncementList getAnnouncements() {
         return announcements;
     }
 

@@ -24,7 +24,7 @@ public class GetCountriesProcedureDAO implements GenericProcedureDAO<CountryList
                 ResultSet rs = cs.getResultSet();
                 while (rs.next()) {
                     Country country = new Country(rs.getString(1));
-                    countries.addCountry(country);
+                    countries.addEntity(country);
                 }
             }
         } catch (SQLException e) {

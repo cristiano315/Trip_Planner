@@ -18,7 +18,7 @@ public class InMemoryCityDao implements CityDao {
 
     @Override
     public City load(String name, String country) {
-        return InMemoryCountryDao.getInstance().load(country).getCities().getCityByName(name);
+        return InMemoryCountryDao.getInstance().load(country).getCities().getEntityByName(name);
     }
 
     @Override

@@ -15,11 +15,11 @@ public class Country implements Serializable {
     }
 
     public void addCity(City city) {
-        Cities.addCity(city);
+        Cities.addEntity(city);
     }
 
     public void removeCity(String city) {
-        Cities.removeCity(city);
+        Cities.removeEntity(city);
     }
 
     public CityList getCities() {

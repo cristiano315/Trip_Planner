@@ -3,13 +3,12 @@ package pera.trip_planner.model.domain;
 import pera.trip_planner.exception.AlreadyClaimedException;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class City implements Serializable {
     private String name;
     private String description;
-    private ArrayList<Activity> activities = new ArrayList<>();
-    private ArrayList<Announcement> announcements = new ArrayList<>();
+    private ActivityList activities = new ActivityList();
+    private CityAnnouncementList announcements = new CityAnnouncementList();
     private boolean claimed = false;
 
     public City(String name) {
@@ -17,11 +16,11 @@ public class City implements Serializable {
     }
 
     public void addActivity(Activity activity) {
-        activities.add(activity);
+        activities.addEntity(activity);
     }
 
-    public void addAnnouncement(Announcement announcement) {
-        announcements.add(announcement);
+    public void addAnnouncement(CityAnnouncement announcement) {
+        announcements.addEntity(announcement);
     }
 
     public void addDescription(String description) {
@@ -36,16 +35,24 @@ public class City implements Serializable {
         return description;
     }
 
-    public ArrayList<Activity> getActivities() {
+    public ActivityList getActivities() {
         return activities;
     }
 
-    public ArrayList<Announcement> getAnnouncements() {
+    public CityAnnouncementList getAnnouncements() {
         return announcements;
     }
 
     public boolean isClaimed() {
         return claimed;
+    }
+
+    public void removeActivity(String activity){
+        activities.removeEntity(activity);
+    }
+
+    public void removeAnnouncement(String announcement){
+        announcements.removeEntity(announcement);
     }
 
     public void claimCity() throws AlreadyClaimedException{

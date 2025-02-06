@@ -17,11 +17,11 @@ public class PopolazioneController {
         countries = new GetCountriesProcedureDAO().execute();
         Map<String, Country> map = new HashMap<>();
         //popolazione paesi
-        for(Country country : countries.getCountries()){
+        for(Country country : countries.getList()){
             map.put(country.countryName(), country);
         }
         //popolazione liste città
-        for(Country country : countries.getCountries()) {
+        for(Country country : countries.getList()) {
             map.get(country.countryName()).replaceList(new GetCitiesByCountryProcedureDao().execute(country.countryName()));
         }
         FileOutputStream fos = null;

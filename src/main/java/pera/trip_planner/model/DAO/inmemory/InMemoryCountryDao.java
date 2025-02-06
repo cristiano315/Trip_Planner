@@ -8,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
-import java.util.Map;
 
 
 public class InMemoryCountryDao extends InMemoryDao<String, Country> implements CountryDao {
@@ -44,12 +43,12 @@ public class InMemoryCountryDao extends InMemoryDao<String, Country> implements 
     public CountryList countryList(){
         CountryList list = new CountryList();
         for(Country country : this.memory.values()){
-            list.addCountry(country);
+            list.addEntity(country);
         }
         return list;
     }
 
-    public Map<String, Country> countryMap(){
-        return this.memory;
-    }
+//    public Map<String, Country> countryMap(){
+//        return this.memory;
+//    }
 }

@@ -27,7 +27,7 @@ public class GetCitiesByCountryProcedureDao implements GenericProcedureDAO<CityL
                 ResultSet rs = cs.getResultSet();
                 while (rs.next()) {
                     City city = new City(rs.getString(1));
-                    cities.addCity(city);
+                    cities.addEntity(city);
                 }
             }
         } catch (SQLException e) {
