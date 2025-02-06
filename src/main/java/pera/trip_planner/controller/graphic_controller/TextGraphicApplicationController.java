@@ -62,6 +62,7 @@ public class TextGraphicApplicationController implements GraphicController {
                     //break;
                 case 9:
                     System.exit(0);
+                    break;
                 default:
                     throw new RuntimeException("Invalid choice");
             }
