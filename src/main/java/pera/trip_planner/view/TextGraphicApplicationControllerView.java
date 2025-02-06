@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TextGraphicApplicationControllerView {
-    private static final String invalidChoiceMessage = "Invalid choice, try again";
+    private static final String INVALID_CHOICE_MESSAGE = "Invalid choice, try again";
 
     public static int selectUseCaseView() throws IOException{
         Scanner scanner = new Scanner(System.in);
@@ -27,10 +27,10 @@ public class TextGraphicApplicationControllerView {
                     return choice;
                 }
                 else{
-                    System.out.println(invalidChoiceMessage);
+                    System.out.println(INVALID_CHOICE_MESSAGE);
                 }
             } catch (InputMismatchException e){
-                System.out.println(invalidChoiceMessage);
+                System.out.println(INVALID_CHOICE_MESSAGE);
                 scanner = new Scanner(System.in);
             }
         }
@@ -47,10 +47,10 @@ public class TextGraphicApplicationControllerView {
                     return choice;
                 }
                 else{
-                    System.out.println(invalidChoiceMessage);
+                    System.out.println(INVALID_CHOICE_MESSAGE);
                 }
             } catch (InputMismatchException e){
-                System.out.println(invalidChoiceMessage);
+                System.out.println(INVALID_CHOICE_MESSAGE);
                 scanner = new Scanner(System.in);
             }
         }
