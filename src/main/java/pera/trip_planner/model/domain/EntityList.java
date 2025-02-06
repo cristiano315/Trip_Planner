@@ -3,7 +3,6 @@ package pera.trip_planner.model.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public abstract class EntityList<E> implements Serializable {
     private ArrayList<E> list = new ArrayList<>();
@@ -22,7 +21,7 @@ public abstract class EntityList<E> implements Serializable {
         }
     }
 
-    public List<E> getList() {
+    public ArrayList<E> getList() {
         return list;
     }
 
