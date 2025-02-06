@@ -1,8 +1,7 @@
-package pera.trip_planner.model.DAO.inmemory;
+package pera.trip_planner.model.dao.inmemory;
 
-import pera.trip_planner.model.DAO.ActivityDao;
+import pera.trip_planner.model.dao.ActivityDao;
 import pera.trip_planner.model.domain.Activity;
-import pera.trip_planner.model.domain.City;
 
 public class InMemoryActivityDao  implements ActivityDao {
     private static InMemoryActivityDao instance;

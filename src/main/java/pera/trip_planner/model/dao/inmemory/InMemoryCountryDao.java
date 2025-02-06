@@ -1,6 +1,6 @@
-package pera.trip_planner.model.DAO.inmemory;
+package pera.trip_planner.model.dao.inmemory;
 
-import pera.trip_planner.model.DAO.CountryDao;
+import pera.trip_planner.model.dao.CountryDao;
 import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.CountryList;
 

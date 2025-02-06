@@ -1,7 +1,7 @@
 package pera.trip_planner.test;
 
-import pera.trip_planner.model.DAO.GetCitiesByCountryProcedureDao;
-import pera.trip_planner.model.DAO.GetCountriesProcedureDAO;
+import pera.trip_planner.model.dao.GetCitiesByCountryProcedureDao;
+import pera.trip_planner.model.dao.GetCountriesProcedureDAO;
 import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.CountryList;
 

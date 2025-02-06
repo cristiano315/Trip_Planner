@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public abstract class EntityList<E> implements Serializable {
-    private List<E> list = new ArrayList<E>();
+    private ArrayList<E> list = new ArrayList<E>();
 
     protected abstract String getName(E entity);
 

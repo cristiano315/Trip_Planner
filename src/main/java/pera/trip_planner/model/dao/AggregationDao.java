@@ -1,4 +1,4 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
 public interface AggregationDao<ID, E, A> {
     E load(ID id, A aggregator);

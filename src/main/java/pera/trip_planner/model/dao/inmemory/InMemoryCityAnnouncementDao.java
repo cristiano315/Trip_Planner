@@ -1,8 +1,6 @@
-package pera.trip_planner.model.DAO.inmemory;
+package pera.trip_planner.model.dao.inmemory;
 
-import pera.trip_planner.model.DAO.CityAnnouncementDao;
-import pera.trip_planner.model.domain.Activity;
-import pera.trip_planner.model.domain.Announcement;
+import pera.trip_planner.model.dao.CityAnnouncementDao;
 import pera.trip_planner.model.domain.CityAnnouncement;
 
 public class InMemoryCityAnnouncementDao implements CityAnnouncementDao {

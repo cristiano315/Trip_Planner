@@ -1,4 +1,4 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
 import java.lang.reflect.InvocationTargetException;
 

@@ -1,7 +1,5 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
-import pera.trip_planner.model.domain.Activity;
-import pera.trip_planner.model.domain.Announcement;
 import pera.trip_planner.model.domain.CityAnnouncement;
 
 

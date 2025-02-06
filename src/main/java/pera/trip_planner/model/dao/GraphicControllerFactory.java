@@ -1,4 +1,4 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
 import pera.trip_planner.controller.graphic_controller.GraphicController;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;

@@ -1,16 +1,15 @@
 package pera.trip_planner.controller.logic_controller;
 
 import pera.trip_planner.controller.graphic_controller.GraphicController;
-import pera.trip_planner.model.DAO.DaoFactory;
-import pera.trip_planner.model.DAO.GraphicControllerFactory;
-import pera.trip_planner.model.DAO.GraphicProvider;
-import pera.trip_planner.model.DAO.PersistenceProvider;
+import pera.trip_planner.model.dao.DaoFactory;
+import pera.trip_planner.model.dao.GraphicControllerFactory;
+import pera.trip_planner.model.dao.GraphicProvider;
+import pera.trip_planner.model.dao.PersistenceProvider;
 import pera.trip_planner.view.ApplicationControllerView;
 
 import java.io.IOException;
 
 public class ApplicationController implements Controller {
-    static private boolean demoMode = true; //parameter to decide usage mode
 
     @Override
     public void start(){
@@ -30,9 +29,9 @@ public class ApplicationController implements Controller {
         controller.showMenu();
     }
 
-    static public void setPersistencyMode(String mode) {
+    public static void setPersistencyMode(String mode) {
         for(PersistenceProvider p : PersistenceProvider.values()){
-            if(p.getName() == mode){
+            if(p.getName().equals(mode)){
                 DaoFactory.setPersistenceProvider(p);
             }
         }

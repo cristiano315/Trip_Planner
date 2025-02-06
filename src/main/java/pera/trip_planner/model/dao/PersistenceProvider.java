@@ -1,7 +1,7 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
-import pera.trip_planner.model.DAO.file_system.FileSystemDaoFactory;
-import pera.trip_planner.model.DAO.inmemory.InMemoryDaoFactory;
+import pera.trip_planner.model.dao.file_system.FileSystemDaoFactory;
+import pera.trip_planner.model.dao.inmemory.InMemoryDaoFactory;
 
 public enum PersistenceProvider {
     IN_MEMORY("In Memory", InMemoryDaoFactory.class),

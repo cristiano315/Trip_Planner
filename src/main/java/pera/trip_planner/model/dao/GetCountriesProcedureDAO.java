@@ -1,4 +1,4 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
 import pera.trip_planner.exception.DAOException;
 import pera.trip_planner.model.domain.Country;

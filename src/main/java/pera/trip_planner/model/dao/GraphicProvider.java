@@ -1,4 +1,4 @@
-package pera.trip_planner.model.DAO;
+package pera.trip_planner.model.dao;
 
 public enum GraphicProvider {
     TEXT(1, TextGraphicControllerFactory.class),

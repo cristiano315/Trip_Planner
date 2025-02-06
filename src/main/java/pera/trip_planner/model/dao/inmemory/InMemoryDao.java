@@ -1,6 +1,6 @@
-package pera.trip_planner.model.DAO.inmemory;
+package pera.trip_planner.model.dao.inmemory;
 
-import pera.trip_planner.model.DAO.DAO;
+import pera.trip_planner.model.dao.DAO;
 
 import java.util.HashMap;
 import java.util.Map;
