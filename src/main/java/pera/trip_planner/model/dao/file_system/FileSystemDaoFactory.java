@@ -23,4 +23,9 @@ public class FileSystemDaoFactory extends DaoFactory {
     public CityAnnouncementDao getCityAnnouncementDao() {
         return null;
     }
+
+    @Override
+    public TripDao getTripDao() {
+        return null;
+    }
 }

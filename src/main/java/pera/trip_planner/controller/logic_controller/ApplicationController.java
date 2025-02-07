@@ -1,19 +1,17 @@
 package pera.trip_planner.controller.logic_controller;
 
-import pera.trip_planner.controller.graphic_controller.GraphicController;
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.dao.GraphicProvider;
 import pera.trip_planner.model.dao.PersistenceProvider;
 import pera.trip_planner.view.ApplicationControllerView;
 
-import java.io.IOException;
-
 public class ApplicationController implements Controller {
 
     @Override
     public void start(){
-        GraphicController controller;
+        GraphicApplicationController controller;
         int choice;
         choice = ApplicationControllerView.showMenu();
 

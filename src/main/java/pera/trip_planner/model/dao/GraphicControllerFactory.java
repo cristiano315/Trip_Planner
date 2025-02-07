@@ -1,6 +1,6 @@
 package pera.trip_planner.model.dao;
 
-import pera.trip_planner.controller.graphic_controller.GraphicController;
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,6 +25,6 @@ public abstract class GraphicControllerFactory {
         return instance;
     }
 
-    public abstract GraphicController getGraphicApplicationController();
+    public abstract GraphicApplicationController getGraphicApplicationController();
     public abstract GraphicCreateTripController getGraphicCreateTripController();
 }

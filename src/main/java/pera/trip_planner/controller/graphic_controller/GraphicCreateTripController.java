@@ -1,4 +1,6 @@
 package pera.trip_planner.controller.graphic_controller;
 
-public abstract class GraphicCreateTripController implements GraphicController {
+public interface GraphicCreateTripController {
+    void createTrip();
+    void addDays();
 }

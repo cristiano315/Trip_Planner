@@ -1,13 +1,12 @@
-package pera.trip_planner.controller.graphic_controller;
+package pera.trip_planner.controller.graphic_controller.text_graphic_controller;
 
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.logic_controller.ApplicationController;
 import pera.trip_planner.controller.logic_controller.Controller;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
 import pera.trip_planner.view.TextGraphicApplicationControllerView;
 
-import java.io.IOException;
-
-public class TextGraphicApplicationController implements GraphicController {
+public class TextGraphicApplicationController implements GraphicApplicationController {
 
     @Override
     public void showMenu(){

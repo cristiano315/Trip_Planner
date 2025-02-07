@@ -1,12 +1,12 @@
 package pera.trip_planner.model.dao;
 
-import pera.trip_planner.controller.graphic_controller.GraphicController;
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
-import pera.trip_planner.controller.graphic_controller.GuiGraphicApplicationController;
-import pera.trip_planner.controller.graphic_controller.GuiGraphicCreateTripController;
+import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicApplicationController;
+import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicCreateTripController;
 
 public class GUIGraphicControllerFactory extends GraphicControllerFactory{
-    public GraphicController getGraphicApplicationController() {
+    public GraphicApplicationController getGraphicApplicationController() {
         return new GuiGraphicApplicationController();
     }
 

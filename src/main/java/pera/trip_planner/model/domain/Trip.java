@@ -41,4 +41,20 @@ public class Trip {
     public String getName() {
         return name;
     }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public void addTripDay(TripDay tripDay) {
+        tripDays.addEntity(tripDay);
+    }
 }

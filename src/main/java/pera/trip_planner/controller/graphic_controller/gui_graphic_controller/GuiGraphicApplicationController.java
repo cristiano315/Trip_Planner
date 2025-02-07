@@ -1,4 +1,4 @@
-package pera.trip_planner.controller.graphic_controller;
+package pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -7,12 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pera.trip_planner.Main;
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.logic_controller.ApplicationController;
 
 
 import java.io.IOException;
 
-public class GuiGraphicApplicationController extends Application implements GraphicController {
+public class GuiGraphicApplicationController extends Application implements GraphicApplicationController {
     @Override
     public void showMenu() {
         launch();

@@ -22,4 +22,9 @@ public class InMemoryDaoFactory extends DaoFactory {
     public CityAnnouncementDao getCityAnnouncementDao() {
         return InMemoryCityAnnouncementDao.getInstance();
     }
+
+    @Override
+    public TripDao getTripDao() {
+        return InMemoryTripDao.getInstance();
+    }
 }

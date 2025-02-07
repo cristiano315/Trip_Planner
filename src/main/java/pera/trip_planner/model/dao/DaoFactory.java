@@ -26,4 +26,5 @@ public abstract class DaoFactory {
     public abstract CityDao getCityDao();
     public abstract ActivityDao getActivityDao();
     public abstract CityAnnouncementDao getCityAnnouncementDao();
+    public abstract TripDao getTripDao();
 }
