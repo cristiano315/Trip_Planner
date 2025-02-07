@@ -47,7 +47,7 @@ public class GuiGraphicApplicationController extends Application implements Grap
     }
 
     public void setFull(ActionEvent actionEvent) {
-        ApplicationController.setPersistencyMode("Fyle System");
+        ApplicationController.setPersistencyMode("File System");
         runApplication();
     }
 

@@ -1,9 +1,10 @@
 package pera.trip_planner.controller.logic_controller;
 
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
+import pera.trip_planner.model.dao.CountryDao;
+import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
-import pera.trip_planner.model.dao.inmemory.InMemoryCountryDao;
-import pera.trip_planner.model.domain.CountryList;
+import pera.trip_planner.model.domain.entity_lists.CountryList;
 
 public class CreateTripController implements Controller {
     GraphicCreateTripController graphicController;
@@ -11,9 +12,10 @@ public class CreateTripController implements Controller {
     @Override
     public void start(){
         graphicController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
-
+        //step: creazione nuovo trip, lista paesi(controller grafico), paese scelto, aggiunta al trip, si ripassa al controller grafico etc
         CountryList countries;
-        InMemoryCountryDao countryDao = InMemoryCountryDao.getInstance();
+        DaoFactory factory = DaoFactory.getInstance();
+        CountryDao countryDao = factory.getCountryDao();
         countries = countryDao.countryList();
         countries.sort();
         //choose country sos

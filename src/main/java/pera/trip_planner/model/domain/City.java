@@ -1,6 +1,8 @@
 package pera.trip_planner.model.domain;
 
 import pera.trip_planner.exception.AlreadyClaimedException;
+import pera.trip_planner.model.domain.entity_lists.ActivityList;
+import pera.trip_planner.model.domain.entity_lists.CityAnnouncementList;
 
 import java.io.Serializable;
 

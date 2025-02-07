@@ -1,4 +1,6 @@
-package pera.trip_planner.model.domain;
+package pera.trip_planner.model.domain.entity_lists;
+
+import pera.trip_planner.model.domain.City;
 
 import java.io.Serializable;
 

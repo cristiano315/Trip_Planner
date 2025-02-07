@@ -21,4 +21,9 @@ public abstract class DaoFactory {
         }
         return instance;
     }
+
+    public abstract CountryDao getCountryDao();
+    public abstract CityDao getCityDao();
+    public abstract ActivityDao getActivityDao();
+    public abstract CityAnnouncementDao getCityAnnouncementDao();
 }

@@ -2,7 +2,7 @@ package pera.trip_planner.model.dao;
 
 import pera.trip_planner.exception.DAOException;
 import pera.trip_planner.model.domain.City;
-import pera.trip_planner.model.domain.CityList;
+import pera.trip_planner.model.domain.entity_lists.CityList;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

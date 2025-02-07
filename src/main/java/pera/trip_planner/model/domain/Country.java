@@ -1,5 +1,7 @@
 package pera.trip_planner.model.domain;
 
+import pera.trip_planner.model.domain.entity_lists.CityList;
+
 import java.io.Serializable;
 
 public class Country implements Serializable {

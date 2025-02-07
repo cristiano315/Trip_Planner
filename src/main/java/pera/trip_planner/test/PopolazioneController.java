@@ -3,7 +3,7 @@ package pera.trip_planner.test;
 import pera.trip_planner.model.dao.GetCitiesByCountryProcedureDao;
 import pera.trip_planner.model.dao.GetCountriesProcedureDAO;
 import pera.trip_planner.model.domain.Country;
-import pera.trip_planner.model.domain.CountryList;
+import pera.trip_planner.model.domain.entity_lists.CountryList;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -2,7 +2,7 @@ package pera.trip_planner.model.dao.inmemory;
 
 import pera.trip_planner.model.dao.CountryDao;
 import pera.trip_planner.model.domain.Country;
-import pera.trip_planner.model.domain.CountryList;
+import pera.trip_planner.model.domain.entity_lists.CountryList;
 
 import java.io.FileInputStream;
 import java.io.IOException;
