@@ -1,22 +1,30 @@
 package pera.trip_planner.model.domain;
 
 import java.io.Serializable;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class ActivityInstance implements Serializable {
     private Activity activity;
-    private LocalTime time;
+    private LocalDateTime dateTime;
 
-    public ActivityInstance(Activity activity, LocalTime time) {
+    public ActivityInstance(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public ActivityInstance(Activity activity, LocalDateTime dateTime) {
         this.activity = activity;
-        this.time = time;
+        this.dateTime = dateTime;
     }
 
     public Activity getActivity() {
         return activity;
     }
 
-    public LocalTime getTime() {
-        return time;
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 }

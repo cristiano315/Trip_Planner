@@ -3,7 +3,7 @@ package pera.trip_planner.model.dao.inmemory;
 import pera.trip_planner.model.dao.CityAnnouncementDao;
 import pera.trip_planner.model.domain.CityAnnouncement;
 
-public class InMemoryCityAnnouncementDao implements CityAnnouncementDao {
+public class InMemoryCityAnnouncementDao extends InMemoryDao<String, CityAnnouncement> implements CityAnnouncementDao {
     private static InMemoryCityAnnouncementDao instance;
 
     private InMemoryCityAnnouncementDao() {}
@@ -16,22 +16,7 @@ public class InMemoryCityAnnouncementDao implements CityAnnouncementDao {
     }
 
     @Override
-    public CityAnnouncement load(String name, String city, String country) {
-        return InMemoryCityDao.getInstance().load(city, country).getAnnouncements().getEntityByName(name);
-    }
-
-    @Override
-    public void store(CityAnnouncement announcement, String city, String country) {
-        InMemoryCityDao.getInstance().load(city, country).addAnnouncement(announcement);
-    }
-
-    @Override
-    public void delete(String announcement, String city, String country) {
-        InMemoryCityDao.getInstance().load(city, country).removeAnnouncement(announcement);
-    }
-
-    @Override
-    public boolean exists(String announcement, String city, String country) {
-        return InMemoryCityDao.getInstance().load(city, country).getActivities().contains(announcement);
+    protected String getKey(CityAnnouncement value) {
+        return value.getName();
     }
 }

@@ -4,7 +4,7 @@ import pera.trip_planner.model.dao.CityDao;
 import pera.trip_planner.model.domain.City;
 
 
-public class InMemoryCityDao implements CityDao {
+public class InMemoryCityDao extends InMemoryDao<String, City> implements CityDao {
     private static InMemoryCityDao instance;
 
     private InMemoryCityDao() {}
@@ -14,26 +14,6 @@ public class InMemoryCityDao implements CityDao {
             instance = new InMemoryCityDao();
         }
         return instance;
-    }
-
-    @Override
-    public City load(String name, String country) {
-        return InMemoryCountryDao.getInstance().load(country).getCities().getEntityByName(name);
-    }
-
-    @Override
-    public void store(City city, String country) {
-        InMemoryCountryDao.getInstance().load(country).addCity(city);
-    }
-
-    @Override
-    public void delete(String city, String country) {
-        InMemoryCountryDao.getInstance().load(country).removeCity(city);
-    }
-
-    @Override
-    public boolean exists(String city, String country) {
-        return InMemoryCountryDao.getInstance().load(country).getCities().contains(city);
     }
 
     protected String getKey(City city) {

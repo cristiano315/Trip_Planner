@@ -2,13 +2,7 @@ package pera.trip_planner.model.dao;
 
 import pera.trip_planner.model.domain.Activity;
 
-public interface ActivityDao {
-
-    Activity load(String id, String city, String country);
-    void store(Activity entity, String city, String country);
-    void delete(String id, String city, String country);
-    boolean exists(String id, String city, String country);
-
+public interface ActivityDao extends DAO<String, Activity> {
 
     default Activity create(String name){
         return new Activity(name);
