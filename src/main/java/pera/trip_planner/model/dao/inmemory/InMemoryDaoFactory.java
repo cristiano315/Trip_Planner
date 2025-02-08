@@ -27,4 +27,14 @@ public class InMemoryDaoFactory extends DaoFactory {
     public TripDao getTripDao() {
         return InMemoryTripDao.getInstance();
     }
+
+    @Override
+    public TripDayDao getTripDayDao() {
+        return InMemoryTripDayDao.getInstance();
+    }
+
+    @Override
+    public ActivityInstanceDao getActivityInstanceDao() {
+        return InMemoryActivityInstanceDao.getInstance();
+    }
 }

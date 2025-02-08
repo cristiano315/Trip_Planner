@@ -28,4 +28,15 @@ public class FileSystemDaoFactory extends DaoFactory {
     public TripDao getTripDao() {
         return null;
     }
+
+    @Override
+    public TripDayDao getTripDayDao() {
+        return null;
+    }
+
+    @Override
+    public ActivityInstanceDao getActivityInstanceDao() {
+        return null;
+    }
+
 }

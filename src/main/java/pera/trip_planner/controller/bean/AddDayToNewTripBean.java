@@ -1,25 +1,23 @@
 package pera.trip_planner.controller.bean;
 
 import pera.trip_planner.model.domain.City;
-import pera.trip_planner.model.domain.DayType;
 import pera.trip_planner.model.domain.entity_lists.ActivityInstanceList;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-public class AddDaysToNewTripBean {
-    private final DayType dayType;
+public class AddDayToNewTripBean {
+    private final DayOfWeek dayType;
     private final City city;
-    private final ActivityInstanceList activityInstanceList;
     private final LocalDate date;
 
-    public AddDaysToNewTripBean(DayType dayType, City city, LocalDate date, ActivityInstanceList activityInstanceList) {
+    public AddDayToNewTripBean(DayOfWeek dayType, City city, LocalDate date) {
         this.dayType = dayType;
         this.city = city;
         this.date = date;
-        this.activityInstanceList = activityInstanceList;
     }
 
-    public DayType getDayType() {
+    public DayOfWeek getDayType() {
         return dayType;
     }
 
@@ -31,7 +29,4 @@ public class AddDaysToNewTripBean {
         return date;
     }
 
-    public ActivityInstanceList getActivityInstanceList() {
-        return activityInstanceList;
-    }
 }

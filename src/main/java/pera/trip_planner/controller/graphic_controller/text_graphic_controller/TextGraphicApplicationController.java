@@ -4,6 +4,7 @@ import pera.trip_planner.controller.graphic_controller.GraphicApplicationControl
 import pera.trip_planner.controller.logic_controller.ApplicationController;
 import pera.trip_planner.controller.logic_controller.Controller;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
+import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.view.TextGraphicApplicationControllerView;
 
 public class TextGraphicApplicationController implements GraphicApplicationController {
@@ -24,11 +25,12 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
 
     public void runApplication() {
         int choice;
+        Controller controller;
         while(true){ //application loop
             choice = TextGraphicApplicationControllerView.selectUseCaseView();
             switch (choice) {
                 case 1:
-                    Controller controller = new CreateTripController();
+                    controller = CreateTripController.getInstance();
                     controller.start();
                     break;
                 case 2:
@@ -36,9 +38,9 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
                     throw new RuntimeException("Not yet implemented");
                     //break;
                 case 3:
-                    System.out.println("View Trip");
-                    throw new RuntimeException("Not yet implemented");
-                    //break;
+                    controller = ShowTripController.getInstance();
+                    controller.start();
+                    break;
                 case 4:
                     System.out.println("Add Review");
                     throw new RuntimeException("Not yet implemented");

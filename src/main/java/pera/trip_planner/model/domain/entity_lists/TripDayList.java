@@ -5,6 +5,6 @@ import pera.trip_planner.model.domain.TripDay;
 public class TripDayList extends EntityList<TripDay> {
     @Override
     protected String getName(TripDay entity) {
-        return entity.getDayType().toString() + " " + entity.getDate().toString();
+        return entity.getDate().toString();
     }
 }

@@ -1,24 +1,36 @@
 package pera.trip_planner.controller.logic_controller;
 
-import pera.trip_planner.controller.bean.AddDaysToNewTripBean;
+import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
+import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
-import pera.trip_planner.model.dao.DaoFactory;
-import pera.trip_planner.model.dao.GraphicControllerFactory;
-import pera.trip_planner.model.dao.TripDao;
+import pera.trip_planner.model.dao.*;
+import pera.trip_planner.model.domain.ActivityInstance;
 import pera.trip_planner.model.domain.Trip;
-
-import java.util.List;
+import pera.trip_planner.model.domain.TripDay;
 
 public class CreateTripController implements Controller {
     GraphicCreateTripController graphicController;
-    TripDao tripDao = DaoFactory.getInstance().getTripDao();
+    TripDao tripDao;
+    TripDayDao tripDayDao;
+    ActivityInstanceDao activityInstanceDao;
+    private static CreateTripController instance;
 
     @Override
     public void start(){
-        graphicController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         graphicController.createTrip();
-        //step: creazione nuovo trip, lista paesi(controller grafico), paese scelto, aggiunta al trip, si ripassa al controller grafico etc
+    }
+
+    public static CreateTripController getInstance(){
+        if (instance == null){
+            instance = new CreateTripController();
+            instance.graphicController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
+            DaoFactory daoFactory = DaoFactory.getInstance();
+            instance.tripDao = daoFactory.getTripDao();
+            instance.tripDayDao = daoFactory.getTripDayDao();
+            instance.activityInstanceDao = daoFactory.getActivityInstanceDao();
+        }
+        return instance;
     }
 
     public void createNewTrip(CreateNewTripBean bean){
@@ -32,12 +44,29 @@ public class CreateTripController implements Controller {
         trip.setCountry(bean.getTripCountry());
         trip.setStartDate(bean.getTripStartDate());
         trip.setEndDate(bean.getTripEndDate());
+        for(int i=0; i<bean.getTripDuration(); i++){
+            graphicController.addDay(trip, i);
+        }
         tripDao.store(trip);
-        graphicController.addDays();
+        graphicController.done(trip);
     }
 
-    public void addDaysToNewTrip(List<AddDaysToNewTripBean> beans){
+    public void addDayToNewTrip(Trip trip, AddDayToNewTripBean bean){
 
+        TripDay tripDay = tripDayDao.create(bean.getDate());
+        tripDay.setCity(bean.getCity());
+        tripDay.setDayType(bean.getDayType());
+        graphicController.addActivityInstanceList(tripDay);
+        trip.addTripDay(tripDay);
+        tripDayDao.store(tripDay);
+    }
+
+    public void addActivityInstanceToDay(TripDay tripDay, AddActivityInstanceToDayBean bean){
+
+        ActivityInstance activityInstance = activityInstanceDao.create(bean.getDate());
+        activityInstance.setActivity(bean.getActivity());
+        tripDay.addActivityInstance(activityInstance);
+        activityInstanceDao.store(activityInstance);
     }
 
 

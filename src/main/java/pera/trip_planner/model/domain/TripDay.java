@@ -3,10 +3,11 @@ package pera.trip_planner.model.domain;
 import pera.trip_planner.model.domain.entity_lists.ActivityInstanceList;
 
 import java.io.Serializable;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class TripDay implements Serializable {
-    private DayType dayType;
+    private DayOfWeek dayType;
     private City city;
     private ActivityInstanceList activityInstanceList = new ActivityInstanceList();
     private LocalDate date;
@@ -15,7 +16,7 @@ public class TripDay implements Serializable {
         this.date = date;
     }
 
-    public TripDay(DayType dayType, City city, LocalDate date) {
+    public TripDay(DayOfWeek dayType, City city, LocalDate date) {
         this.dayType = dayType;
         this.city = city;
         this.date = date;
@@ -25,7 +26,7 @@ public class TripDay implements Serializable {
         activityInstanceList.addEntity(activityInstance);
     }
 
-    public DayType getDayType() {
+    public DayOfWeek getDayType() {
         return dayType;
     }
 
@@ -41,7 +42,7 @@ public class TripDay implements Serializable {
         return activityInstanceList;
     }
 
-    public void setDayType(DayType dayType) {
+    public void setDayType(DayOfWeek dayType) {
         this.dayType = dayType;
     }
 

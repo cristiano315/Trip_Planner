@@ -2,9 +2,11 @@ package pera.trip_planner.model.domain;
 
 import pera.trip_planner.model.domain.entity_lists.ActivityAnnouncementList;
 
+import java.io.Serializable;
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 
-public class Activity {
+public class Activity implements Serializable {
     private String name;
     private String description;
     private String location;
@@ -45,12 +47,17 @@ public class Activity {
         dayInfos.add(dayInfo);
     }
 
-    public DayInfo getDayInfo(DayType day) {
-        if(dayInfos.contains(day)){
-            return dayInfos.get(dayInfos.indexOf(day));
+    public DayInfo getDayInfo(DayOfWeek day) {
+        for(DayInfo d : dayInfos){
+            if(d.getDay().equals(day)){
+                return d;
+            }
         }
-        else
-            return null;
+        return null;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void addAnnouncement(ActivityAnnouncement announcement) {

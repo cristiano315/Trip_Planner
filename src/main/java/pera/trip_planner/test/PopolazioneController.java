@@ -2,6 +2,8 @@ package pera.trip_planner.test;
 
 import pera.trip_planner.model.dao.GetCitiesByCountryProcedureDao;
 import pera.trip_planner.model.dao.GetCountriesProcedureDAO;
+import pera.trip_planner.model.domain.Activity;
+import pera.trip_planner.model.domain.City;
 import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.entity_lists.CountryList;
 
@@ -24,6 +26,13 @@ public class PopolazioneController {
         for(Country country : countries.getList()) {
             map.get(country.countryName()).replaceList(new GetCitiesByCountryProcedureDao().execute(country.countryName()));
         }
+        Activity prova = new Activity("prova");
+        Activity prova2 = new Activity("prova2");
+        Activity prova3 = new Activity("prova3");
+        City roma = map.get("Italy").getCities().getEntityByName("Roma");
+        roma.addActivity(prova);
+        roma.addActivity(prova2);
+        roma.addActivity(prova3);
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try{

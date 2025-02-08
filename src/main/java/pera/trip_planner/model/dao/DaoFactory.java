@@ -1,5 +1,7 @@
 package pera.trip_planner.model.dao;
 
+import pera.trip_planner.model.domain.ActivityInstance;
+
 import java.lang.reflect.InvocationTargetException;
 
 public abstract class DaoFactory {
@@ -27,4 +29,6 @@ public abstract class DaoFactory {
     public abstract ActivityDao getActivityDao();
     public abstract CityAnnouncementDao getCityAnnouncementDao();
     public abstract TripDao getTripDao();
+    public abstract TripDayDao getTripDayDao();
+    public abstract ActivityInstanceDao getActivityInstanceDao();
 }
