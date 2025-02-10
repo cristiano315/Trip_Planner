@@ -1,22 +1,31 @@
 package pera.trip_planner.view;
 
 import pera.trip_planner.model.dao.DaoFactory;
-import pera.trip_planner.model.domain.ActivityInstance;
-import pera.trip_planner.model.domain.DayInfo;
-import pera.trip_planner.model.domain.Trip;
-import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.*;
 import pera.trip_planner.model.domain.entity_lists.TripList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class TextGraphicShowTripControllerView {
 
-    public void showAvailableTrips(){
+    public void showAvailableTrips(GeneralUser user){
         TripList list = DaoFactory.getInstance().getTripDao().tripList();
+        TripList availableList = new TripList();
+        for(Trip trip : list.getList()){
+            if (!trip.isRegistered()){
+                availableList.addEntity(trip);
+            }
+        }
+        if(user != null){
+            for(Trip trip : (ArrayList<Trip>) user.getUserList().getList()){
+                availableList.addEntity(trip);
+            }
+        }
         System.out.println("Showing available trips:");
-        System.out.println(list);
+        System.out.println(availableList);
     }
 
     public String getString(String message){
@@ -68,6 +77,26 @@ public class TextGraphicShowTripControllerView {
                 }
             } catch (IOException e) {
                 System.out.println("Error reading value, try again");
+            }
+        }
+    }
+
+    public boolean getBooleanChoice(String message){
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while(true){
+            try{
+                System.out.println(message + " (y/n): ");
+                String choice = br.readLine();
+                if(choice.equals("y") || choice.equals("Y")){
+                    return true;
+                } else if(choice.equals("n") || choice.equals("N")){
+                    return false;
+                } else {
+                    System.out.println("Insert a valid choice");
+                }
+            } catch (IOException e){
+                System.out.println("Error reading value, try again");
+                br = new BufferedReader(new InputStreamReader(System.in));
             }
         }
     }

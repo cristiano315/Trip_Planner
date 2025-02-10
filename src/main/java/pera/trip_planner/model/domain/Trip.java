@@ -10,6 +10,7 @@ public class Trip {
     private LocalDate endDate;
     private TripDayList tripDays = new TripDayList();
     private String name;
+    private boolean registered = false;
 
     public Trip(Country country, LocalDate startDate, LocalDate endDate, String name) {
         this.name = name;
@@ -56,5 +57,13 @@ public class Trip {
 
     public void addTripDay(TripDay tripDay) {
         tripDays.addEntity(tripDay);
+    }
+
+    public void registerToAccount(){
+        registered = true;
+    }
+
+    public boolean isRegistered(){
+        return registered;
     }
 }

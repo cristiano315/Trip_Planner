@@ -24,4 +24,5 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     public void done(Trip trip) {
 
     }
+
 }

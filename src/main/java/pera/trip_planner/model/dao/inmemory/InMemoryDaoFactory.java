@@ -1,6 +1,7 @@
 package pera.trip_planner.model.dao.inmemory;
 
 import pera.trip_planner.model.dao.*;
+import pera.trip_planner.model.domain.Role;
 
 public class InMemoryDaoFactory extends DaoFactory {
     @Override
@@ -36,5 +37,18 @@ public class InMemoryDaoFactory extends DaoFactory {
     @Override
     public ActivityInstanceDao getActivityInstanceDao() {
         return InMemoryActivityInstanceDao.getInstance();
+    }
+
+    @Override
+    public GeneralUserDao getSpecificUserDao(Role role) {
+        GeneralUserDao dao = InMemoryUserDao.getInstance();
+        if(role == Role.USER){
+            dao = InMemoryUserDao.getInstance();
+        } else if (role == Role.CITY_COUNCIL){
+            dao = InMemoryCityCouncilUserDao.getInstance();
+        } else if (role == Role.ACTIVITY_MANAGER){
+            dao = InMemoryActivityManagerUserDao.getInstance();
+        }
+        return dao;
     }
 }

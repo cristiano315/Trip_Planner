@@ -1,10 +1,8 @@
 package pera.trip_planner.controller.graphic_controller.text_graphic_controller;
 
 import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
-import pera.trip_planner.controller.logic_controller.ApplicationController;
-import pera.trip_planner.controller.logic_controller.Controller;
-import pera.trip_planner.controller.logic_controller.CreateTripController;
-import pera.trip_planner.controller.logic_controller.ShowTripController;
+import pera.trip_planner.controller.logic_controller.*;
+import pera.trip_planner.model.domain.GeneralUser;
 import pera.trip_planner.view.TextGraphicApplicationControllerView;
 
 public class TextGraphicApplicationController implements GraphicApplicationController {
@@ -54,13 +52,18 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
                     throw new RuntimeException("Not yet implemented");
                     //break;
                 case 7:
-                    System.out.println("Add activity to a city's list");
-                    throw new RuntimeException("Not yet implemented");
-                    //break;
+                    LoginController lcontroller = LoginController.getInstance();
+                    GeneralUser user = lcontroller.retrieveUser();
+                    System.out.println("Login user: " + user.getUsername());
+                    //System.out.println("Add activity to a city's list");
+                    //throw new RuntimeException("Not yet implemented");
+                    break;
                 case 8:
-                    System.out.println("Add announcement to activity");
-                    throw new RuntimeException("Not yet implemented");
-                    //break;
+                    controller = LoginController.getInstance();
+                    controller.start();
+                    //System.out.println("Add announcement to activity");
+                    //throw new RuntimeException("Not yet implemented");
+                    break;
                 case 9:
                     System.exit(0);
                     break;

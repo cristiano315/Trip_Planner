@@ -5,9 +5,7 @@ import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.model.dao.*;
-import pera.trip_planner.model.domain.ActivityInstance;
-import pera.trip_planner.model.domain.Trip;
-import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.*;
 
 public class CreateTripController implements Controller {
     GraphicCreateTripController graphicController;
@@ -67,6 +65,22 @@ public class CreateTripController implements Controller {
         activityInstance.setActivity(bean.getActivity());
         tripDay.addActivityInstance(activityInstance);
         activityInstanceDao.store(activityInstance);
+    }
+
+    public void saveToAccount(Trip trip){
+        GeneralUser user;
+        user = LoginController.getInstance().retrieveUser();
+        if(user == null){
+            LoginController.getInstance().start();
+            user = LoginController.getInstance().retrieveUser();
+        }
+        //user must have the correct role
+        if(user.getRole() != Role.USER){
+            throw new IllegalArgumentException("Wrong user role");
+        }
+        user.addEntity(trip);
+        trip.registerToAccount();
+        DaoFactory.getInstance().getSpecificUserDao(Role.USER).store(user);
     }
 
 

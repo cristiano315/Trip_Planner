@@ -1,14 +1,18 @@
 package pera.trip_planner.model.domain;
 
+import pera.trip_planner.model.domain.entity_lists.EntityList;
+
 import java.io.Serializable;
 
-public class GeneralUser implements Serializable {
+
+public abstract class GeneralUser<L extends EntityList, E> implements Serializable {
     private String username;
     private String password;
+    private Role role;
+    protected L userList;
 
-    public GeneralUser(String username, String password) {
+    protected GeneralUser(String username) {
         this.username = username;
-        this.password = password;
     }
 
     public String getUsername() {
@@ -17,5 +21,24 @@ public class GeneralUser implements Serializable {
 
     public Boolean checkPassword(String password) {
         return this.password.equals(password);
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public  L getUserList(){
+        return userList;
+    }
+    public void addEntity(E entity){
+        userList.addEntity(entity);
     }
 }

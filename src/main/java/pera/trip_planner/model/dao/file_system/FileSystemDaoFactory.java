@@ -1,6 +1,7 @@
 package pera.trip_planner.model.dao.file_system;
 
 import pera.trip_planner.model.dao.*;
+import pera.trip_planner.model.domain.Role;
 
 public class FileSystemDaoFactory extends DaoFactory {
 
@@ -36,6 +37,11 @@ public class FileSystemDaoFactory extends DaoFactory {
 
     @Override
     public ActivityInstanceDao getActivityInstanceDao() {
+        return null;
+    }
+
+    @Override
+    public GeneralUserDao getSpecificUserDao(Role role) {
         return null;
     }
 

@@ -5,6 +5,7 @@ import pera.trip_planner.controller.graphic_controller.GraphicShowTripController
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.ActivityInstance;
+import pera.trip_planner.model.domain.GeneralUser;
 import pera.trip_planner.model.domain.Trip;
 import pera.trip_planner.model.domain.TripDay;
 import pera.trip_planner.view.TextGraphicShowTripControllerView;
@@ -14,8 +15,8 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
     private TextGraphicShowTripControllerView view = new TextGraphicShowTripControllerView();
 
     @Override
-    public void showTripList() {
-        view.showAvailableTrips();
+    public void showTripList(GeneralUser user) {
+        view.showAvailableTrips(user);
         while(true){
             String trip = view.getString("Select a trip to visualize: ");
             if(DaoFactory.getInstance().getTripDao().load(trip) != null) {
@@ -62,6 +63,16 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
                         running = false;
                     }
             }
+        }
+    }
+
+    @Override
+    public void login() {
+        boolean choice = view.getBooleanChoice("Would you like to log in?");
+        if(choice){
+            controller.login();
+        } else{
+            showTripList(null);
         }
     }
 }
