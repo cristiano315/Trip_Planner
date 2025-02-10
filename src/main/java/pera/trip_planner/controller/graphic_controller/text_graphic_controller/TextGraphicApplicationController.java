@@ -23,6 +23,7 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
 
     public void runApplication() {
         int choice;
+        String errorMessage = "Not yet implemented";
         Controller controller;
         while(true){ //application loop
             choice = TextGraphicApplicationControllerView.selectUseCaseView();
@@ -41,34 +42,27 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
                     break;
                 case 4:
                     System.out.println("Add Review");
-                    throw new RuntimeException("Not yet implemented");
+                    throw new RuntimeException(errorMessage);
                     //break;
                 case 5:
                     System.out.println("View city/country info");
-                    throw new RuntimeException("Not yet implemented");
+                    throw new RuntimeException(errorMessage);
                     //break;
                 case 6:
                     System.out.println("Modify city's info");
-                    throw new RuntimeException("Not yet implemented");
+                    throw new RuntimeException(errorMessage);
                     //break;
                 case 7:
-                    LoginController lcontroller = LoginController.getInstance();
-                    GeneralUser user = lcontroller.retrieveUser();
-                    System.out.println("Login user: " + user.getUsername());
-                    //System.out.println("Add activity to a city's list");
-                    //throw new RuntimeException("Not yet implemented");
-                    break;
+                    System.out.println("Add activity to a city's list");
+                    throw new RuntimeException(errorMessage);
                 case 8:
-                    controller = LoginController.getInstance();
-                    controller.start();
-                    //System.out.println("Add announcement to activity");
-                    //throw new RuntimeException("Not yet implemented");
-                    break;
+                    System.out.println("Add announcement to activity");
+                    throw new RuntimeException(errorMessage);
                 case 9:
                     System.exit(0);
                     break;
                 default:
-                    throw new RuntimeException("Invalid choice");
+                    throw new IllegalArgumentException("Invalid choice");
             }
         }
     }
