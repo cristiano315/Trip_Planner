@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TextGraphicLoginControllerView {
+    private String errorMessage = "Error reading value, try again";
+
     public String getString(String message){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while(true){
@@ -14,7 +16,7 @@ public class TextGraphicLoginControllerView {
                 System.out.println(message);
                 return br.readLine();
             } catch (IOException e){
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
                 br = new BufferedReader(new InputStreamReader(System.in));
             }
         }
@@ -34,7 +36,7 @@ public class TextGraphicLoginControllerView {
                     System.out.println("Enter a valid choice");
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }
@@ -55,7 +57,7 @@ public class TextGraphicLoginControllerView {
                     System.out.println("Enter a valid choice");
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }

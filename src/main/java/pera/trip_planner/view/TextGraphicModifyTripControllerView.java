@@ -15,6 +15,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TextGraphicModifyTripControllerView extends TextGraphicShowTripControllerView {
+    private String invalidChoiceError = "Enter a valid choice";
+    private String errorMessage = "Error reading value, try again";
+
     public int getTripInfoChoice(){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while(true){
@@ -30,10 +33,10 @@ public class TextGraphicModifyTripControllerView extends TextGraphicShowTripCont
                 } else if(choice.equals("days") || choice.equals("Days")){
                     return 4;
                 } else{
-                    System.out.println("Enter a valid choice");
+                    System.out.println(invalidChoiceError);
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }
@@ -72,10 +75,10 @@ public class TextGraphicModifyTripControllerView extends TextGraphicShowTripCont
                 } else if(choice.equals("modify") || choice.equals("Modify")){
                     return 2;
                 } else{
-                    System.out.println("Enter a valid choice");
+                    System.out.println(invalidChoiceError);
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }
@@ -91,10 +94,10 @@ public class TextGraphicModifyTripControllerView extends TextGraphicShowTripCont
                 } else if(choice.equals("activities") || choice.equals("Activities")){
                     return 2;
                 } else{
-                    System.out.println("Enter a valid choice");
+                    System.out.println(invalidChoiceError);
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }
@@ -112,10 +115,10 @@ public class TextGraphicModifyTripControllerView extends TextGraphicShowTripCont
                 } else if(choice.equals("back") || choice.equals("Back")){
                     return 0;
                 } else{
-                    System.out.println("Enter a valid choice");
+                    System.out.println(invalidChoiceError);
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }

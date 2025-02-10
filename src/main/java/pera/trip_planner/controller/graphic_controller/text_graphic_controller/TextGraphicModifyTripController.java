@@ -126,6 +126,9 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                 case 2:
                     modifyTripDay(trip, day);
                     System.out.println("Day modified successfully");
+                    break;
+                default:
+                    throw new IllegalArgumentException("Illegal choice");
             }
         }
     }

@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class TextGraphicShowTripControllerView {
+    private String errorMessage = "Error reading value, try again";
 
     public void showAvailableTrips(GeneralUser user){
         TripList list = DaoFactory.getInstance().getTripDao().tripList();
@@ -35,7 +36,7 @@ public class TextGraphicShowTripControllerView {
                 System.out.println(message);
                 return br.readLine();
             } catch (IOException e){
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
                 br = new BufferedReader(new InputStreamReader(System.in));
             }
         }
@@ -76,7 +77,7 @@ public class TextGraphicShowTripControllerView {
                     System.out.println("Enter a valid choice");
                 }
             } catch (IOException e) {
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
             }
         }
     }
@@ -95,7 +96,7 @@ public class TextGraphicShowTripControllerView {
                     System.out.println("Insert a valid choice");
                 }
             } catch (IOException e){
-                System.out.println("Error reading value, try again");
+                System.out.println(errorMessage);
                 br = new BufferedReader(new InputStreamReader(System.in));
             }
         }

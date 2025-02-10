@@ -62,6 +62,9 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
                         controller.showTripDay(trip, trip.getTripDays().getEntityByName(day.getDate().minusDays(1).toString()));
                         running = false;
                     }
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid choice");
             }
         }
     }
