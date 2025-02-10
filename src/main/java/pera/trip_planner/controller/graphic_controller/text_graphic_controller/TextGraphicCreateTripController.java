@@ -20,7 +20,7 @@ import java.time.temporal.ChronoUnit;
 
 public class TextGraphicCreateTripController implements GraphicCreateTripController {
     private TextGraphicCreateTripControllerView view = new TextGraphicCreateTripControllerView();
-    private CreateTripController controller;
+    private CreateTripController controller = CreateTripController.getInstance();
 
     @Override
     public void createTrip() {
@@ -30,7 +30,6 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
         LocalDate endDate;
         long duration;
 
-        controller = CreateTripController.getInstance();
         name = view.getString("Insert name for trip: ");
         view.showCountries();
         while(true){

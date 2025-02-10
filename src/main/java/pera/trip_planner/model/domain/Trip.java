@@ -66,4 +66,12 @@ public class Trip {
     public boolean isRegistered(){
         return registered;
     }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void resetDaysList(){
+        tripDays = new TripDayList();
+    }
 }

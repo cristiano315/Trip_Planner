@@ -50,4 +50,8 @@ public class TripDay implements Serializable {
         this.city = city;
     }
 
+    public void resetActivityInstanceList() {
+        activityInstanceList = new ActivityInstanceList();
+    }
+
 }

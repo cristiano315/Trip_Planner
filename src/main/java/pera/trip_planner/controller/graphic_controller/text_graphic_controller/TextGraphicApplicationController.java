@@ -32,9 +32,9 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
                     controller.start();
                     break;
                 case 2:
-                    System.out.println("Modify Trip");
-                    throw new RuntimeException("Not yet implemented");
-                    //break;
+                    controller = ModifyTripController.getInstance();
+                    controller.start();
+                    break;
                 case 3:
                     controller = ShowTripController.getInstance();
                     controller.start();

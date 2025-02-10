@@ -15,11 +15,8 @@ public abstract class EntityList<E> implements Serializable {
     }
 
     public void removeEntity(String name) {
-        for(E entity : itemsList){
-            if(getName(entity).equals(name)){
-                itemsList.remove(entity);
-            }
-        }
+        E entity = getEntityByName(name);
+        itemsList.remove(entity);
     }
 
     public List<E> getList() {
