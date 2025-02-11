@@ -41,7 +41,22 @@ public class FileSystemDaoFactory extends DaoFactory {
     }
 
     @Override
-    public GeneralUserDao getSpecificUserDao(Role role) {
+    public GeneralUserDao<?> getSpecificUserDao(Role role) {
+        return null;
+    }
+
+    @Override
+    public UserDao getUserDao() {
+        return null;
+    }
+
+    @Override
+    public CityCouncilUserDao getCityCouncilUserDao() {
+        return null;
+    }
+
+    @Override
+    public ActivityManagerUserDao getActivityManagerUserDao() {
         return null;
     }
 

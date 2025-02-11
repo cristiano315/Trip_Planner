@@ -40,8 +40,8 @@ public class InMemoryDaoFactory extends DaoFactory {
     }
 
     @Override
-    public GeneralUserDao getSpecificUserDao(Role role) {
-        GeneralUserDao dao = InMemoryUserDao.getInstance();
+    public GeneralUserDao<?> getSpecificUserDao(Role role) {
+        GeneralUserDao<?> dao = InMemoryUserDao.getInstance();
         if(role == Role.USER){
             dao = InMemoryUserDao.getInstance();
         } else if (role == Role.CITY_COUNCIL){
@@ -51,4 +51,21 @@ public class InMemoryDaoFactory extends DaoFactory {
         }
         return dao;
     }
+
+    @Override
+    public UserDao getUserDao() {
+        return InMemoryUserDao.getInstance();
+    }
+
+    @Override
+    public CityCouncilUserDao getCityCouncilUserDao() {
+        return InMemoryCityCouncilUserDao.getInstance();
+    }
+
+    @Override
+    public ActivityManagerUserDao getActivityManagerUserDao() {
+        return InMemoryActivityManagerUserDao.getInstance();
+    }
+
+
 }

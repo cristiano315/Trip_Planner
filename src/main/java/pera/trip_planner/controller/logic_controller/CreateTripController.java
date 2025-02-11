@@ -68,11 +68,11 @@ public class CreateTripController implements Controller {
     }
 
     public void saveToAccount(Trip trip){
-        GeneralUser user;
-        user = LoginController.getInstance().retrieveUser();
+        User user;
+        user = (User) LoginController.getInstance().retrieveUser();
         if(user == null){
             LoginController.getInstance().start();
-            user = LoginController.getInstance().retrieveUser();
+            user = (User) LoginController.getInstance().retrieveUser();
         }
         //user must have the correct role
         if(user.getRole() != Role.USER){
@@ -80,7 +80,7 @@ public class CreateTripController implements Controller {
         }
         user.addEntity(trip);
         trip.registerToAccount();
-        DaoFactory.getInstance().getSpecificUserDao(Role.USER).store(user);
+        DaoFactory.getInstance().getUserDao().store(user);
     }
 
 

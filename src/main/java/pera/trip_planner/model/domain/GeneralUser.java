@@ -5,7 +5,7 @@ import pera.trip_planner.model.domain.entity_lists.EntityList;
 import java.io.Serializable;
 
 
-public abstract class GeneralUser<L extends EntityList, E> implements Serializable {
+public abstract class GeneralUser<L extends EntityList<E>, E> implements Serializable {
     private String username;
     private String password;
     private Role role;
