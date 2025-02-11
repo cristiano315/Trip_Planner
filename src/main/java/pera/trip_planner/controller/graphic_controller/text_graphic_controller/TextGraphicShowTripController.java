@@ -4,10 +4,7 @@ import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicShowTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
-import pera.trip_planner.model.domain.ActivityInstance;
-import pera.trip_planner.model.domain.GeneralUser;
-import pera.trip_planner.model.domain.Trip;
-import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.*;
 import pera.trip_planner.view.TextGraphicShowTripControllerView;
 
 public class TextGraphicShowTripController implements GraphicShowTripController {
@@ -15,7 +12,7 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
     private TextGraphicShowTripControllerView view = new TextGraphicShowTripControllerView();
 
     @Override
-    public void showTripList(GeneralUser user) {
+    public void showTripList(User user) {
         view.showAvailableTrips(user);
         while(true){
             String trip = view.getString("Select a trip to visualize: ");

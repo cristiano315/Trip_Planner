@@ -5,10 +5,7 @@ import pera.trip_planner.controller.graphic_controller.GraphicShowTripController
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.dao.TripDao;
-import pera.trip_planner.model.domain.GeneralUser;
-import pera.trip_planner.model.domain.Role;
-import pera.trip_planner.model.domain.Trip;
-import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.*;
 
 public class ShowTripController implements Controller {
     private static ShowTripController instance;
@@ -26,7 +23,7 @@ public class ShowTripController implements Controller {
 
     @Override
     public void start(){
-        GeneralUser user;
+        User user;
         user = LoginController.getInstance().retrieveUser();
         if(user == null || user.getRole() != Role.USER){
             graphicController.login();
@@ -46,7 +43,7 @@ public class ShowTripController implements Controller {
 
     public void login(){
         LoginController.getInstance().start();
-        GeneralUser user = LoginController.getInstance().retrieveUser();
+        User user = LoginController.getInstance().retrieveUser();
         if(user == null || user.getRole() != Role.USER){
             throw new IllegalArgumentException("Invalid user");
         }

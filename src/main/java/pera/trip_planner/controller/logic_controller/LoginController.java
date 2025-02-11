@@ -26,20 +26,28 @@ public class LoginController implements Controller {
 
     @Override
     public void start(){
-        if(retrieveUser() == null){
+        if(user == null){
             graphicController.selection();
         } else {
             throw new InvalidUsageException("User already logged in");
         }
     }
 
-    public GeneralUser<?,?> retrieveUser(){
-        return user;
+    public User retrieveUser(){
+        return (User) user;
+    }
+
+    public CityCouncilUser retrieveCityCouncilUser(){
+        return (CityCouncilUser) user;
+    }
+
+    public ActivityManagerUser retrieveActivityManagerUser(){
+        return (ActivityManagerUser) user;
     }
 
     public void login(LoginBean bean){
 
-        generalUserDao = DaoFactory.getInstance().getSpecificUserDao(bean.getRole());
+        getGeneralUserDao(bean.getRole());
         GeneralUser<?,?> tempUser = generalUserDao.load(bean.getUsername());
         //user must not be null
         if(tempUser == null){
@@ -58,7 +66,7 @@ public class LoginController implements Controller {
     }
 
     public void register(LoginBean bean){
-        generalUserDao = DaoFactory.getInstance().getSpecificUserDao(bean.getRole());
+        getGeneralUserDao(bean.getRole());
         GeneralUser<?,?> tempUser;
         //user must not already exist
         if(generalUserDao.load(bean.getUsername()) != null){
@@ -74,6 +82,18 @@ public class LoginController implements Controller {
             DaoFactory.getInstance().getCityCouncilUserDao().store((CityCouncilUser) tempUser);
         } else if (tempUser.getRole() == Role.ACTIVITY_MANAGER){
             DaoFactory.getInstance().getActivityManagerUserDao().store((ActivityManagerUser) tempUser);
+        } else{
+            throw new IllegalArgumentException("Wrong role");
+        }
+    }
+
+    public void getGeneralUserDao(Role role){
+        if(role == Role.USER){
+            this.generalUserDao = DaoFactory.getInstance().getUserDao();
+        } else if (role == Role.CITY_COUNCIL){
+            this.generalUserDao = DaoFactory.getInstance().getCityCouncilUserDao();
+        } else if (role == Role.ACTIVITY_MANAGER){
+            this.generalUserDao = DaoFactory.getInstance().getActivityManagerUserDao();
         } else{
             throw new IllegalArgumentException("Wrong role");
         }

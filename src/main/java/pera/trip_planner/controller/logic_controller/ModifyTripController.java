@@ -29,7 +29,7 @@ public class ModifyTripController implements Controller {
 
     @Override
     public void start(){
-        GeneralUser user;
+        User user;
         user = LoginController.getInstance().retrieveUser();
         if(user == null || user.getRole() != Role.USER){
             graphicController.login();
@@ -40,7 +40,7 @@ public class ModifyTripController implements Controller {
 
     public void login(){
         LoginController.getInstance().start();
-        GeneralUser user = LoginController.getInstance().retrieveUser();
+        User user = LoginController.getInstance().retrieveUser();
         if(user == null || user.getRole() != Role.USER){
             throw new IllegalArgumentException("Invalid user");
         }

@@ -20,7 +20,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
     private TextGraphicModifyTripControllerView view = new TextGraphicModifyTripControllerView();
 
     @Override
-    public void showTripList(GeneralUser user) {
+    public void showTripList(User user) {
         view.showAvailableTrips(user);
         while(true){
             String trip = view.getString("Select a trip to visualize: ");

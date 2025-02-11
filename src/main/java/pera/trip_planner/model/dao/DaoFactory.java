@@ -32,7 +32,6 @@ public abstract class DaoFactory {
     public abstract TripDao getTripDao();
     public abstract TripDayDao getTripDayDao();
     public abstract ActivityInstanceDao getActivityInstanceDao();
-    public abstract GeneralUserDao<?> getSpecificUserDao(Role role);
     public abstract UserDao getUserDao();
     public abstract CityCouncilUserDao getCityCouncilUserDao();
     public abstract ActivityManagerUserDao getActivityManagerUserDao();
