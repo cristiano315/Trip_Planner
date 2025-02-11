@@ -1,11 +1,11 @@
 package pera.trip_planner.model.dao;
 
-public interface DAO<ID, E> {
-    E load(ID id);
+public interface DAO<I, E> {
+    E load(I id);
     void store(E entity);
-    void delete(ID id);
-    boolean exists(ID id);
+    void delete(I id);
+    boolean exists(I id);
 
     //factory method to create new instance
-    E create(ID id);
+    E create(I id);
 }

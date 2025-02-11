@@ -13,6 +13,7 @@ public class LoginController implements Controller {
     private GraphicLoginController graphicController;
     private GeneralUser<?, ?> user;
     private GeneralUserDao<?> generalUserDao;
+    private final String wrongRoleError = "Wrong role";
 
     private LoginController(){}
 
@@ -54,12 +55,12 @@ public class LoginController implements Controller {
             throw new IllegalArgumentException("User not found");
         }
         //password must be correct
-        if(!tempUser.checkPassword(bean.getPassword())){
+        if(!Boolean.TRUE.equals(tempUser.checkPassword(bean.getPassword()))){
             throw new IllegalArgumentException("Wrong password");
         }
         //role must be correct
         if(tempUser.getRole() != bean.getRole()){
-            throw new IllegalArgumentException("Wrong role");
+            throw new IllegalArgumentException(wrongRoleError);
         }
 
         this.user = tempUser;
@@ -83,7 +84,7 @@ public class LoginController implements Controller {
         } else if (tempUser.getRole() == Role.ACTIVITY_MANAGER){
             DaoFactory.getInstance().getActivityManagerUserDao().store((ActivityManagerUser) tempUser);
         } else{
-            throw new IllegalArgumentException("Wrong role");
+            throw new IllegalArgumentException(wrongRoleError);
         }
     }
 
@@ -95,7 +96,7 @@ public class LoginController implements Controller {
         } else if (role == Role.ACTIVITY_MANAGER){
             this.generalUserDao = DaoFactory.getInstance().getActivityManagerUserDao();
         } else{
-            throw new IllegalArgumentException("Wrong role");
+            throw new IllegalArgumentException(wrongRoleError);
         }
     }
 }

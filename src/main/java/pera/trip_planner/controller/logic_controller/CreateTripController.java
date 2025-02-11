@@ -69,10 +69,10 @@ public class CreateTripController implements Controller {
 
     public void saveToAccount(Trip trip){
         User user;
-        user = (User) LoginController.getInstance().retrieveUser();
+        user = LoginController.getInstance().retrieveUser();
         if(user == null){
             LoginController.getInstance().start();
-            user = (User) LoginController.getInstance().retrieveUser();
+            user = LoginController.getInstance().retrieveUser();
         }
         //user must have the correct role
         if(user.getRole() != Role.USER){

@@ -18,6 +18,7 @@ import java.time.LocalTime;
 public class TextGraphicModifyTripController implements GraphicModifyTripController {
     private ModifyTripController controller = ModifyTripController.getInstance();
     private TextGraphicModifyTripControllerView view = new TextGraphicModifyTripControllerView();
+    private String illegalChoiceError = "Illegal choice";
 
     @Override
     public void showTripList(User user) {
@@ -70,7 +71,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                 selectTripDay(trip, trip.getTripDays().getEntityByName(trip.getStartDate().toString()));
                 break;
             default:
-                throw new IllegalArgumentException("Illegal choice");
+                throw new IllegalArgumentException(illegalChoiceError);
         }
 
     }
@@ -128,7 +129,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     System.out.println("Day modified successfully");
                     break;
                 default:
-                    throw new IllegalArgumentException("Illegal choice");
+                    throw new IllegalArgumentException(illegalChoiceError);
             }
         }
     }
@@ -200,7 +201,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
             } else if(choice == 0){ //back
                 break;
             } else {
-                throw new IllegalArgumentException("Illegal choice");
+                throw new IllegalArgumentException(illegalChoiceError);
             }
         }
     }

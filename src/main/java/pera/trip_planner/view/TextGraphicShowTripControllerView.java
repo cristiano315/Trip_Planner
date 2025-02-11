@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TextGraphicShowTripControllerView {
     private String errorMessage = "Error reading value, try again";
 
-    public void showAvailableTrips(GeneralUser user){
+    public void showAvailableTrips(User user){
         TripList list = DaoFactory.getInstance().getTripDao().tripList();
         TripList availableList = new TripList();
         for(Trip trip : list.getList()){
