@@ -6,11 +6,11 @@ import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.Gu
 
 public class GUIGraphicControllerFactory extends GraphicControllerFactory{
     public GraphicApplicationController getGraphicApplicationController() {
-        return new GuiGraphicApplicationController();
+        return GuiGraphicApplicationController.getInstance();
     }
 
     public GraphicCreateTripController getGraphicCreateTripController() {
-        return new GuiGraphicCreateTripController();
+        return GuiGraphicCreateTripController.getInstance();
     }
 
     @Override

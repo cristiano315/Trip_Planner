@@ -1,66 +1,42 @@
 package pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import pera.trip_planner.Main;
-import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
-import pera.trip_planner.controller.logic_controller.ApplicationController;
 
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
+import pera.trip_planner.exception.GuiException;
+import pera.trip_planner.view.gui.GuiGraphicApplicationControllerView;
 
 import java.io.IOException;
 
-public class GuiGraphicApplicationController extends Application implements GraphicApplicationController {
+public class GuiGraphicApplicationController implements GraphicApplicationController {
+    private GuiGraphicApplicationControllerView view;
+    private static GuiGraphicApplicationController instance;
+
+    public static GuiGraphicApplicationController getInstance() {
+        if (instance == null) {
+            instance = new GuiGraphicApplicationController();
+        }
+        return instance;
+    }
+
     @Override
     public void showMenu() {
-        launch();
-    }
-
-    private static Scene scene;
-
-    @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("demoSelector"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-
-
-    public void setDemo(ActionEvent actionEvent) {
-        ApplicationController.setPersistencyMode("In Memory"); //in memoria
-        runApplication();
-    }
-
-    public void setFull(ActionEvent actionEvent) {
-        ApplicationController.setPersistencyMode("File System");
-        runApplication();
+        view = new GuiGraphicApplicationControllerView();
+        view.launchGui();
+        while(true){
+            try{
+                GuiGraphicApplicationControllerView.setRoot("view/mainMenu");
+            } catch (IOException e) {
+                throw new GuiException("Error loading main menu GUI");
+            }
+        }
     }
 
     public void runApplication(){
         try{
-            setRoot("mainMenu");
+            GuiGraphicApplicationControllerView.setRoot("view/mainMenu");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GuiException("Error loading main menu GUI");
         }
     }
 
-    public void quit(ActionEvent actionEvent) {
-        System.exit(0);
-    }
 }

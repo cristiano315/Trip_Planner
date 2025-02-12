@@ -9,7 +9,7 @@ import pera.trip_planner.controller.logic_controller.ModifyTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
-import pera.trip_planner.view.TextGraphicModifyTripControllerView;
+import pera.trip_planner.view.text.TextGraphicModifyTripControllerView;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

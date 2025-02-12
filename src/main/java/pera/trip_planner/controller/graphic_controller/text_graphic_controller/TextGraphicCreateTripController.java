@@ -5,12 +5,11 @@ import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
-import pera.trip_planner.controller.logic_controller.Controller;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
-import pera.trip_planner.view.TextGraphicCreateTripControllerView;
+import pera.trip_planner.view.text.TextGraphicCreateTripControllerView;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

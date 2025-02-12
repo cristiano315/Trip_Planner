@@ -1,4 +1,4 @@
-package pera.trip_planner.view;
+package pera.trip_planner.view.text;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

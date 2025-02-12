@@ -1,4 +1,4 @@
-package pera.trip_planner.view;
+package pera.trip_planner.view.text;
 
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;

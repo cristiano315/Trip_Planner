@@ -5,7 +5,7 @@ import pera.trip_planner.controller.graphic_controller.GraphicShowTripController
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
-import pera.trip_planner.view.TextGraphicShowTripControllerView;
+import pera.trip_planner.view.text.TextGraphicShowTripControllerView;
 
 public class TextGraphicShowTripController implements GraphicShowTripController {
     private ShowTripController controller = ShowTripController.getInstance();

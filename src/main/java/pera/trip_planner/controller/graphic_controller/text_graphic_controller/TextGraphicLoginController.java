@@ -4,7 +4,7 @@ import pera.trip_planner.controller.bean.LoginBean;
 import pera.trip_planner.controller.graphic_controller.GraphicLoginController;
 import pera.trip_planner.controller.logic_controller.LoginController;
 import pera.trip_planner.model.domain.Role;
-import pera.trip_planner.view.TextGraphicLoginControllerView;
+import pera.trip_planner.view.text.TextGraphicLoginControllerView;
 
 public class TextGraphicLoginController implements GraphicLoginController {
     private TextGraphicLoginControllerView view = new TextGraphicLoginControllerView();
