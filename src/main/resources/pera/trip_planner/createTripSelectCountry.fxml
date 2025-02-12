@@ -28,6 +28,6 @@
             <Insets left="330.0" />
          </GridPane.margin>
       </Label>
-      <ListView fx:id="countryListView" fixedCellSize="40.0" prefHeight="724.0" prefWidth="1313.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ListView fx:id="countryListView" fixedCellSize="20.0" prefHeight="724.0" prefWidth="1313.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

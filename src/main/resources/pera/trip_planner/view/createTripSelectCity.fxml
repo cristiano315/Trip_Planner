@@ -20,14 +20,14 @@
     <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" prefHeight="195.0" prefWidth="687.0" text="Select country" textAlignment="CENTER" GridPane.columnIndex="1">
+      <Label fx:id="selectCityLabel" alignment="CENTER" prefHeight="195.0" prefWidth="687.0" textAlignment="CENTER" GridPane.columnIndex="1">
          <font>
-            <Font size="96.0" />
+            <Font size="56.0" />
          </font>
          <GridPane.margin>
             <Insets left="330.0" />
          </GridPane.margin>
       </Label>
-      <ListView fx:id="countryListView" fixedCellSize="40.0" prefHeight="724.0" prefWidth="1313.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ListView fx:id="cityListView" fixedCellSize="40.0" prefHeight="724.0" prefWidth="1313.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

@@ -43,7 +43,7 @@ public class CreateTripController implements Controller {
         trip.setStartDate(bean.getTripStartDate());
         trip.setEndDate(bean.getTripEndDate());
         for(int i=0; i<bean.getTripDuration(); i++){
-            graphicController.addDay(trip, i);
+            graphicController.addDay(trip, i); //fare con addDays, i come parametro locale(statico) e la duration controllata a ogni store che alla fine chiama store trip
         }
         tripDao.store(trip);
         graphicController.done(trip);
@@ -83,5 +83,17 @@ public class CreateTripController implements Controller {
         DaoFactory.getInstance().getUserDao().store(user);
     }
 
+    //da implementare
+    public void storeTrip(){
+
+    }
+
+    public void storeTripDay(){
+
+    }
+
+    public void storeActivityInstance(){
+
+    }
 
 }
