@@ -149,13 +149,13 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     break;
                 }
             }
-            controller.modifyDayCity(day, new AddDayToNewTripBean(null, city, null));
+            controller.modifyDayCity(trip, day, new AddDayToNewTripBean(null, city, null));
         } else if (choice == 2){
-            showAndModifyActivities(day);
+            showAndModifyActivities(trip, day);
         }
     }
 
-    public void showAndModifyActivities(TripDay day){
+    public void showAndModifyActivities(Trip trip, TripDay day){
         System.out.println("Current activities: ");
         System.out.println(day.getActivityInstanceList().toString());
         Activity activity;

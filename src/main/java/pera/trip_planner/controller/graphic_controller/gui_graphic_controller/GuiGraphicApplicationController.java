@@ -22,12 +22,10 @@ public class GuiGraphicApplicationController implements GraphicApplicationContro
     public void showMenu() {
         view = new GuiGraphicApplicationControllerView();
         view.launchGui();
-        while(true){
-            try{
-                GuiGraphicApplicationControllerView.setRoot("view/mainMenu");
-            } catch (IOException e) {
-                throw new GuiException("Error loading main menu GUI");
-            }
+        try{
+            GuiGraphicApplicationControllerView.setRoot("view/mainMenu");
+        } catch (IOException e) {
+            throw new GuiException("Error loading main menu GUI");
         }
     }
 

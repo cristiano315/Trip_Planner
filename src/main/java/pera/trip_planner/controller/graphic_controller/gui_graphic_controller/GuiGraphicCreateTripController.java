@@ -3,9 +3,11 @@ package pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
+import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
 import pera.trip_planner.model.dao.DaoFactory;
+import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.domain.*;
 import pera.trip_planner.view.gui.GuiGraphicCreateTripControllerView;
 
@@ -26,6 +28,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     private LocalDate tripStartDate;
     private LocalDate tripEndDate;
     private long duration;
+    private long currentOffset;
 
     private City currentCity;
     private DayOfWeek currentDayType;
@@ -48,22 +51,35 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     }
 
     @Override
-    public void addDay(Trip trip, int dayNumber){
-        currentDate = trip.getStartDate().plusDays(dayNumber);
-        currentTrip = trip;
-        currentDayType = currentDate.getDayOfWeek();
-        view.showCities(trip.getCountry(), currentDate);
-    }
-
-    @Override
-    public void addActivityInstanceList(TripDay day) {
+    public void addActivityInstanceList(Trip trip, TripDay day) {
         currentTripDay = day;
         view.showActivities(day);
     }
 
     @Override
     public void done(Trip trip) {
-        throw new UnsupportedOperationException(UNSUPPORTED_MESSAGE);
+        view.showAlert("Trip stored succesfully");
+        GraphicApplicationController newController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicApplicationController();
+        newController.runApplication();
+    }
+
+    @Override
+    public void addDays(Trip trip, long duration) {
+        this.duration = duration;
+        this.currentTrip = trip;
+        this.currentOffset = 0;
+        addDay();
+    }
+
+    public void addDay(){
+        if(currentOffset != duration){
+            currentDate = currentTrip.getStartDate().plusDays(currentOffset);
+            currentDayType = currentDate.getDayOfWeek();
+            view.showCities(currentTrip.getCountry(), currentDate);
+            currentOffset++;
+        } else{
+            controller.storeTrip(currentTrip);
+        }
     }
 
     public void setTripName(String name) {
@@ -115,6 +131,11 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
         } else {
             LocalDateTime dateTime = LocalDateTime.of(day.getDate(), time);
             controller.addActivityInstanceToDay(day, new AddActivityInstanceToDayBean(activity, dateTime));
+            view.showAlert("Activity: " + activity.getName() + " at time: " + time.toString() + " added successfully");
         }
+    }
+
+    public void storeDay(TripDay currentTripDay) {
+        controller.storeTripDay(currentTrip, currentTripDay);
     }
 }

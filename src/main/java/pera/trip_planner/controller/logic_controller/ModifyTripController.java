@@ -65,9 +65,7 @@ public class ModifyTripController implements Controller {
         trip.resetDaysList();
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         long duration = ChronoUnit.DAYS.between(trip.getStartDate(), trip.getEndDate());
-        for(int i = 0; i< duration; i++){
-            graphicCreateTripController.addDay(trip, i);
-        }
+        graphicCreateTripController.addDays(trip, duration);
     }
 
     public void modifyDates(Trip trip, ModifyTripBean bean) {
@@ -76,16 +74,14 @@ public class ModifyTripController implements Controller {
         trip.resetDaysList();
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         long duration = ChronoUnit.DAYS.between(trip.getStartDate(), trip.getEndDate());
-        for(int i = 0; i< duration; i++){
-            graphicCreateTripController.addDay(trip, i);
-        }
+        graphicCreateTripController.addDays(trip, duration);
     }
 
-    public void modifyDayCity(TripDay day, AddDayToNewTripBean bean) {
+    public void modifyDayCity(Trip trip, TripDay day, AddDayToNewTripBean bean) {
         day.setCity(bean.getCity());
         day.resetActivityInstanceList();
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
-        graphicCreateTripController.addActivityInstanceList(day);
+        graphicCreateTripController.addActivityInstanceList(trip, day);
         DaoFactory.getInstance().getTripDayDao().store(day);
     }
 

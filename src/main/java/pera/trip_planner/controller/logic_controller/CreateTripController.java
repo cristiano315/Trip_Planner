@@ -42,11 +42,8 @@ public class CreateTripController implements Controller {
         trip.setCountry(bean.getTripCountry());
         trip.setStartDate(bean.getTripStartDate());
         trip.setEndDate(bean.getTripEndDate());
-        for(int i=0; i<bean.getTripDuration(); i++){
-            graphicController.addDay(trip, i); //fare con addDays, i come parametro locale(statico) e la duration controllata a ogni store che alla fine chiama store trip
-        }
-        tripDao.store(trip);
-        graphicController.done(trip);
+        graphicController.addDays(trip, bean.getTripDuration());
+        //fare con addDays, i come parametro locale(statico) e la duration controllata a ogni store che alla fine chiama store trip
     }
 
     public void addDayToNewTrip(Trip trip, AddDayToNewTripBean bean){
@@ -54,9 +51,7 @@ public class CreateTripController implements Controller {
         TripDay tripDay = tripDayDao.create(bean.getDate());
         tripDay.setCity(bean.getCity());
         tripDay.setDayType(bean.getDayType());
-        graphicController.addActivityInstanceList(tripDay);
-        trip.addTripDay(tripDay);
-        tripDayDao.store(tripDay);
+        graphicController.addActivityInstanceList(trip, tripDay);
     }
 
     public void addActivityInstanceToDay(TripDay tripDay, AddActivityInstanceToDayBean bean){
@@ -83,17 +78,14 @@ public class CreateTripController implements Controller {
         DaoFactory.getInstance().getUserDao().store(user);
     }
 
-    //da implementare
-    public void storeTrip(){
-
+    public void storeTrip(Trip trip){
+        tripDao.store(trip);
+        graphicController.done(trip);
     }
 
-    public void storeTripDay(){
-
-    }
-
-    public void storeActivityInstance(){
-
+    public void storeTripDay(Trip trip, TripDay day){
+        trip.addTripDay(day);
+        tripDayDao.store(day);
     }
 
 }

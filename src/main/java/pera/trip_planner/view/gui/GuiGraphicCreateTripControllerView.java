@@ -187,6 +187,8 @@ public class GuiGraphicCreateTripControllerView extends GenericGuiGraphicView {
     }
 
     public void saveDay(){
-
+        controller.storeDay(currentTripDay);
+        controller.addDay();
     }
+
 }

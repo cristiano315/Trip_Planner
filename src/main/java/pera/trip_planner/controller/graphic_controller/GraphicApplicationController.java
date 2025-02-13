@@ -48,5 +48,6 @@ public interface GraphicApplicationController {
                 throw new IllegalArgumentException("Invalid choice");
         }
     }
+    void runApplication();
 }
 

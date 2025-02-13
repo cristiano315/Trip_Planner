@@ -5,7 +5,7 @@ import pera.trip_planner.model.domain.TripDay;
 
 public interface GraphicCreateTripController {
     void createTrip();
-    void addDay(Trip trip, int dayNumber);
-    void addActivityInstanceList(TripDay day);
+    void addActivityInstanceList(Trip trip, TripDay day);
     void done(Trip trip);
+    void addDays(Trip trip, long duration);
 }

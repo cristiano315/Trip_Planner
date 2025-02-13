@@ -53,29 +53,31 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
     }
 
     @Override
-    public void addDay(Trip trip, int dayNumber){
+    public void addDays(Trip trip, long duration){
         DayOfWeek dayType;
         City city;
         LocalDate currentDate;
-
-        currentDate = trip.getStartDate().plusDays(dayNumber);
-        dayType = currentDate.getDayOfWeek();
-        view.showCities(trip.getCountry());
-        while(true){
-            String cityName = view.getString("Insert city for day " + currentDate.toString() + ": ");
-            city = trip.getCountry().getCities().getEntityByName(cityName);
-            if(city == null){
-                System.out.println("City not found, try again");
-            } else{
-                break;
+        for(int i = 0; i < duration; i++) {
+            currentDate = trip.getStartDate().plusDays(i);
+            dayType = currentDate.getDayOfWeek();
+            view.showCities(trip.getCountry());
+            while (true) {
+                String cityName = view.getString("Insert city for day " + currentDate.toString() + ": ");
+                city = trip.getCountry().getCities().getEntityByName(cityName);
+                if (city == null) {
+                    System.out.println("City not found, try again");
+                } else {
+                    break;
+                }
             }
+            AddDayToNewTripBean bean = new AddDayToNewTripBean(dayType, city, currentDate);
+            controller.addDayToNewTrip(trip, bean);
         }
-        AddDayToNewTripBean bean = new AddDayToNewTripBean(dayType, city, currentDate);
-        controller.addDayToNewTrip(trip, bean);
+        controller.storeTrip(trip);
     }
 
     @Override
-    public void addActivityInstanceList(TripDay day) {
+    public void addActivityInstanceList(Trip trip, TripDay day) {
         boolean choice = true;
         Activity activity;
         LocalDateTime activityDateTime;
@@ -107,6 +109,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             controller.addActivityInstanceToDay(day, bean);
             choice = view.getChoice("Do you want to add more activities?");
         }
+        controller.storeTripDay(trip, day);
     }
 
     @Override
