@@ -1,9 +1,6 @@
 package pera.trip_planner.controller.graphic_controller;
 
-import pera.trip_planner.controller.logic_controller.Controller;
-import pera.trip_planner.controller.logic_controller.CreateTripController;
-import pera.trip_planner.controller.logic_controller.ModifyTripController;
-import pera.trip_planner.controller.logic_controller.ShowTripController;
+import pera.trip_planner.controller.logic_controller.*;
 
 public interface GraphicApplicationController {
     void showMenu();
@@ -24,8 +21,10 @@ public interface GraphicApplicationController {
                 controller.start();
                 break;
             case 4:
-                System.out.println("Add Review");
-                throw new RuntimeException(errorMessage);
+                controller = LoginController.getInstance();
+                controller.start();
+//                System.out.println("Add Review");
+//                throw new RuntimeException(errorMessage);
                 //break;
             case 5:
                 System.out.println("View city/country info");

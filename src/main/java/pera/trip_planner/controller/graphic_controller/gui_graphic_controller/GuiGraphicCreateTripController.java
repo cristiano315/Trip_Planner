@@ -3,9 +3,11 @@ package pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
+import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
+import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.domain.*;
@@ -29,6 +31,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     private LocalDate tripEndDate;
     private long duration;
     private long currentOffset;
+    private boolean visualized = false;
 
     private City currentCity;
     private DayOfWeek currentDayType;
@@ -58,7 +61,28 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
 
     @Override
     public void done(Trip trip) {
-        view.showAlert("Trip stored succesfully");
+        if(!trip.isRegistered()){
+            if(!visualized){
+                boolean choice = view.showConfirmationChoice("Trip stored succesfully, would you like to visualize it?", "Done");
+                if(choice){
+                    controller.visualizeTrip(trip);
+                    visualized = true;
+                    return;
+                }
+            }
+
+            boolean choice = view.showConfirmationChoice("Would you like to save the trip to your account?", "Done");
+            if(choice){
+                controller.saveToAccount(trip);
+            } else{
+                endCase();
+            }
+        } else{
+            endCase();
+        }
+    }
+
+    private void endCase() {
         GraphicApplicationController newController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicApplicationController();
         newController.runApplication();
     }

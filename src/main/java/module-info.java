@@ -11,4 +11,5 @@ module pera.trip_planner {
     exports pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
     exports pera.trip_planner.controller.graphic_controller.text_graphic_controller;
     exports pera.trip_planner.view.gui;
+    exports pera.trip_planner.controller.task;
 }

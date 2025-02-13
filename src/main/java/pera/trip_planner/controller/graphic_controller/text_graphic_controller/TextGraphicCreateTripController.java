@@ -114,15 +114,17 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
 
     @Override
     public void done(Trip trip) {
-        boolean choice = view.getChoice("Trip succesfully created and saved, would you like to visualize it?");
-        if(choice){
-            ShowTripController showTripController = ShowTripController.getInstance();
-            showTripController.viewTrip(new ViewTripBean(trip.getName()));
-        }
-        choice = view.getChoice("Do you want to add the trip to your account?");
-        if(choice){
-            controller.saveToAccount(trip);
-            System.out.println("Done");
+        if(!trip.isRegistered()){
+            boolean choice = view.getChoice("Trip succesfully created and saved, would you like to visualize it?");
+            if(choice){
+                ShowTripController showTripController = ShowTripController.getInstance();
+                showTripController.viewTrip(new ViewTripBean(trip.getName()));
+            }
+            choice = view.getChoice("Do you want to add the trip to your account?");
+            if(choice){
+                controller.saveToAccount(trip);
+                System.out.println("Done");
+            }
         }
     }
 }

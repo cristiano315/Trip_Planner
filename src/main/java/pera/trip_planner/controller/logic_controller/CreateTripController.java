@@ -1,9 +1,13 @@
 package pera.trip_planner.controller.logic_controller;
 
+import javafx.concurrent.Task;
+import pera.trip_planner.controller.bean.ViewTripBean;
+import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
+import pera.trip_planner.controller.task.ShowTripTask;
 import pera.trip_planner.model.dao.*;
 import pera.trip_planner.model.domain.*;
 
@@ -43,7 +47,6 @@ public class CreateTripController implements Controller {
         trip.setStartDate(bean.getTripStartDate());
         trip.setEndDate(bean.getTripEndDate());
         graphicController.addDays(trip, bean.getTripDuration());
-        //fare con addDays, i come parametro locale(statico) e la duration controllata a ogni store che alla fine chiama store trip
     }
 
     public void addDayToNewTrip(Trip trip, AddDayToNewTripBean bean){
@@ -67,8 +70,18 @@ public class CreateTripController implements Controller {
         user = LoginController.getInstance().retrieveUser();
         if(user == null){
             LoginController.getInstance().start();
-            user = LoginController.getInstance().retrieveUser();
+            Task<User> task = new LoginTask();
+            task.setOnSucceeded(e -> {
+                User result = task.getValue();
+                finishLogin(trip, result);
+            });
+            new Thread(task).start();
+        } else {
+            finishLogin(trip, user);
         }
+    }
+
+    public void finishLogin(Trip trip, User user){
         //user must have the correct role
         if(user.getRole() != Role.USER){
             throw new IllegalArgumentException("Wrong user role");
@@ -76,6 +89,7 @@ public class CreateTripController implements Controller {
         user.addEntity(trip);
         trip.registerToAccount();
         DaoFactory.getInstance().getUserDao().store(user);
+        graphicController.done(trip);
     }
 
     public void storeTrip(Trip trip){
@@ -86,6 +100,16 @@ public class CreateTripController implements Controller {
     public void storeTripDay(Trip trip, TripDay day){
         trip.addTripDay(day);
         tripDayDao.store(day);
+    }
+
+    public void visualizeTrip(Trip trip){
+        ShowTripController showTripController = ShowTripController.getInstance();
+        showTripController.viewTrip(new ViewTripBean(trip.getName()));
+        Task<Boolean> task = new ShowTripTask();
+        task.setOnSucceeded(e -> {
+            graphicController.done(trip);
+        });
+        new Thread(task).start();
     }
 
 }

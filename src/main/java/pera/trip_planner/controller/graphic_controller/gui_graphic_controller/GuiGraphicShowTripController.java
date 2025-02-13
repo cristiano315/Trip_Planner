@@ -14,6 +14,7 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
     private static GuiGraphicShowTripController instance;
     private GuiGraphicShowTripControllerView view;
     private ShowTripController controller = ShowTripController.getInstance();
+    private boolean running;
 
     private GuiGraphicShowTripController(){}
 
@@ -27,11 +28,13 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
 
     @Override
     public void showTripList(User user) {
+        running = true;
         view.showTripList(user);
     }
 
     @Override
     public void showTripInfo(Trip trip) {
+        running = true;
         view.showTripInfo(trip);
     }
 
@@ -42,8 +45,7 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
 
     @Override
     public void login() {
-        view.showAlert("Would you like to login?");
-        showTripList(null);
+        view.showLoginChoice();
     }
 
     public void viewTrip(String tripName) {
@@ -73,7 +75,16 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
     }
 
     public void quit() {
+        running = false;
         GraphicApplicationController newController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicApplicationController();
         newController.runApplication();
+    }
+
+    public void startLogin() {
+        controller.login();
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }

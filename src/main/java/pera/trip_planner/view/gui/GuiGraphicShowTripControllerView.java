@@ -2,9 +2,7 @@ package pera.trip_planner.view.gui;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
@@ -14,6 +12,7 @@ import pera.trip_planner.model.domain.entity_lists.CountryList;
 import pera.trip_planner.model.domain.entity_lists.TripList;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
     private final GuiGraphicShowTripController controller = GuiGraphicShowTripController.getInstance();
@@ -144,4 +143,15 @@ public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
         controller.quit();
     }
 
+    public void showLoginChoice() {
+        Alert loginAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        loginAlert.setContentText("Do you want to login?");
+        loginAlert.setTitle("Login");
+        Optional<ButtonType> choice = loginAlert.showAndWait();
+        if(choice.get() == ButtonType.OK){
+            controller.startLogin();
+        } else{
+            controller.showTripList(null);
+        }
+    }
 }

@@ -1,5 +1,7 @@
 package pera.trip_planner.controller.logic_controller;
 
+import javafx.concurrent.Task;
+import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
@@ -42,9 +44,23 @@ public class ShowTripController implements Controller {
     }
 
     public void login(){
-        LoginController.getInstance().start();
+        LoginController loginController = LoginController.getInstance();
         User user = LoginController.getInstance().retrieveUser();
-        if(user == null || user.getRole() != Role.USER){
+        if(user == null){
+            loginController.start();
+            Task<User> task = new LoginTask();
+            task.setOnSucceeded(e -> {
+                User result = task.getValue();
+                finishLogin(result);
+            });
+            new Thread(task).start();
+        } else {
+            finishLogin(user);
+        }
+    }
+
+    public void finishLogin(User user){
+        if(user.getRole() != Role.USER){
             throw new IllegalArgumentException("Invalid user");
         }
         graphicController.showTripList(user);
