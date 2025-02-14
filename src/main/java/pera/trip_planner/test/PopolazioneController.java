@@ -40,7 +40,7 @@ public class PopolazioneController {
             oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
         } catch(IOException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
