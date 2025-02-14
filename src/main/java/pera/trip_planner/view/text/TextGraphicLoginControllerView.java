@@ -6,21 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TextGraphicLoginControllerView {
+public class TextGraphicLoginControllerView extends GenericTextGraphicView {
     private String errorMessage = "Error reading value, try again";
-
-    public String getString(String message){
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while(true){
-            try{
-                System.out.println(message);
-                return br.readLine();
-            } catch (IOException e){
-                System.out.println(errorMessage);
-                br = new BufferedReader(new InputStreamReader(System.in));
-            }
-        }
-    }
 
     public int getChoice(){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

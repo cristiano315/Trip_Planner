@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class TextGraphicShowTripControllerView {
+public class TextGraphicShowTripControllerView extends GenericTextGraphicView {
     private String errorMessage = "Error reading value, try again";
 
     public void showAvailableTrips(User user){
@@ -27,19 +27,6 @@ public class TextGraphicShowTripControllerView {
         }
         System.out.println("Showing available trips:");
         System.out.println(availableList);
-    }
-
-    public String getString(String message){
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while(true){
-            try{
-                System.out.println(message);
-                return br.readLine();
-            } catch (IOException e){
-                System.out.println(errorMessage);
-                br = new BufferedReader(new InputStreamReader(System.in));
-            }
-        }
     }
 
     public void showTripInfo(Trip trip){
