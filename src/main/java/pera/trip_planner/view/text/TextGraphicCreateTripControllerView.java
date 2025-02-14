@@ -1,10 +1,5 @@
 package pera.trip_planner.view.text;
 
-import pera.trip_planner.model.dao.DaoFactory;
-import pera.trip_planner.model.domain.City;
-import pera.trip_planner.model.domain.Country;
-import pera.trip_planner.model.domain.entity_lists.CountryList;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,19 +26,4 @@ public class TextGraphicCreateTripControllerView extends GenericTextGraphicView 
         }
     }
 
-    public void showCountries(){
-        CountryList countries = DaoFactory.getInstance().getCountryDao().countryList();
-        System.out.println("Available countries:");
-        System.out.println(countries);
-    }
-
-    public void showCities(Country country){
-        System.out.println("Available cities:");
-        System.out.println(country.getCities());
-    }
-
-    public void showActivities(City city){
-        System.out.println("Available activities:");
-        System.out.println(city.getActivities());
-    }
 }
