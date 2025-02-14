@@ -23,6 +23,7 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
             instance = new GuiGraphicShowTripController();
             instance.view = new GuiGraphicShowTripControllerView();
         }
+        instance.setRunning();
         return instance;
     }
 
@@ -40,6 +41,7 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
 
     @Override
     public void showTripDayInfo(Trip trip, TripDay day) {
+        running = true;
         view.showTripDayInfo(trip, day);
     }
 
@@ -86,5 +88,9 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
 
     public boolean isRunning() {
         return running;
+    }
+
+    public void setRunning(){
+        running = true;
     }
 }

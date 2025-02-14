@@ -73,7 +73,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
             default:
                 throw new IllegalArgumentException(illegalChoiceError);
         }
-
+        controller.storeTrip(trip);
     }
 
     @Override

@@ -2,6 +2,7 @@ package pera.trip_planner.view.gui;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
 import pera.trip_planner.exception.GuiException;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ public abstract class GenericGuiGraphicView {
     public void showAlert(String message){
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText(message);
-        a.show();
+        a.showAndWait();
     }
 
     public boolean showConfirmationChoice(String message, String title){
@@ -33,5 +34,16 @@ public abstract class GenericGuiGraphicView {
         } else{
             return false;
         }
+    }
+
+    public String getString(String message, String title){
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(title);
+        dialog.setContentText(message);
+        Optional<String> result = dialog.showAndWait();
+        while(result == null || result.isEmpty()){
+            result = dialog.showAndWait();
+        }
+        return result.get();
     }
 }

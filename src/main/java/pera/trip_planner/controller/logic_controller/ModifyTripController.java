@@ -1,11 +1,14 @@
 package pera.trip_planner.controller.logic_controller;
 
+import javafx.concurrent.Task;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.ModifyTripBean;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.graphic_controller.GraphicModifyTripController;
+import pera.trip_planner.controller.task.CreateTripTask;
+import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.dao.TripDao;
@@ -39,8 +42,22 @@ public class ModifyTripController implements Controller {
     }
 
     public void login(){
-        LoginController.getInstance().start();
-        User user = LoginController.getInstance().retrieveUser();
+        LoginController loginController = LoginController.getInstance();
+        User user = loginController.retrieveUser();
+        if(user == null){
+            loginController.start();
+            Task<User> task = new LoginTask();
+            task.setOnSucceeded(e -> {
+                User result = task.getValue();
+                finishLogin(result);
+            });
+            new Thread(task).start();
+        } else {
+            finishLogin(user);
+        }
+    }
+
+    private void finishLogin(User user) {
         if(user == null || user.getRole() != Role.USER){
             throw new IllegalArgumentException("Invalid user");
         }
@@ -52,8 +69,6 @@ public class ModifyTripController implements Controller {
         Trip trip = dao.load(bean.tripname);
         dao.delete(bean.tripname);
         graphicController.modifyTripInfo(trip);
-        dao.store(trip);
-        graphicController.done(trip);
     }
 
     public void modifyName(Trip trip, ModifyTripBean bean) {
@@ -66,6 +81,11 @@ public class ModifyTripController implements Controller {
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         long duration = ChronoUnit.DAYS.between(trip.getStartDate(), trip.getEndDate());
         graphicCreateTripController.addDays(trip, duration);
+        Task<Boolean> task = new CreateTripTask();
+        task.setOnSucceeded(e -> {
+            storeTrip(trip);
+        });
+        new Thread(task).start();
     }
 
     public void modifyDates(Trip trip, ModifyTripBean bean) {
@@ -75,6 +95,11 @@ public class ModifyTripController implements Controller {
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         long duration = ChronoUnit.DAYS.between(trip.getStartDate(), trip.getEndDate());
         graphicCreateTripController.addDays(trip, duration);
+        Task<Boolean> task = new CreateTripTask();
+        task.setOnSucceeded(e -> {
+            storeTrip(trip);
+        });
+        new Thread(task).start();
     }
 
     public void modifyDayCity(Trip trip, TripDay day, AddDayToNewTripBean bean) {
@@ -101,5 +126,10 @@ public class ModifyTripController implements Controller {
         DaoFactory.getInstance().getActivityInstanceDao().store(activityInstance);
         day.getActivityInstanceList().addEntity(activityInstance);
         DaoFactory.getInstance().getTripDayDao().store(day);
+    }
+
+    public void storeTrip(Trip trip) {
+        DaoFactory.getInstance().getTripDao().store(trip);
+        graphicController.done(trip);
     }
 }

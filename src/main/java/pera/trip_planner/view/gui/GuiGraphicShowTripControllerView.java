@@ -8,7 +8,6 @@ import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.Gu
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
 import pera.trip_planner.model.domain.entity_lists.ActivityInstanceList;
-import pera.trip_planner.model.domain.entity_lists.CountryList;
 import pera.trip_planner.model.domain.entity_lists.TripList;
 
 import java.util.ArrayList;
@@ -18,24 +17,24 @@ public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
     private final GuiGraphicShowTripController controller = GuiGraphicShowTripController.getInstance();
     private final String ERROR_MESSAGE = "Error in showTrip GUI";
     private static User user;
-    private static Trip currentTrip;
-    private static TripDay currentTripDay;
+    protected static Trip currentTrip;
+    protected static TripDay currentTripDay;
     @FXML
-    private ListView<String> tripListView;
+    protected ListView<String> tripListView;
     @FXML
-    private Label tripNameLabel;
+    protected Label tripNameLabel;
     @FXML
-    private Label countryNameLabel;
+    protected Label countryNameLabel;
     @FXML
-    private Label startDateLabel;
+    protected Label startDateLabel;
     @FXML
-    private Label endDateLabel;
+    protected Label endDateLabel;
     @FXML
-    private Label tripNameDaysLabel;
+    protected Label tripNameDaysLabel;
     @FXML
-    private Label dayInfoLabel;
+    protected Label dayInfoLabel;
     @FXML
-    private ListView<String> activitiesListView;
+    protected ListView<String> activitiesListView;
 
 
     public void showTripList(User newUser) {
@@ -65,7 +64,7 @@ public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
         }
     }
 
-    private void initializeTripInfoLabels() {
+    public void initializeTripInfoLabels() {
         tripNameLabel.setText(currentTrip.getName());
         countryNameLabel.setText("Country: " + currentTrip.getCountry().countryName());
         startDateLabel.setText("Start Date: " + currentTrip.getStartDate());
@@ -109,10 +108,14 @@ public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
 
                 if (click.getClickCount() == 2) {
                     String tripName = tripListView.getSelectionModel().getSelectedItem();
-                    controller.viewTrip(tripName);
+                    callControllerViewTrip(tripName);
                 }
             }
         });
+    }
+
+    public void callControllerViewTrip(String tripName) {
+        controller.viewTrip(tripName);
     }
 
     public void viewFirstDay(){

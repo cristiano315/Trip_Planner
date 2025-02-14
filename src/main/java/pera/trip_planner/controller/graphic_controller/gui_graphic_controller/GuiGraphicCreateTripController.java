@@ -3,11 +3,9 @@ package pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
-import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
-import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.domain.*;
@@ -24,6 +22,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     private static final String UNSUPPORTED_MESSAGE = "Not supported yet.";
     private static GuiGraphicCreateTripController instance;
     private GuiGraphicCreateTripControllerView view;
+    private boolean running;
     //params for logic controller
     private String tripName;
     private Country tripCountry;
@@ -44,6 +43,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
         if (instance == null) {
             instance = new GuiGraphicCreateTripController();
         }
+        instance.setRunning();
         return instance;
     }
 
@@ -83,6 +83,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     }
 
     private void endCase() {
+        running = false;
         GraphicApplicationController newController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicApplicationController();
         newController.runApplication();
     }
@@ -126,7 +127,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     }
 
     public void setDayCity(String tripCity) {
-        City city = tripCountry.getCities().getEntityByName(tripCity);
+        City city = currentTrip.getCountry().getCities().getEntityByName(tripCity);
         if(city == null) {
             throw new IllegalArgumentException("City not found");
         }
@@ -161,5 +162,13 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
 
     public void storeDay(TripDay currentTripDay) {
         controller.storeTripDay(currentTrip, currentTripDay);
+    }
+
+    public boolean isRunning(){
+        return running;
+    }
+
+    public void setRunning(){
+        running = true;
     }
 }

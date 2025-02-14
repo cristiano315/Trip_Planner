@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicModifyTripControllerView">
+   <children>
+      <Label fx:id="tripNameLabel" alignment="CENTER" layoutX="2.0" layoutY="78.0" prefHeight="153.0" prefWidth="1916.0" text="Trip Name" textAlignment="CENTER">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <Label fx:id="countryNameLabel" layoutX="150.0" layoutY="312.0" text="Country: Italy">
+         <font>
+            <Font size="78.0" />
+         </font>
+      </Label>
+      <Label fx:id="startDateLabel" layoutX="143.0" layoutY="493.0" text="Start date: 2022-02-02">
+         <font>
+            <Font size="78.0" />
+         </font>
+      </Label>
+      <Label fx:id="endDateLabel" layoutX="144.0" layoutY="667.0" text="End date: 2022-02-04">
+         <font>
+            <Font size="78.0" />
+         </font>
+      </Label>
+      <Button fx:id="viewDaysButton" layoutX="1473.0" layoutY="854.0" mnemonicParsing="false" onAction="#changeDays" prefHeight="183.0" prefWidth="371.0" text="Modify days">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Button>
+      <Button layoutX="589.0" layoutY="854.0" mnemonicParsing="false" onAction="#modifyCountry" prefHeight="183.0" prefWidth="371.0" text="Change country">
+         <font>
+            <Font size="44.0" />
+         </font>
+      </Button>
+      <Button layoutX="1040.0" layoutY="854.0" mnemonicParsing="false" onAction="#modifyDates" prefHeight="183.0" prefWidth="371.0" text="Change dates">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="852.0" mnemonicParsing="false" onAction="#modifyName" prefHeight="183.0" prefWidth="371.0" text="Change name">
+         <font>
+            <Font size="49.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,10 +1,7 @@
 package pera.trip_planner.model.dao;
 
 import pera.trip_planner.controller.graphic_controller.*;
-import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicApplicationController;
-import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicCreateTripController;
-import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicLoginController;
-import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicShowTripController;
+import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.*;
 
 public class GUIGraphicControllerFactory extends GraphicControllerFactory{
     public GraphicApplicationController getGraphicApplicationController() {
@@ -27,6 +24,6 @@ public class GUIGraphicControllerFactory extends GraphicControllerFactory{
 
     @Override
     public GraphicModifyTripController getGraphicModifyTripController() {
-        return null;
+        return GuiGraphicModifyTripController.getInstance();
     }
 }
