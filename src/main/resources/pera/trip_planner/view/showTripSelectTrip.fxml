@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -29,5 +30,13 @@
          </GridPane.margin>
       </Label>
       <ListView fx:id="tripListView" fixedCellSize="40.0" prefHeight="724.0" prefWidth="1313.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#newTrip" prefHeight="157.0" prefWidth="535.0" text="Add new trip" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font size="65.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="425.0" />
+         </GridPane.margin>
+      </Button>
    </children>
 </GridPane>

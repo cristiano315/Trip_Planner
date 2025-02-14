@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicShowTripController;
+import pera.trip_planner.controller.logic_controller.CreateTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
 import pera.trip_planner.model.domain.entity_lists.ActivityInstanceList;
@@ -156,5 +157,9 @@ public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
         } else{
             controller.showTripList(null);
         }
+    }
+
+    public void newTrip(){
+        CreateTripController.getInstance().start();
     }
 }
