@@ -13,7 +13,6 @@ public abstract class GenericGuiGraphicView {
         try{
             GuiGraphicApplicationControllerView.setRoot(fxml);
         } catch (IOException e) {
-            e.printStackTrace();
             throw new GuiException(error);
         }
     }
@@ -41,7 +40,7 @@ public abstract class GenericGuiGraphicView {
         dialog.setTitle(title);
         dialog.setContentText(message);
         Optional<String> result = dialog.showAndWait();
-        while(result == null || result.isEmpty()){
+        while(result.isEmpty() || result.get().isEmpty()){
             result = dialog.showAndWait();
         }
         return result.get();

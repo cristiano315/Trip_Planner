@@ -13,7 +13,7 @@ public class LoginTask extends Task<User> {
             try{
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
             }
             user = loginController.retrieveUser();
         }

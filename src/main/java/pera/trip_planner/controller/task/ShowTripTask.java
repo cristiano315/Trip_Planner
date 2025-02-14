@@ -13,7 +13,7 @@ public class ShowTripTask extends Task<Boolean> {
             try{
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
             }
             done = controller.isRunning();
         }
