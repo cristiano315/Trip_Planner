@@ -2,6 +2,7 @@ package pera.trip_planner.model.dao.inmemory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pera.trip_planner.exception.JsonException;
 import pera.trip_planner.model.dao.CountryDao;
 import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.entity_lists.CountryList;
@@ -36,8 +37,7 @@ public class InMemoryCountryDao extends InMemoryDao<String, Country> implements 
             TypeReference<Map<String, Country>> ref = new TypeReference<Map<String, Country>>(){};
             instance.memory = mapper.readValue(file, ref);
         } catch (IOException e) {
-            //throw new JsonException("Error reading countries");
-            e.printStackTrace();
+            throw new JsonException("Error reading countries");
         }
     }
 

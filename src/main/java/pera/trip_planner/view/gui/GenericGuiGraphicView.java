@@ -3,6 +3,7 @@ package pera.trip_planner.view.gui;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
+import pera.trip_planner.exception.GuiException;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -12,8 +13,7 @@ public abstract class GenericGuiGraphicView {
         try{
             GuiGraphicApplicationControllerView.setRoot(fxml);
         } catch (IOException e) {
-            //throw new GuiException(error);
-            e.printStackTrace();
+            throw new GuiException(error);
         }
     }
 
