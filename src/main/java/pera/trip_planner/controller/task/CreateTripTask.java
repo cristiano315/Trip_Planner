@@ -2,7 +2,6 @@ package pera.trip_planner.controller.task;
 
 import javafx.concurrent.Task;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicCreateTripController;
-import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicShowTripController;
 
 public class CreateTripTask extends Task<Boolean> {
     @Override

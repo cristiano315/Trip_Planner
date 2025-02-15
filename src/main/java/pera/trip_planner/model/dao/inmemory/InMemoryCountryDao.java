@@ -1,6 +1,5 @@
 package pera.trip_planner.model.dao.inmemory;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pera.trip_planner.exception.JsonException;
@@ -9,10 +8,7 @@ import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.entity_lists.CountryList;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.HashMap;
 import java.util.Map;
 
 

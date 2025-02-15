@@ -1,7 +1,6 @@
 package pera.trip_planner.model.dao.file_system;
 
 import pera.trip_planner.model.dao.*;
-import pera.trip_planner.model.domain.Role;
 
 public class FileSystemDaoFactory extends DaoFactory {
 

@@ -1,6 +1,9 @@
 package pera.trip_planner.controller.graphic_controller;
 
-import pera.trip_planner.controller.logic_controller.*;
+import pera.trip_planner.controller.logic_controller.Controller;
+import pera.trip_planner.controller.logic_controller.CreateTripController;
+import pera.trip_planner.controller.logic_controller.ModifyTripController;
+import pera.trip_planner.controller.logic_controller.ShowTripController;
 
 public interface GraphicApplicationController {
     void showMenu();

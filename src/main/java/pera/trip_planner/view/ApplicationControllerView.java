@@ -1,7 +1,5 @@
 package pera.trip_planner.view;
 
-import pera.trip_planner.controller.logic_controller.ApplicationController;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

@@ -4,7 +4,6 @@ import javafx.concurrent.Task;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.ModifyTripBean;
 import pera.trip_planner.controller.bean.ViewTripBean;
-import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicModifyTripController;
 import pera.trip_planner.controller.logic_controller.ModifyTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;

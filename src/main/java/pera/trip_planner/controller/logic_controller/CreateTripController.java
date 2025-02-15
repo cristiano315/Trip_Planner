@@ -1,11 +1,10 @@
 package pera.trip_planner.controller.logic_controller;
 
 import javafx.concurrent.Task;
-import pera.trip_planner.controller.bean.ViewTripBean;
-import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.controller.bean.AddActivityInstanceToDayBean;
 import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.CreateNewTripBean;
+import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.task.ShowTripTask;
 import pera.trip_planner.model.dao.*;

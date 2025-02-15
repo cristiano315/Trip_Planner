@@ -1,13 +1,14 @@
 package pera.trip_planner.controller.logic_controller;
 
-import javafx.concurrent.Task;
-import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.dao.TripDao;
-import pera.trip_planner.model.domain.*;
+import pera.trip_planner.model.domain.Role;
+import pera.trip_planner.model.domain.Trip;
+import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.User;
 
 public class ShowTripController implements Controller {
     private static ShowTripController instance;

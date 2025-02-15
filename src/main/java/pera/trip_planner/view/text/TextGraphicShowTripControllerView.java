@@ -1,7 +1,10 @@
 package pera.trip_planner.view.text;
 
 import pera.trip_planner.model.dao.DaoFactory;
-import pera.trip_planner.model.domain.*;
+import pera.trip_planner.model.domain.ActivityInstance;
+import pera.trip_planner.model.domain.Trip;
+import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.User;
 import pera.trip_planner.model.domain.entity_lists.TripList;
 
 import java.io.BufferedReader;

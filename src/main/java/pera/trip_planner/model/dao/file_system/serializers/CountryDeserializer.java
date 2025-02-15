@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.Country;
 
-
 import java.io.IOException;
 
 public class CountryDeserializer extends StdDeserializer<Country> {

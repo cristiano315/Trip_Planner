@@ -1,7 +1,7 @@
 package pera.trip_planner.controller.graphic_controller.text_graphic_controller;
 
 import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
-import pera.trip_planner.controller.logic_controller.*;
+import pera.trip_planner.controller.logic_controller.ApplicationController;
 import pera.trip_planner.view.text.TextGraphicApplicationControllerView;
 
 public class TextGraphicApplicationController implements GraphicApplicationController {

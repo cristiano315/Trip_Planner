@@ -2,7 +2,10 @@ package pera.trip_planner.view.gui;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicModifyTripController;
 import pera.trip_planner.model.dao.DaoFactory;

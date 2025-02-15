@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import pera.trip_planner.exception.JsonException;
 import pera.trip_planner.model.dao.DAO;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.File;
 import java.io.IOException;

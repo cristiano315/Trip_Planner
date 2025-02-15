@@ -1,6 +1,5 @@
 package pera.trip_planner.controller.graphic_controller;
 
-import pera.trip_planner.model.domain.GeneralUser;
 import pera.trip_planner.model.domain.Trip;
 import pera.trip_planner.model.domain.TripDay;
 import pera.trip_planner.model.domain.User;

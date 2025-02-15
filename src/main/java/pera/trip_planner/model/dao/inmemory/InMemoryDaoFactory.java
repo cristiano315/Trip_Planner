@@ -1,7 +1,6 @@
 package pera.trip_planner.model.dao.inmemory;
 
 import pera.trip_planner.model.dao.*;
-import pera.trip_planner.model.domain.Role;
 
 public class InMemoryDaoFactory extends DaoFactory {
     @Override

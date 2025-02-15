@@ -1,9 +1,7 @@
 package pera.trip_planner.model.dao.inmemory;
 
 import pera.trip_planner.model.dao.TripDao;
-import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.Trip;
-import pera.trip_planner.model.domain.entity_lists.CountryList;
 import pera.trip_planner.model.domain.entity_lists.TripList;
 
 public class InMemoryTripDao extends InMemoryDao<String, Trip> implements TripDao {

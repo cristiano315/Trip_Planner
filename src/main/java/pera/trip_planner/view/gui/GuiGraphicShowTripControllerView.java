@@ -2,12 +2,18 @@ package pera.trip_planner.view.gui;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicShowTripController;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
 import pera.trip_planner.model.dao.DaoFactory;
-import pera.trip_planner.model.domain.*;
+import pera.trip_planner.model.domain.ActivityInstance;
+import pera.trip_planner.model.domain.Trip;
+import pera.trip_planner.model.domain.TripDay;
+import pera.trip_planner.model.domain.User;
 import pera.trip_planner.model.domain.entity_lists.ActivityInstanceList;
 import pera.trip_planner.model.domain.entity_lists.TripList;
 
