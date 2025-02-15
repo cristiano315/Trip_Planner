@@ -6,6 +6,7 @@ import pera.trip_planner.controller.bean.CreateNewTripBean;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.logic_controller.CreateTripController;
+import pera.trip_planner.controller.logic_controller.LoginController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
@@ -123,6 +124,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             choice = view.getChoice("Do you want to add the trip to your account?");
             if(choice){
                 controller.saveToAccount(trip);
+                controller.finishLogin(trip, LoginController.getInstance().retrieveUser());
                 System.out.println("Done");
             }
         }

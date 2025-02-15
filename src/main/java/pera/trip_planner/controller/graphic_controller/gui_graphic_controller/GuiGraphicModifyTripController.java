@@ -8,6 +8,7 @@ import pera.trip_planner.controller.graphic_controller.GraphicApplicationControl
 import pera.trip_planner.controller.graphic_controller.GraphicModifyTripController;
 import pera.trip_planner.controller.logic_controller.ModifyTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
+import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.controller.task.ShowTripTask;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
@@ -40,6 +41,12 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
         boolean choice = view.showConfirmationChoice("Would you like to log in?", "Login");
         if(choice){
             controller.login();
+            Task<User> task = new LoginTask();
+            task.setOnSucceeded(e -> {
+                User result = task.getValue();
+                controller.finishLogin(result);
+            });
+            new Thread(task).start();
         } else{
             showTripList(null);
         }

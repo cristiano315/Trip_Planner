@@ -69,12 +69,6 @@ public class CreateTripController implements Controller {
         user = LoginController.getInstance().retrieveUser();
         if(user == null){
             LoginController.getInstance().start();
-            Task<User> task = new LoginTask();
-            task.setOnSucceeded(e -> {
-                User result = task.getValue();
-                finishLogin(trip, result);
-            });
-            new Thread(task).start();
         } else {
             finishLogin(trip, user);
         }
@@ -85,8 +79,9 @@ public class CreateTripController implements Controller {
         if(user.getRole() != Role.USER){
             throw new IllegalArgumentException("Wrong user role");
         }
-        user.addEntity(trip);
         trip.registerToAccount();
+        user.addEntity(trip);
+        tripDao.store(trip);
         DaoFactory.getInstance().getUserDao().store(user);
         graphicController.done(trip);
     }

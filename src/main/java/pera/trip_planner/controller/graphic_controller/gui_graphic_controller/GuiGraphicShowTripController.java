@@ -1,9 +1,11 @@
 package pera.trip_planner.controller.graphic_controller.gui_graphic_controller;
 
+import javafx.concurrent.Task;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicApplicationController;
 import pera.trip_planner.controller.graphic_controller.GraphicShowTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
+import pera.trip_planner.controller.task.LoginTask;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.domain.Trip;
 import pera.trip_planner.model.domain.TripDay;
@@ -84,6 +86,12 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
 
     public void startLogin() {
         controller.login();
+        Task<User> task = new LoginTask();
+        task.setOnSucceeded(e -> {
+            User result = task.getValue();
+            controller.finishLogin(result);
+        });
+        new Thread(task).start();
     }
 
     public boolean isRunning() {

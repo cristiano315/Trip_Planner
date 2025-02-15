@@ -5,6 +5,7 @@ import pera.trip_planner.controller.bean.AddDayToNewTripBean;
 import pera.trip_planner.controller.bean.ModifyTripBean;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicModifyTripController;
+import pera.trip_planner.controller.logic_controller.LoginController;
 import pera.trip_planner.controller.logic_controller.ModifyTripController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
@@ -81,6 +82,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
         boolean choice = view.getBooleanChoice("Would you like to log in?");
         if(choice){
             controller.login();
+            controller.finishLogin(LoginController.getInstance().retrieveUser());
         } else{
             showTripList(null);
         }

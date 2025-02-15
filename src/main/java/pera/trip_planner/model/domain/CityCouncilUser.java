@@ -4,6 +4,8 @@ import pera.trip_planner.model.domain.entity_lists.CityList;
 
 public class CityCouncilUser extends GeneralUser<CityList, City> {
 
+    public CityCouncilUser() {}
+
     public CityCouncilUser(String username) {
         super(username);
         this.userList = new CityList();

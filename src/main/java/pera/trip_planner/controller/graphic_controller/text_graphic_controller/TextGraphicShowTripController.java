@@ -2,6 +2,7 @@ package pera.trip_planner.controller.graphic_controller.text_graphic_controller;
 
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicShowTripController;
+import pera.trip_planner.controller.logic_controller.LoginController;
 import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
@@ -71,6 +72,7 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
         boolean choice = view.getBooleanChoice("Would you like to log in?");
         if(choice){
             controller.login();
+            controller.finishLogin(LoginController.getInstance().retrieveUser());
         } else{
             showTripList(null);
         }

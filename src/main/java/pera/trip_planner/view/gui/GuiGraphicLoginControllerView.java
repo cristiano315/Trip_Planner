@@ -53,7 +53,7 @@ public class GuiGraphicLoginControllerView extends GenericGuiGraphicView{
     }
 
     public void login(){
-        setRegister(true);
+        setRegister(false);
         setScene("view/loginInterface", ERROR_MESSAGE);
     }
 

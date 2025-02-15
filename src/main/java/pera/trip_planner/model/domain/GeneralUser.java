@@ -15,6 +15,8 @@ public abstract class GeneralUser<L extends EntityList<E>, E> implements Seriali
         this.username = username;
     }
 
+    protected GeneralUser() {}
+
     public String getUsername() {
         return username;
     }
@@ -25,6 +27,10 @@ public abstract class GeneralUser<L extends EntityList<E>, E> implements Seriali
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public Role getRole() {

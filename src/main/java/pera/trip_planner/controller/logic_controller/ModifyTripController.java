@@ -43,21 +43,10 @@ public class ModifyTripController implements Controller {
 
     public void login(){
         LoginController loginController = LoginController.getInstance();
-        User user = loginController.retrieveUser();
-        if(user == null){
-            loginController.start();
-            Task<User> task = new LoginTask();
-            task.setOnSucceeded(e -> {
-                User result = task.getValue();
-                finishLogin(result);
-            });
-            new Thread(task).start();
-        } else {
-            finishLogin(user);
-        }
+        loginController.start();
     }
 
-    private void finishLogin(User user) {
+    public void finishLogin(User user) {
         if(user == null || user.getRole() != Role.USER){
             throw new IllegalArgumentException("Invalid user");
         }

@@ -3,7 +3,6 @@ package pera.trip_planner.model.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import pera.trip_planner.model.dao.file_system.serializers.CountryDeserializer;
 import pera.trip_planner.model.dao.file_system.serializers.CountrySerializer;
 import pera.trip_planner.model.domain.entity_lists.TripDayList;
@@ -73,6 +72,7 @@ public class Trip {
         registered = true;
     }
 
+    @JsonProperty("registered")
     public boolean isRegistered(){
         return registered;
     }

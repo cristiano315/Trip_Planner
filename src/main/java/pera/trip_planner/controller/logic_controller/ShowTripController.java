@@ -45,18 +45,7 @@ public class ShowTripController implements Controller {
 
     public void login(){
         LoginController loginController = LoginController.getInstance();
-        User user = LoginController.getInstance().retrieveUser();
-        if(user == null){
-            loginController.start();
-            Task<User> task = new LoginTask();
-            task.setOnSucceeded(e -> {
-                User result = task.getValue();
-                finishLogin(result);
-            });
-            new Thread(task).start();
-        } else {
-            finishLogin(user);
-        }
+        loginController.start();
     }
 
     public void finishLogin(User user){
