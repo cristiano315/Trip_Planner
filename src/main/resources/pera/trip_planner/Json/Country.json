@@ -8341,7 +8341,6 @@
             "name" : "prova",
             "description" : null,
             "location" : null,
-            "dayInfos" : [ ],
             "announcements" : {
               "list" : [ ]
             }
@@ -8349,7 +8348,6 @@
             "name" : "prova2",
             "description" : null,
             "location" : null,
-            "dayInfos" : [ ],
             "announcements" : {
               "list" : [ ]
             }
@@ -8357,7 +8355,6 @@
             "name" : "prova3",
             "description" : null,
             "location" : null,
-            "dayInfos" : [ ],
             "announcements" : {
               "list" : [ ]
             }

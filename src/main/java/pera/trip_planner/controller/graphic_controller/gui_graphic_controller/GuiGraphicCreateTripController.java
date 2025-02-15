@@ -81,7 +81,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
                 Task<User> task = new LoginTask();
                 task.setOnSucceeded(e -> {
                     User result = task.getValue();
-                    controller.finishLogin(trip, result);
+                    controller.finishSavingToAccount(trip, result);
                 });
                 new Thread(task).start();
             } else{

@@ -130,7 +130,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             choice = view.getChoice("Do you want to add the trip to your account?");
             if(choice){
                 controller.saveToAccount(trip);
-                controller.finishLogin(trip, LoginController.getInstance().retrieveUser());
+                controller.finishSavingToAccount(trip, LoginController.getInstance().retrieveUser());
                 view.showMessage("Done");
             }
         }

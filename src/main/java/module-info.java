@@ -5,6 +5,8 @@ module pera.trip_planner {
     requires com.fasterxml.jackson.datatype.jsr310;
     requires com.fasterxml.jackson.databind;
     requires java.sql;
+    requires org.testng;
+    requires org.junit.jupiter.api;
 
     opens pera.trip_planner to javafx.fxml;
     opens pera.trip_planner.view.gui to javafx.fxml;
@@ -20,4 +22,5 @@ module pera.trip_planner {
     exports pera.trip_planner.model.domain to com.fasterxml.jackson.databind;
     exports pera.trip_planner.model.domain.entity_lists to com.fasterxml.jackson.databind;
     exports pera.trip_planner.model.dao.file_system.serializers to com.fasterxml.jackson.databind;
+    exports pera.trip_planner.test to org.testng;
 }

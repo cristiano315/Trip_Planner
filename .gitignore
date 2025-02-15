@@ -1,7 +1,6 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
-!**/src/test/**/target/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -29,7 +28,6 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
@@ -39,4 +37,4 @@ build/
 
 /src/main/java/pera/trip_planner/TEMPLATE GRAFICA/
 /src/main/resources/pera/trip_planner/template_grafica
-/src/main/java/pera/trip_planner/test/
+

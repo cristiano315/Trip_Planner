@@ -71,11 +71,11 @@ public class CreateTripController implements Controller {
         if(user == null){
             LoginController.getInstance().start();
         } else {
-            finishLogin(trip, user);
+            finishSavingToAccount(trip, user);
         }
     }
 
-    public void finishLogin(Trip trip, User user){
+    public void finishSavingToAccount(Trip trip, User user){
         //user must have the correct role
         if(user.getRole() != Role.USER){
             throw new IllegalArgumentException("Wrong user role");
