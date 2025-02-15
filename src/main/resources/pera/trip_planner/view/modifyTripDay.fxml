@@ -20,7 +20,7 @@
             <Font size="77.0" />
          </font>
       </Label>
-      <ListView fx:id="activitiesListView" fixedCellSize="60.0" layoutX="396.0" layoutY="426.0" prefHeight="486.0" prefWidth="1090.0" />
+      <ListView fx:id="addActivitiesListView" fixedCellSize="60.0" layoutX="396.0" layoutY="426.0" prefHeight="486.0" prefWidth="1090.0" />
       <Button layoutX="398.0" layoutY="930.0" mnemonicParsing="false" onAction="#addActivity" prefHeight="119.0" prefWidth="504.0" style="-fx-background-color: red;" text="Add activity">
          <font>
             <Font size="55.0" />

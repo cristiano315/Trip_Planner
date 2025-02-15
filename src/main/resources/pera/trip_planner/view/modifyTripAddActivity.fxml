@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicModifyTripControllerView">
    <children>
-      <ListView fx:id="activitiesListView" fixedCellSize="40.0" layoutX="323.0" layoutY="218.0" prefHeight="602.0" prefWidth="1041.0" />
+      <ListView fx:id="addActivitiesListView" fixedCellSize="40.0" layoutX="323.0" layoutY="218.0" prefHeight="602.0" prefWidth="1041.0" />
       <Button layoutX="329.0" layoutY="854.0" mnemonicParsing="false" onAction="#addActivityToDay" prefHeight="174.0" prefWidth="1032.0" text="Add">
          <font>
             <Font size="82.0" />

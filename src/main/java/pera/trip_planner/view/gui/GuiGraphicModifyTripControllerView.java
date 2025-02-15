@@ -5,15 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicModifyTripController;
-import pera.trip_planner.controller.logic_controller.ShowTripController;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.domain.*;
 import pera.trip_planner.model.domain.entity_lists.ActivityList;
 import pera.trip_planner.model.domain.entity_lists.CountryList;
-import pera.trip_planner.model.domain.entity_lists.TripList;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripControllerView {
     private final GuiGraphicModifyTripController controller = GuiGraphicModifyTripController.getInstance();
@@ -25,7 +22,7 @@ public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripContro
     @FXML
     private DatePicker endDatePicker;
     @FXML
-    private ListView<String> activitiesListView;
+    private ListView<String> addActivitiesListView;
     @FXML
     private Slider hourSlider;
     @FXML
@@ -55,7 +52,7 @@ public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripContro
         } else if(tripNameDaysLabel != null){
             initializeDaysInfoLabels();
             initializeActivitiesList();
-        } else if(activitiesListView != null) {
+        } else if(addActivitiesListView != null) {
             initializeSelectActivitiesList();
         }
     }
@@ -64,7 +61,7 @@ public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripContro
         ActivityList activities = currentTripDay.getCity().getActivities();
         activities.sort();
         for(Activity a : activities.getList()){
-            activitiesListView.getItems().add(a.getName());
+            addActivitiesListView.getItems().add(a.getName());
         }
     }
 
@@ -131,7 +128,7 @@ public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripContro
     }
 
     public void removeActivity(){
-        String activity = activitiesListView.getSelectionModel().getSelectedItem();
+        String activity = addActivitiesListView.getSelectionModel().getSelectedItem();
         if(activity == null){
             showAlert("Choose an activity");
         } else{
@@ -160,10 +157,10 @@ public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripContro
     }
 
     public void addActivityToDay(){
-        if(activitiesListView.getSelectionModel().getSelectedItem() == null){
+        if(addActivitiesListView.getSelectionModel().getSelectedItem() == null){
             showAlert("Choose an activity");
         } else{
-            String activityName = activitiesListView.getSelectionModel().getSelectedItem();
+            String activityName = addActivitiesListView.getSelectionModel().getSelectedItem();
             int hour = (int) hourSlider.getValue();
             int minutes = (int) minutesSlider.getValue();
             controller.addActivity(currentTripDay, activityName, hour, minutes);
