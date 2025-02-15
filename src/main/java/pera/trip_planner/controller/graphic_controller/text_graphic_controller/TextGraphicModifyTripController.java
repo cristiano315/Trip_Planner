@@ -155,11 +155,11 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
             }
             controller.modifyDayCity(trip, day, new AddDayToNewTripBean(null, city, null));
         } else if (choice == 2){
-            showAndModifyActivities(trip, day);
+            showAndModifyActivities(day);
         }
     }
 
-    public void showAndModifyActivities(Trip trip, TripDay day){
+    public void showAndModifyActivities(TripDay day){
         view.showMessage("Current activities: ");
         view.showMessage(day.getActivityInstanceList().toString());
         while(true){

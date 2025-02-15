@@ -1,6 +1,7 @@
 package pera.trip_planner.model.dao;
 
 import pera.trip_planner.controller.graphic_controller.*;
+import pera.trip_planner.exception.GuiException;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -18,7 +19,7 @@ public abstract class GraphicControllerFactory {
                 instance = graphicProvider.getGraphicControllerFactoryClass().getConstructor().newInstance();
             } catch(InstantiationException | IllegalAccessException | IllegalArgumentException |
                     InvocationTargetException | NoSuchMethodException | SecurityException e){
-                throw new RuntimeException(e);
+                throw new GuiException("Unable to get graphic controller factory instance from provider");
             }
         }
         return instance;

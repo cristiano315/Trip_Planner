@@ -1,7 +1,6 @@
 package pera.trip_planner.model.dao;
 
-import pera.trip_planner.model.domain.ActivityManagerUser;
-import pera.trip_planner.model.domain.Role;
+import pera.trip_planner.exception.DAOException;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -19,7 +18,7 @@ public abstract class DaoFactory {
                 instance = persistenceProvider.getDaoFactoryClass().getConstructor().newInstance();
             } catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
                      InvocationTargetException | NoSuchMethodException | SecurityException e) {
-                throw new RuntimeException(e);
+                throw new DAOException("Unable to get DaoFactory instance from provider");
             }
         }
         return instance;
