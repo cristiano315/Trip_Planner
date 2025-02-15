@@ -15,6 +15,4 @@ public interface GraphicModifyTripController {
     void done(Trip trip);
 
     void selectTripDay(Trip trip, TripDay day);
-
-    void modifyTripDay(Trip trip, TripDay day);
 }

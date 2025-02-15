@@ -86,11 +86,6 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
         view.showDayInfo(day);
     }
 
-    @Override
-    public void modifyTripDay(Trip trip, TripDay day) {
-
-    }
-
     public void modifyTrip(String tripName) {
         controller.modifyTrip(new ViewTripBean(tripName));
     }

@@ -139,7 +139,6 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
         }
     }
 
-    @Override
     public void modifyTripDay(Trip trip, TripDay day) {
         int choice = view.getDayModificationChoice();
         if(choice == 1){ //city

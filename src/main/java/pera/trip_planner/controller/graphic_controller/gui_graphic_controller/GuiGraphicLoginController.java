@@ -10,6 +10,7 @@ public class GuiGraphicLoginController implements GraphicLoginController {
     private static GuiGraphicLoginController instance;
     private GuiGraphicLoginControllerView view;
     private LoginController controller = LoginController.getInstance();
+    private static final String NOT_VALID_MESSAGE = "Selection not valid";
 
     private GuiGraphicLoginController(){}
 
@@ -32,7 +33,7 @@ public class GuiGraphicLoginController implements GraphicLoginController {
         } else if(choice.equals("Register")){
             register();
         } else{
-            throw new IllegalArgumentException("Selection not valid");
+            throw new IllegalArgumentException(NOT_VALID_MESSAGE);
         }
     }
 
@@ -53,7 +54,7 @@ public class GuiGraphicLoginController implements GraphicLoginController {
         } else if (role.equals("Activity manager")){
             beanRole = Role.ACTIVITY_MANAGER;
         } else {
-            throw new IllegalArgumentException("Selection not valid");
+            throw new IllegalArgumentException(NOT_VALID_MESSAGE);
         }
         controller.login(new LoginBean(username, password, beanRole));
     }
@@ -67,7 +68,7 @@ public class GuiGraphicLoginController implements GraphicLoginController {
         } else if (role.equals("Activity manager")){
             beanRole = Role.ACTIVITY_MANAGER;
         } else {
-            throw new IllegalArgumentException("Selection not valid");
+            throw new IllegalArgumentException(NOT_VALID_MESSAGE);
         }
         controller.register(new LoginBean(username, password, beanRole));
     }

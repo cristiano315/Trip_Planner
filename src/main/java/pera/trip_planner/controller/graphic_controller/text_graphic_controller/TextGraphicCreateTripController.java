@@ -84,16 +84,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
         LocalDateTime activityDateTime;
 
         while(choice){
-            while(true){
-                view.showActivities(day.getCity());
-                String activityName = view.getString("Insert the activity you want to add to day " + day.getDate().toString() + ": ");
-                activity = day.getCity().getActivities().getEntityByName(activityName);
-                if(activity == null){
-                    view.showMessage("Activity not found, try again");
-                } else{
-                    break;
-                }
-            }
+            activity = getActivity(day);
             while(true){
                 activityDateTime = view.getDateTime(day.getDate(), "Insert the time for the selected activity");
                 LocalTime time = activityDateTime.toLocalTime();
@@ -111,6 +102,21 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             choice = view.getChoice("Do you want to add more activities?");
         }
         controller.storeTripDay(trip, day);
+    }
+
+    private Activity getActivity(TripDay day) {
+        Activity activity;
+        while(true){
+            view.showActivities(day.getCity());
+            String activityName = view.getString("Insert the activity you want to add to day " + day.getDate().toString() + ": ");
+            activity = day.getCity().getActivities().getEntityByName(activityName);
+            if(activity == null){
+                view.showMessage("Activity not found, try again");
+            } else{
+                break;
+            }
+        }
+        return activity;
     }
 
     @Override
