@@ -162,51 +162,60 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
     public void showAndModifyActivities(Trip trip, TripDay day){
         view.showMessage("Current activities: ");
         view.showMessage(day.getActivityInstanceList().toString());
-        Activity activity;
-        LocalDateTime activityDateTime;
         while(true){
             int choice = view.getActivitiesChoice();
             if(choice == 1){ //delete
-                while(true){
-                    String activityName = view.getString("Insert the activity you want to delete: ");
-                    activity = day.getCity().getActivities().getEntityByName(activityName);
-                    if(activity == null){
-                        view.showMessage(ACTIVITY_NOT_FOUND);
-                    } else{
-                        break;
-                    }
-                }
-                controller.removeActivity(day, new AddActivityInstanceToDayBean(activity, null));
+                deleteActivity(day);
             } else if(choice == 2){ //add
-                while(true){
-                    view.showActivities(day.getCity());
-                    String activityName = view.getString("Insert the activity you want to add: ");
-                    activity = day.getCity().getActivities().getEntityByName(activityName);
-                    if(activity == null){
-                        view.showMessage(ACTIVITY_NOT_FOUND);
-                    } else{
-                        break;
-                    }
-                }
-                while(true){
-                    activityDateTime = view.getDateTime(day.getDate(), "Insert the time for the selected activity");
-                    LocalTime time = activityDateTime.toLocalTime();
-                    DayInfo info = activity.getDayInfo(day.getDate().getDayOfWeek());
-                    if(info != null){
-                        if(time.isBefore(info.getOpenTime()) || time.isAfter(info.getCloseTime())){
-                            view.showMessage("Activity is closed during that time, enter a valid one");
-                        }
-                    } else {
-                        break;
-                    }
-                }
-
-                controller.addActivity(day, new AddActivityInstanceToDayBean(activity, activityDateTime));
+                insertActivity(day);
             } else if(choice == 0){ //back
                 break;
             } else {
                 throw new IllegalArgumentException(ILLEGAL_CHOICE_ERROR);
             }
         }
+    }
+
+    private void deleteActivity(TripDay day){
+        Activity activity;
+        while(true){
+            String activityName = view.getString("Insert the activity you want to delete: ");
+            activity = day.getCity().getActivities().getEntityByName(activityName);
+            if(activity == null){
+                view.showMessage(ACTIVITY_NOT_FOUND);
+            } else{
+                break;
+            }
+        }
+        controller.removeActivity(day, new AddActivityInstanceToDayBean(activity, null));
+    }
+
+    private void insertActivity(TripDay day){
+        Activity activity;
+        LocalDateTime activityDateTime;
+        while(true){
+            view.showActivities(day.getCity());
+            String activityName = view.getString("Insert the activity you want to add: ");
+            activity = day.getCity().getActivities().getEntityByName(activityName);
+            if(activity == null){
+                view.showMessage(ACTIVITY_NOT_FOUND);
+            } else{
+                break;
+            }
+        }
+        while(true){
+            activityDateTime = view.getDateTime(day.getDate(), "Insert the time for the selected activity");
+            LocalTime time = activityDateTime.toLocalTime();
+            DayInfo info = activity.getDayInfo(day.getDate().getDayOfWeek());
+            if(info != null){
+                if(time.isBefore(info.getOpenTime()) || time.isAfter(info.getCloseTime())){
+                    view.showMessage("Activity is closed during that time, enter a valid one");
+                }
+            } else {
+                break;
+            }
+        }
+
+        controller.addActivity(day, new AddActivityInstanceToDayBean(activity, activityDateTime));
     }
 }
