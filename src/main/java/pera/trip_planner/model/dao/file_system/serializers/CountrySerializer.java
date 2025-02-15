@@ -19,7 +19,7 @@ public class CountrySerializer extends StdSerializer<Country> {
     }
 
     @Override
-    public void serialize(Country value, JsonGenerator gen, SerializerProvider arg2) throws IOException, JsonProcessingException {
+    public void serialize(Country value, JsonGenerator gen, SerializerProvider arg2) throws IOException {
         gen.writeString(value.getName());
     }
 }

@@ -13,7 +13,7 @@ public class DbmsActivityAnnouncementDao implements ActivityAnnouncementDao {
     private static DbmsActivityAnnouncementDao instance;
     private HashMap<String, ActivityAnnouncement> memory = new HashMap<>();
     private Connection conn;
-    private final String ERROR_MESSAGE = "Error in dbms activity announcement dao";
+    private static final String ERROR_MESSAGE = "Error in dbms activity announcement dao";
 
     private DbmsActivityAnnouncementDao() {}
 
@@ -60,7 +60,7 @@ public class DbmsActivityAnnouncementDao implements ActivityAnnouncementDao {
     }
 
     private void deserialize() {
-        String selectDataQuery = "SELECT * FROM activity_announcement";
+        String selectDataQuery = "SELECT name, description, issuing_date FROM activity_announcement";
         try(Statement stmt = conn.createStatement()) {
             ResultSet resultSet = stmt.executeQuery(selectDataQuery);
             while (resultSet.next()) {

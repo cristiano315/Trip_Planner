@@ -14,7 +14,7 @@ import pera.trip_planner.view.text.TextGraphicShowTripControllerView;
 public class TextGraphicShowTripController implements GraphicShowTripController {
     private ShowTripController controller = ShowTripController.getInstance();
     private TextGraphicShowTripControllerView view = new TextGraphicShowTripControllerView();
-    private final static String INVALID_CHOICE_MESSAGE = "Choice invalid: day not in trip";
+    private static final String INVALID_CHOICE_MESSAGE = "Choice invalid: day not in trip";
 
     @Override
     public void showTripList(User user) {
