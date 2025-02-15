@@ -6,8 +6,8 @@ import java.time.LocalTime;
 
 public class DayInfo implements Serializable {
     private DayOfWeek day;
-    private LocalTime openTime = null;
-    private LocalTime closeTime = null;
+    private LocalTime openTime;
+    private LocalTime closeTime;
 
     public DayInfo(DayOfWeek day, LocalTime openTime, LocalTime closeTime) {
         this.day = day;

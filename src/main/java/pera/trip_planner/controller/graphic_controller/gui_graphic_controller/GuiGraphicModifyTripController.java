@@ -18,6 +18,7 @@ import pera.trip_planner.view.gui.GuiGraphicModifyTripControllerView;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class GuiGraphicModifyTripController implements GraphicModifyTripController {
     private static GuiGraphicModifyTripController instance;
@@ -166,11 +167,9 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
         LocalDateTime activityDateTime = LocalDateTime.of(currentTripDay.getDate(), LocalTime.of(hour, minutes));
         LocalTime time = activityDateTime.toLocalTime();
         DayInfo info = activity.getDayInfo(currentTripDay.getDate().getDayOfWeek());
-        if(info != null) {
-            if (time.isBefore(info.getOpenTime()) || time.isAfter(info.getCloseTime())) {
-                view.showAlert("Activity is closed during that time, enter a valid one");
-                return;
-            }
+        if(info != null && time.isBefore(info.getOpenTime()) || time.isAfter(Objects.requireNonNull(info).getCloseTime())) {
+            view.showAlert("Activity is closed during that time, enter a valid one");
+            return;
         }
         controller.addActivity(currentTripDay, new AddActivityInstanceToDayBean(activity, activityDateTime));
         view.showAlert("Activity added successfully");
