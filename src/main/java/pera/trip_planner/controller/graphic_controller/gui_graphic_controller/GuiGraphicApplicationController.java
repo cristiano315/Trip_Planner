@@ -11,6 +11,8 @@ public class GuiGraphicApplicationController implements GraphicApplicationContro
     private GuiGraphicApplicationControllerView view;
     private static GuiGraphicApplicationController instance;
 
+    protected GuiGraphicApplicationController() {}
+
     public static GuiGraphicApplicationController getInstance() {
         if (instance == null) {
             instance = new GuiGraphicApplicationController();
