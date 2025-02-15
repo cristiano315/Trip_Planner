@@ -41,6 +41,8 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
 
     private TripDay currentTripDay;
 
+    protected GuiGraphicCreateTripController() {}
+
     public static GuiGraphicCreateTripController getInstance() {
         if (instance == null) {
             instance = new GuiGraphicCreateTripController();

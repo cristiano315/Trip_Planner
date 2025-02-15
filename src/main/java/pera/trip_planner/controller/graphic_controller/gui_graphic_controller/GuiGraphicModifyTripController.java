@@ -26,7 +26,7 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
     private Trip currentTrip;
     private TripDay currentDay;
 
-    private GuiGraphicModifyTripController() {}
+    protected GuiGraphicModifyTripController() {}
 
     public static GuiGraphicModifyTripController getInstance() {
         if (instance == null) {

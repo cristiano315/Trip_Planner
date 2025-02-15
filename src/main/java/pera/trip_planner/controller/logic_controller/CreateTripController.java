@@ -22,6 +22,8 @@ public class CreateTripController implements Controller {
         graphicController.createTrip();
     }
 
+    protected CreateTripController() {}
+
     public static CreateTripController getInstance(){
         if (instance == null){
             instance = new CreateTripController();

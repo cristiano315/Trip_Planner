@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class FileSystemCityCouncilUserDao extends FileSystemGeneralUserDao<CityCouncilUser> implements CityCouncilUserDao {
     private static FileSystemCityCouncilUserDao instance;
 
-    private FileSystemCityCouncilUserDao() {}
+    protected FileSystemCityCouncilUserDao() {}
 
     public static FileSystemCityCouncilUserDao getInstance() {
         if (instance == null) {

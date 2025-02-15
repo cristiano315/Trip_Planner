@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class FileSystemTripDayDao extends FileSystemDao<LocalDate, TripDay> implements TripDayDao {
     private static FileSystemTripDayDao instance;
 
-    private FileSystemTripDayDao() {}
+    protected FileSystemTripDayDao() {}
 
     public static FileSystemTripDayDao getInstance() {
         if (instance == null) {

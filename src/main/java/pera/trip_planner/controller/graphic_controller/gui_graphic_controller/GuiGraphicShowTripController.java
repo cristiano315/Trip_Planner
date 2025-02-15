@@ -18,7 +18,7 @@ public class GuiGraphicShowTripController implements GraphicShowTripController {
     private ShowTripController controller = ShowTripController.getInstance();
     private boolean running;
 
-    private GuiGraphicShowTripController(){}
+    protected GuiGraphicShowTripController(){}
 
     public static GuiGraphicShowTripController getInstance(){
         if(instance == null){

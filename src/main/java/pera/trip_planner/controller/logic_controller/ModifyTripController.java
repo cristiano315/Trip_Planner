@@ -19,7 +19,7 @@ public class ModifyTripController implements Controller {
     private static ModifyTripController instance;
     private GraphicModifyTripController graphicController;
 
-    private  ModifyTripController() {}
+    protected  ModifyTripController() {}
 
     public static ModifyTripController getInstance() {
         if (instance == null) {

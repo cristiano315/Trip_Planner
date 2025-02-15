@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class FileSystemActivityInstanceDao extends FileSystemDao<LocalDateTime, ActivityInstance> implements ActivityInstanceDao {
     private static FileSystemActivityInstanceDao instance;
 
-    private FileSystemActivityInstanceDao() {}
+    protected FileSystemActivityInstanceDao() {}
 
     public static FileSystemActivityInstanceDao getInstance() {
         if (instance == null) {

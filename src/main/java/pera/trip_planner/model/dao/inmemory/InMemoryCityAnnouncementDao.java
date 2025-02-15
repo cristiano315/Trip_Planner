@@ -6,7 +6,7 @@ import pera.trip_planner.model.domain.CityAnnouncement;
 public class InMemoryCityAnnouncementDao extends InMemoryDao<String, CityAnnouncement> implements CityAnnouncementDao {
     private static InMemoryCityAnnouncementDao instance;
 
-    private InMemoryCityAnnouncementDao() {}
+    protected InMemoryCityAnnouncementDao() {}
 
     public static InMemoryCityAnnouncementDao getInstance() {
         if (instance == null) {

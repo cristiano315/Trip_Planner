@@ -6,7 +6,7 @@ import pera.trip_planner.model.domain.User;
 public class InMemoryUserDao extends InMemoryGeneralUserDao<User> implements UserDao {
     private static InMemoryUserDao instance;
 
-    private InMemoryUserDao() {}
+    protected InMemoryUserDao() {}
 
     public static InMemoryUserDao getInstance() {
         if (instance == null) {

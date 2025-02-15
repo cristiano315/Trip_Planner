@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class FileSystemUserDao extends FileSystemGeneralUserDao<User> implements UserDao {
     private static FileSystemUserDao instance;
 
-    private FileSystemUserDao() {}
+    protected FileSystemUserDao() {}
 
     public static FileSystemUserDao getInstance() {
         if (instance == null) {

@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class FileSystemCountryDao extends FileSystemDao<String, Country> implements CountryDao {
     private static FileSystemCountryDao instance;
 
-    private FileSystemCountryDao() {}
+    protected FileSystemCountryDao() {}
 
     public static FileSystemCountryDao getInstance() {
         if (instance == null) {

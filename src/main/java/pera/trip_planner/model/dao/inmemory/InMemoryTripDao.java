@@ -7,7 +7,7 @@ import pera.trip_planner.model.domain.entity_lists.TripList;
 public class InMemoryTripDao extends InMemoryDao<String, Trip> implements TripDao {
     private static InMemoryTripDao instance;
 
-    private InMemoryTripDao() {}
+    protected InMemoryTripDao() {}
 
     public static InMemoryTripDao getInstance() {
         if (instance == null) {

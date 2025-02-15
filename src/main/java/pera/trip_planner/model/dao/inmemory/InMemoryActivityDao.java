@@ -6,7 +6,7 @@ import pera.trip_planner.model.domain.Activity;
 public class InMemoryActivityDao extends InMemoryDao<String, Activity> implements ActivityDao {
     private static InMemoryActivityDao instance;
 
-    private InMemoryActivityDao() {}
+    protected InMemoryActivityDao() {}
 
     public static InMemoryActivityDao getInstance() {
         if (instance == null) {

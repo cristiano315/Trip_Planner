@@ -15,7 +15,7 @@ public class DbmsActivityAnnouncementDao implements ActivityAnnouncementDao {
     private Connection conn;
     private static final String ERROR_MESSAGE = "Error in dbms activity announcement dao";
 
-    private DbmsActivityAnnouncementDao() {}
+    protected DbmsActivityAnnouncementDao() {}
 
     public static DbmsActivityAnnouncementDao getInstance() {
         if (instance == null) {

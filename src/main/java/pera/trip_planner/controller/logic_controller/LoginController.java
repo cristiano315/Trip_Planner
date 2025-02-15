@@ -15,7 +15,7 @@ public class LoginController implements Controller {
     private GeneralUserDao<?> generalUserDao;
     private static final String WRONG_ROLE_ERROR = "Wrong role";
 
-    private LoginController(){}
+    protected LoginController(){}
 
     public static LoginController getInstance() {
         if(instance == null){

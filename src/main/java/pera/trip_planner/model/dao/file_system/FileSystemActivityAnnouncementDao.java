@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class FileSystemActivityAnnouncementDao extends FileSystemDao<String, ActivityAnnouncement> implements ActivityAnnouncementDao {
     private static FileSystemActivityAnnouncementDao instance;
 
-    private FileSystemActivityAnnouncementDao() {}
+    protected FileSystemActivityAnnouncementDao() {}
 
     public static FileSystemActivityAnnouncementDao getInstance() {
         if (instance == null) {

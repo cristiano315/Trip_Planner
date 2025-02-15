@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class FileSystemTripDao extends FileSystemDao<String, Trip> implements TripDao {
     private static FileSystemTripDao instance;
 
-    private FileSystemTripDao() {}
+    protected FileSystemTripDao() {}
 
     public static FileSystemTripDao getInstance() {
         if (instance == null) {

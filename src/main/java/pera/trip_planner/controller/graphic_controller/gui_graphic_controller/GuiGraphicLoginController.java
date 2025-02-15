@@ -12,7 +12,7 @@ public class GuiGraphicLoginController implements GraphicLoginController {
     private LoginController controller = LoginController.getInstance();
     private static final String NOT_VALID_MESSAGE = "Selection not valid";
 
-    private GuiGraphicLoginController(){}
+    protected GuiGraphicLoginController(){}
 
     public static GuiGraphicLoginController getInstance(){
         if(instance == null){

@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class FileSystemActivityManagerUserDao extends FileSystemGeneralUserDao<ActivityManagerUser> implements ActivityManagerUserDao {
     private static FileSystemActivityManagerUserDao instance;
 
-    private FileSystemActivityManagerUserDao() {}
+    protected FileSystemActivityManagerUserDao() {}
 
     public static FileSystemActivityManagerUserDao getInstance() {
         if (instance == null) {

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class InMemoryTripDayDao extends InMemoryDao<LocalDate, TripDay> implements TripDayDao {
     private static InMemoryTripDayDao instance;
 
-    private InMemoryTripDayDao() {}
+    protected InMemoryTripDayDao() {}
 
     public static InMemoryTripDayDao getInstance() {
         if (instance == null) {

@@ -15,7 +15,7 @@ import java.util.Map;
 public class InMemoryCountryDao extends InMemoryDao<String, Country> implements CountryDao {
     private static InMemoryCountryDao instance;
 
-    private InMemoryCountryDao() {}
+    protected InMemoryCountryDao() {}
 
     public static InMemoryCountryDao getInstance() {
         if (instance == null) {

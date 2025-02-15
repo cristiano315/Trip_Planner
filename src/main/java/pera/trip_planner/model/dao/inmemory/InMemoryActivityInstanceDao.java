@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class InMemoryActivityInstanceDao extends InMemoryDao<LocalDateTime, ActivityInstance> implements ActivityInstanceDao {
     private static InMemoryActivityInstanceDao instance;
 
-    private InMemoryActivityInstanceDao() {}
+    protected InMemoryActivityInstanceDao() {}
 
     public static InMemoryActivityInstanceDao getInstance() {
         if (instance == null) {

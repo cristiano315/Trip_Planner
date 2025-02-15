@@ -15,6 +15,8 @@ public class ShowTripController implements Controller {
     private GraphicShowTripController graphicController;
     private TripDao tripDao;
 
+    protected ShowTripController() {}
+
     public static ShowTripController getInstance() {
         if (instance == null) {
             instance = new ShowTripController();
