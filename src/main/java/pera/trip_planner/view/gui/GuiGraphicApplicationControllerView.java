@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import pera.trip_planner.Main;
 import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.GuiGraphicApplicationController;
 import pera.trip_planner.controller.logic_controller.ApplicationController;
+import pera.trip_planner.exception.GuiException;
 
 import java.io.IOException;
 
@@ -23,9 +24,17 @@ public class GuiGraphicApplicationControllerView extends Application {
             Platform.exit();
             System.exit(0);
         });
-        scene = new Scene(loadFXML("view/demoSelector"), 640, 480);
+        createScene();
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void createScene(){
+        try{
+            scene = new Scene(loadFXML("view/demoSelector"), 1920, 1080);
+        } catch (IOException e) {
+            throw new GuiException("Error setting up gui");
+        }
     }
 
     public static void setRoot(String fxml) throws IOException {
