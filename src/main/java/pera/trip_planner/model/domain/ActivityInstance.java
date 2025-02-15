@@ -16,6 +16,8 @@ public class ActivityInstance implements Serializable {
         this.dateTime = dateTime;
     }
 
+    public ActivityInstance() {}
+
     public Activity getActivity() {
         return activity;
     }

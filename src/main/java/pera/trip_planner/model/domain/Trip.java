@@ -1,10 +1,18 @@
 package pera.trip_planner.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import pera.trip_planner.model.dao.file_system.serializers.CountryDeserializer;
+import pera.trip_planner.model.dao.file_system.serializers.CountrySerializer;
 import pera.trip_planner.model.domain.entity_lists.TripDayList;
 
 import java.time.LocalDate;
 
 public class Trip {
+    @JsonSerialize(using = CountrySerializer.class)
+    @JsonDeserialize(using = CountryDeserializer.class)
     private Country country;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -18,6 +26,8 @@ public class Trip {
         this.startDate = startDate;
         this.endDate = endDate;
     }
+
+    public Trip() {}
 
     public Trip(String name){
         this.name = name;

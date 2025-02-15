@@ -20,11 +20,11 @@ public class PopolazioneController {
         Map<String, Country> map = new HashMap<>();
         //popolazione paesi
         for(Country country : countries.getList()){
-            map.put(country.countryName(), country);
+            map.put(country.getName(), country);
         }
         //popolazione liste città
         for(Country country : countries.getList()) {
-            map.get(country.countryName()).replaceList(new GetCitiesByCountryProcedureDao().execute(country.countryName()));
+            map.get(country.getName()).replaceList(new GetCitiesByCountryProcedureDao().execute(country.getName()));
         }
         Activity prova = new Activity("prova");
         Activity prova2 = new Activity("prova2");

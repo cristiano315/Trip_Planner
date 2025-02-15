@@ -12,6 +12,8 @@ public class Announcement implements Serializable {
         this.name = name;
     }
 
+    public Announcement() {}
+
     public String getDescription() {
         return description;
     }

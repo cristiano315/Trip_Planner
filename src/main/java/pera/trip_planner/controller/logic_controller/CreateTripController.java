@@ -62,7 +62,6 @@ public class CreateTripController implements Controller {
         ActivityInstance activityInstance = activityInstanceDao.create(bean.getDate());
         activityInstance.setActivity(bean.getActivity());
         tripDay.addActivityInstance(activityInstance);
-        activityInstanceDao.store(activityInstance);
     }
 
     public void saveToAccount(Trip trip){
@@ -99,7 +98,6 @@ public class CreateTripController implements Controller {
 
     public void storeTripDay(Trip trip, TripDay day){
         trip.addTripDay(day);
-        tripDayDao.store(day);
     }
 
     public void visualizeTrip(Trip trip){

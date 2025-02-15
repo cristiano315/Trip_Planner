@@ -17,6 +17,8 @@ public class Activity implements Serializable {
         this.name = name;
     }
 
+    public Activity() {}
+
     public void addDescription(String description) {
         this.description = description;
     }
@@ -34,6 +36,14 @@ public class Activity implements Serializable {
     }
 
     public String activityLocation() {
+        return location;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public String getLocation(){
         return location;
     }
 
@@ -68,4 +78,7 @@ public class Activity implements Serializable {
         return announcements;
     }
 
+    public ArrayList<DayInfo> getDayInfos() {
+        return dayInfos;
+    }
 }

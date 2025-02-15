@@ -67,7 +67,7 @@ public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
 
     public void initializeTripInfoLabels() {
         tripNameLabel.setText(currentTrip.getName());
-        countryNameLabel.setText("Country: " + currentTrip.getCountry().countryName());
+        countryNameLabel.setText("Country: " + currentTrip.getCountry().getName());
         startDateLabel.setText("Start Date: " + currentTrip.getStartDate());
         endDateLabel.setText("End Date: " + currentTrip.getEndDate());
     }

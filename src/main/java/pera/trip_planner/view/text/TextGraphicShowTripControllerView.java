@@ -32,7 +32,7 @@ public class TextGraphicShowTripControllerView extends GenericTextGraphicView {
     public void showTripInfo(Trip trip){
         System.out.println("Visualizing trip: " + trip.getName());
         System.out.println("Name: " + trip.getName());
-        System.out.println("Country: " + trip.getCountry().countryName());
+        System.out.println("Country: " + trip.getCountry().getName());
         System.out.println("Start date: " + trip.getStartDate().toString());
         System.out.println("End date: " + trip.getEndDate().toString());
     }

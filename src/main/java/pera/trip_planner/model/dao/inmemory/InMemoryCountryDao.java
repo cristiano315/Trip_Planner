@@ -1,13 +1,19 @@
 package pera.trip_planner.model.dao.inmemory;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import pera.trip_planner.exception.JsonException;
 import pera.trip_planner.model.dao.CountryDao;
 import pera.trip_planner.model.domain.Country;
 import pera.trip_planner.model.domain.entity_lists.CountryList;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class InMemoryCountryDao extends InMemoryDao<String, Country> implements CountryDao {
@@ -25,18 +31,17 @@ public class InMemoryCountryDao extends InMemoryDao<String, Country> implements 
 
     @Override
     protected String getKey(Country country) {
-        return country.countryName();
+        return country.getName();
     }
 
     private static void loadCountriesFromFile(InMemoryCountryDao instance) {
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
         try{
-            fis = new FileInputStream("src/main/resources/pera/trip_planner/program_data/program_data.dat");
-            ois = new ObjectInputStream(fis);
-            instance.memory = (HashMap<String, Country>) ois.readObject();
-        } catch (ClassNotFoundException | IOException e) {
-            throw new RuntimeException(e);
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File("./src/main/resources/pera/trip_planner/Json/Country.json");
+            TypeReference<Map<String, Country>> ref = new TypeReference<Map<String, Country>>(){};
+            instance.memory = mapper.readValue(file, ref);
+        } catch (IOException e) {
+            throw new JsonException("Error reading countries");
         }
     }
 
@@ -46,5 +51,9 @@ public class InMemoryCountryDao extends InMemoryDao<String, Country> implements 
             list.addEntity(country);
         }
         return list;
+    }
+
+    public Map<String, Country> getCountryMap(){
+        return this.memory;
     }
 }

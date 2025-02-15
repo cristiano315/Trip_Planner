@@ -1,10 +1,12 @@
 package pera.trip_planner.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pera.trip_planner.model.domain.entity_lists.CityList;
 
 import java.io.Serializable;
 
 public class Country implements Serializable {
+    @JsonProperty("name")
     private String name;
     private CityList cities = new CityList();
 
@@ -12,7 +14,9 @@ public class Country implements Serializable {
         this.name = name;
     }
 
-    public String countryName() {
+    public Country() {}
+
+    public String getName() {
         return name;
     }
 

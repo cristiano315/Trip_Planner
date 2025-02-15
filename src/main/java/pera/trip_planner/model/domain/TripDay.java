@@ -16,6 +16,8 @@ public class TripDay implements Serializable {
         this.date = date;
     }
 
+    public TripDay() {}
+
     public TripDay(DayOfWeek dayType, City city, LocalDate date) {
         this.dayType = dayType;
         this.city = city;

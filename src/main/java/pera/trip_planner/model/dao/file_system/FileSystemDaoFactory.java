@@ -7,7 +7,7 @@ public class FileSystemDaoFactory extends DaoFactory {
 
     @Override
     public CountryDao getCountryDao() {
-        return null;
+        return FileSystemCountryDao.getInstance();
     }
 
     @Override
@@ -27,32 +27,32 @@ public class FileSystemDaoFactory extends DaoFactory {
 
     @Override
     public TripDao getTripDao() {
-        return null;
+        return FileSystemTripDao.getInstance();
     }
 
     @Override
     public TripDayDao getTripDayDao() {
-        return null;
+        return FileSystemTripDayDao.getInstance();
     }
 
     @Override
     public ActivityInstanceDao getActivityInstanceDao() {
-        return null;
+        return FileSystemActivityInstanceDao.getInstance();
     }
 
     @Override
     public UserDao getUserDao() {
-        return null;
+        return FileSystemUserDao.getInstance();
     }
 
     @Override
     public CityCouncilUserDao getCityCouncilUserDao() {
-        return null;
+        return FileSystemCityCouncilUserDao.getInstance();
     }
 
     @Override
     public ActivityManagerUserDao getActivityManagerUserDao() {
-        return null;
+        return FileSystemActivityManagerUserDao.getInstance();
     }
 
 }

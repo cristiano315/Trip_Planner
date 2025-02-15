@@ -107,7 +107,6 @@ public class ModifyTripController implements Controller {
         day.resetActivityInstanceList();
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         graphicCreateTripController.addActivityInstanceList(trip, day);
-        DaoFactory.getInstance().getTripDayDao().store(day);
     }
 
     public void removeActivity(TripDay day, AddActivityInstanceToDayBean bean) {
@@ -116,16 +115,13 @@ public class ModifyTripController implements Controller {
             throw new IllegalArgumentException("Activity not present");
         }
         day.getActivityInstanceList().removeEntity(bean.getActivity().getName());
-        DaoFactory.getInstance().getTripDayDao().store(day);
     }
 
 
     public void addActivity(TripDay day, AddActivityInstanceToDayBean bean) {
         ActivityInstance activityInstance = DaoFactory.getInstance().getActivityInstanceDao().create(bean.getDate());
         activityInstance.setActivity(bean.getActivity());
-        DaoFactory.getInstance().getActivityInstanceDao().store(activityInstance);
         day.getActivityInstanceList().addEntity(activityInstance);
-        DaoFactory.getInstance().getTripDayDao().store(day);
     }
 
     public void storeTrip(Trip trip) {

@@ -15,6 +15,8 @@ public class DayInfo implements Serializable {
         this.closeTime = closeTime;
     }
 
+    public DayInfo(){}
+
     public DayOfWeek getDay() {
         return day;
     }

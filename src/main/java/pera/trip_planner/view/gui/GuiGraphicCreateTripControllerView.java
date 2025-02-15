@@ -93,7 +93,7 @@ public class GuiGraphicCreateTripControllerView extends GenericGuiGraphicView {
         CountryList countries = DaoFactory.getInstance().getCountryDao().countryList();
         countries.sort();
         for(Country c : countries.getList()){
-            countryListView.getItems().add(c.countryName());
+            countryListView.getItems().add(c.getName());
         }
         countryListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
