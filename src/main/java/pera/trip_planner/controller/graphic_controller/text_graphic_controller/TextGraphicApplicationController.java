@@ -16,7 +16,6 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
         else if(choice == 2){
             ApplicationController.setPersistencyMode("File System");
         }
-        // aggiungere else con eccezione in realtà no, handled dalla view
         runApplication();
     }
 
@@ -25,6 +24,10 @@ public class TextGraphicApplicationController implements GraphicApplicationContr
         while(true){ //application loop
             choice = TextGraphicApplicationControllerView.selectUseCaseView();
             selectCase(choice);
+            if(choice == 9){
+                System.exit(0);
+                break;
+            }
         }
     }
 }

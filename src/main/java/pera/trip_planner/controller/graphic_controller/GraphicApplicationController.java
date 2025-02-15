@@ -21,25 +21,15 @@ public interface GraphicApplicationController {
                 controller.start();
                 break;
             case 4:
-                controller = LoginController.getInstance();
-                controller.start();
-//                System.out.println("Add Review");
-//                throw new RuntimeException(errorMessage);
-                //break;
+                throw new UnsupportedOperationException("Add Review: " + errorMessage);
             case 5:
-                System.out.println("View city/country info");
-                throw new RuntimeException(errorMessage);
-                //break;
+                throw new UnsupportedOperationException("View city/country info: " + errorMessage);
             case 6:
-                System.out.println("Modify city's info");
-                throw new RuntimeException(errorMessage);
-                //break;
+                throw new UnsupportedOperationException("Modify city's info: " + errorMessage);
             case 7:
-                System.out.println("Add activity to a city's list");
-                throw new RuntimeException(errorMessage);
+                throw new UnsupportedOperationException("Add activity to a city's list: " + errorMessage);
             case 8:
-                System.out.println("Add announcement to activity");
-                throw new RuntimeException(errorMessage);
+                throw new UnsupportedOperationException("Add announcement to activity: " + errorMessage);
             case 9:
                 System.exit(0);
                 break;
