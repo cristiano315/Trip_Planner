@@ -5,7 +5,6 @@ import pera.trip_planner.model.domain.entity_lists.DayInfoList;
 
 import java.io.Serializable;
 import java.time.DayOfWeek;
-import java.util.ArrayList;
 
 public class Activity implements Serializable {
     private String name;
