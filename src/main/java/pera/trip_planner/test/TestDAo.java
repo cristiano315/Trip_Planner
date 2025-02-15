@@ -7,10 +7,13 @@ import pera.trip_planner.exception.JsonException;
 import pera.trip_planner.model.dao.CountryDao;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.PersistenceProvider;
+import pera.trip_planner.model.dao.dbms.DbmsActivityAnnouncementDao;
+import pera.trip_planner.model.domain.ActivityAnnouncement;
 import pera.trip_planner.model.domain.Country;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class TestDAo {
@@ -46,6 +49,21 @@ public class TestDAo {
             System.out.println(country1.getName());
         }
 
+    }
+
+    public void testDbms(){
+        DbmsActivityAnnouncementDao dao = DbmsActivityAnnouncementDao.getInstance();
+        ActivityAnnouncement ciao = dao.create("ciao");
+        ciao.addDescription("lol");
+        ciao.setIssuingDate(LocalDate.of(2022, 2, 2));
+        dao.store(ciao);
+    }
+
+    public void testDbmsRetrieval(){
+        DbmsActivityAnnouncementDao dao = DbmsActivityAnnouncementDao.getInstance();
+        ActivityAnnouncement ciao = dao.load("ciao");
+        System.out.println(ciao.getName());
+        dao.delete("ciao");
     }
 
 }
