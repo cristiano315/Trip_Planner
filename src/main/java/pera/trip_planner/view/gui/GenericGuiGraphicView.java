@@ -28,11 +28,7 @@ public abstract class GenericGuiGraphicView {
         alert.setContentText(message);
         alert.setTitle(title);
         Optional<ButtonType> choice = alert.showAndWait();
-        if(choice.get() == ButtonType.OK){
-            return true;
-        } else{
-            return false;
-        }
+        return choice.isPresent() && choice.get() == ButtonType.OK;
     }
 
     public String getString(String message, String title){

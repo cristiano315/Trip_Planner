@@ -8,7 +8,7 @@ import pera.trip_planner.controller.graphic_controller.gui_graphic_controller.Gu
 
 public class GuiGraphicLoginControllerView extends GenericGuiGraphicView{
     private final GuiGraphicLoginController controller = GuiGraphicLoginController.getInstance();
-    private final String ERROR_MESSAGE = "Error in loading graphic login gui";
+    private static final String ERROR_MESSAGE = "Error in loading graphic login gui";
     private static boolean register = false;
     @FXML
     private Label titleLabel;

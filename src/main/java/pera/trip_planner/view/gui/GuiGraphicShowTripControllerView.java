@@ -22,7 +22,7 @@ import java.util.Optional;
 
 public class GuiGraphicShowTripControllerView extends GenericGuiGraphicView{
     private final GuiGraphicShowTripController controller = GuiGraphicShowTripController.getInstance();
-    private final String ERROR_MESSAGE = "Error in showTrip GUI";
+    private static final String ERROR_MESSAGE = "Error in showTrip GUI";
     private static User user;
     protected static Trip currentTrip;
     protected static TripDay currentTripDay;

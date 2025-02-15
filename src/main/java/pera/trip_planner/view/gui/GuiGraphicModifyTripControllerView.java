@@ -17,7 +17,7 @@ import java.time.LocalDate;
 
 public class GuiGraphicModifyTripControllerView extends GuiGraphicShowTripControllerView {
     private final GuiGraphicModifyTripController controller = GuiGraphicModifyTripController.getInstance();
-    private final String ERROR_MESSAGE = "Error in modify trip GUI";
+    private static final String ERROR_MESSAGE = "Error in modify trip GUI";
     @FXML
     private ListView<String> countryListView;
     @FXML
