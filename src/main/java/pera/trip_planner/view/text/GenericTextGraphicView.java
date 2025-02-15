@@ -16,6 +16,10 @@ import java.util.Scanner;
 
 public abstract class GenericTextGraphicView {
 
+    public void showMessage(String message){
+        System.out.println(message);
+    }
+
     public String getString(String message){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while(true){

@@ -11,6 +11,7 @@ import pera.trip_planner.view.text.TextGraphicShowTripControllerView;
 public class TextGraphicShowTripController implements GraphicShowTripController {
     private ShowTripController controller = ShowTripController.getInstance();
     private TextGraphicShowTripControllerView view = new TextGraphicShowTripControllerView();
+    private final static String INVALID_CHOICE_MESSAGE = "Choice invalid: day not in trip";
 
     @Override
     public void showTripList(User user) {
@@ -21,7 +22,7 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
                 controller.viewTrip(new ViewTripBean(trip));
                 break;
             } else{
-                System.out.println("Insert a valid trip");
+                view.showMessage("Insert a valid trip");
             }
         }
     }
@@ -47,7 +48,7 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
                     break;
                 case 1:
                     if(day.getDate().plusDays(1).isEqual(trip.getEndDate())){
-                        System.out.println("Choice invalid: day not in trip");
+                        view.showMessage(INVALID_CHOICE_MESSAGE);
                     } else {
                         controller.showTripDay(trip, trip.getTripDays().getEntityByName(day.getDate().plusDays(1).toString()));
                         running = false;
@@ -55,7 +56,7 @@ public class TextGraphicShowTripController implements GraphicShowTripController 
                     break;
                 case -1:
                     if(day.getDate().minusDays(1).isBefore(trip.getStartDate())){
-                        System.out.println("Choice invalid: day not in trip");
+                        view.showMessage(INVALID_CHOICE_MESSAGE);
                     } else {
                         controller.showTripDay(trip, trip.getTripDays().getEntityByName(day.getDate().minusDays(1).toString()));
                         running = false;

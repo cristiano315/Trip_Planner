@@ -36,7 +36,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             String countryName = view.getString("Insert country for trip " + name + ": ");
             country = DaoFactory.getInstance().getCountryDao().load(countryName);
             if(country == null){
-                System.out.println("Country not found, try again");
+                view.showMessage("Country not found, try again");
             } else{
                 break;
             }
@@ -66,7 +66,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
                 String cityName = view.getString("Insert city for day " + currentDate.toString() + ": ");
                 city = trip.getCountry().getCities().getEntityByName(cityName);
                 if (city == null) {
-                    System.out.println("City not found, try again");
+                    view.showMessage("City not found, try again");
                 } else {
                     break;
                 }
@@ -89,7 +89,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
                 String activityName = view.getString("Insert the activity you want to add to day " + day.getDate().toString() + ": ");
                 activity = day.getCity().getActivities().getEntityByName(activityName);
                 if(activity == null){
-                    System.out.println("Activity not found, try again");
+                    view.showMessage("Activity not found, try again");
                 } else{
                     break;
                 }
@@ -100,7 +100,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
                 DayInfo info = activity.getDayInfo(day.getDate().getDayOfWeek());
                 if(info != null){
                     if(time.isBefore(info.getOpenTime()) || time.isAfter(info.getCloseTime())){
-                        System.out.println("Activity is closed during that time, enter a valid one");
+                        view.showMessage("Activity is closed during that time, enter a valid one");
                     }
                 } else {
                     break;
@@ -125,7 +125,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             if(choice){
                 controller.saveToAccount(trip);
                 controller.finishLogin(trip, LoginController.getInstance().retrieveUser());
-                System.out.println("Done");
+                view.showMessage("Done");
             }
         }
     }

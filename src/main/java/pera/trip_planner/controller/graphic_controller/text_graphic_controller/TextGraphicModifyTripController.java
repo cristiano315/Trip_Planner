@@ -19,7 +19,10 @@ import java.time.LocalTime;
 public class TextGraphicModifyTripController implements GraphicModifyTripController {
     private ModifyTripController controller = ModifyTripController.getInstance();
     private TextGraphicModifyTripControllerView view = new TextGraphicModifyTripControllerView();
-    private String illegalChoiceError = "Illegal choice";
+    private static final String ILLEGAL_CHOICE_ERROR = "Illegal choice";
+    private static final String NOT_IN_TRIP_ERROR = "Choice invalid: day not in trip";
+    private static final String ACTIVITY_NOT_FOUND = "Activity not found, try again";
+
 
     @Override
     public void showTripList(User user) {
@@ -30,7 +33,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                 controller.modifyTrip(new ViewTripBean(trip));
                 break;
             } else{
-                System.out.println("Insert a valid trip");
+                view.showMessage("Insert a valid trip");
             }
         }
     }
@@ -51,7 +54,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     String countryName = view.getString("Insert new country: ");
                     country = DaoFactory.getInstance().getCountryDao().load(countryName);
                     if(country == null){
-                        System.out.println("Country not found, try again");
+                        view.showMessage("Country not found, try again");
                     } else{
                         break;
                     }
@@ -72,7 +75,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                 selectTripDay(trip, trip.getTripDays().getEntityByName(trip.getStartDate().toString()));
                 break;
             default:
-                throw new IllegalArgumentException(illegalChoiceError);
+                throw new IllegalArgumentException(ILLEGAL_CHOICE_ERROR);
         }
         controller.storeTrip(trip);
     }
@@ -112,7 +115,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     break;
                 case 1:
                     if(day.getDate().plusDays(1).isEqual(trip.getEndDate())){
-                        System.out.println("Choice invalid: day not in trip");
+                        view.showMessage(NOT_IN_TRIP_ERROR);
                     } else {
                         selectTripDay(trip, trip.getTripDays().getEntityByName(day.getDate().plusDays(1).toString()));
                         running = false;
@@ -120,7 +123,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     break;
                 case -1:
                     if(day.getDate().minusDays(1).isBefore(trip.getStartDate())){
-                        System.out.println("Choice invalid: day not in trip");
+                        view.showMessage(NOT_IN_TRIP_ERROR);
                     } else {
                         selectTripDay(trip, trip.getTripDays().getEntityByName(day.getDate().minusDays(1).toString()));
                         running = false;
@@ -128,10 +131,10 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     break;
                 case 2:
                     modifyTripDay(trip, day);
-                    System.out.println("Day modified successfully");
+                    view.showMessage("Day modified successfully");
                     break;
                 default:
-                    throw new IllegalArgumentException(illegalChoiceError);
+                    throw new IllegalArgumentException(ILLEGAL_CHOICE_ERROR);
             }
         }
     }
@@ -146,7 +149,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                 String cityName = view.getString("Insert new city: ");
                 city = trip.getCountry().getCities().getEntityByName(cityName);
                 if(city == null){
-                    System.out.println("City not found, try again");
+                    view.showMessage("City not found, try again");
                 } else{
                     break;
                 }
@@ -158,8 +161,8 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
     }
 
     public void showAndModifyActivities(Trip trip, TripDay day){
-        System.out.println("Current activities: ");
-        System.out.println(day.getActivityInstanceList().toString());
+        view.showMessage("Current activities: ");
+        view.showMessage(day.getActivityInstanceList().toString());
         Activity activity;
         LocalDateTime activityDateTime;
         while(true){
@@ -169,7 +172,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     String activityName = view.getString("Insert the activity you want to delete: ");
                     activity = day.getCity().getActivities().getEntityByName(activityName);
                     if(activity == null){
-                        System.out.println("Activity not found, try again");
+                        view.showMessage(ACTIVITY_NOT_FOUND);
                     } else{
                         break;
                     }
@@ -181,7 +184,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     String activityName = view.getString("Insert the activity you want to add: ");
                     activity = day.getCity().getActivities().getEntityByName(activityName);
                     if(activity == null){
-                        System.out.println("Activity not found, try again");
+                        view.showMessage(ACTIVITY_NOT_FOUND);
                     } else{
                         break;
                     }
@@ -192,7 +195,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     DayInfo info = activity.getDayInfo(day.getDate().getDayOfWeek());
                     if(info != null){
                         if(time.isBefore(info.getOpenTime()) || time.isAfter(info.getCloseTime())){
-                            System.out.println("Activity is closed during that time, enter a valid one");
+                            view.showMessage("Activity is closed during that time, enter a valid one");
                         }
                     } else {
                         break;
@@ -203,7 +206,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
             } else if(choice == 0){ //back
                 break;
             } else {
-                throw new IllegalArgumentException(illegalChoiceError);
+                throw new IllegalArgumentException(ILLEGAL_CHOICE_ERROR);
             }
         }
     }
