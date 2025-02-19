@@ -145,11 +145,11 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
     }
 
     public void createNewTrip() {
-        controller.createNewTrip(new CreateNewTripBean(tripCountry, tripStartDate, tripEndDate, tripName, duration));
+        controller.createNewTrip(new CreateNewTripBean(tripCountry.getName(), tripStartDate, tripEndDate, tripName, duration));
     }
 
     public void addNewDay(){
-        controller.addDayToNewTrip(currentTrip, new AddDayToNewTripBean(currentDayType, currentCity, currentDate));
+        controller.addDayToNewTrip(currentTrip, new AddDayToNewTripBean(currentDayType, currentCity.getName(), currentDate));
     }
 
     public void addNewActivity(TripDay day, String name, int hour, int minutes) {
@@ -165,7 +165,7 @@ public class GuiGraphicCreateTripController implements GraphicCreateTripControll
             }
         } else {
             LocalDateTime dateTime = LocalDateTime.of(day.getDate(), time);
-            controller.addActivityInstanceToDay(day, new AddActivityInstanceToDayBean(activity, dateTime));
+            controller.addActivityInstanceToDay(day, new AddActivityInstanceToDayBean(name, dateTime));
             view.showAlert("Activity: " + activity.getName() + " at time: " + time.toString() + " added successfully");
         }
     }

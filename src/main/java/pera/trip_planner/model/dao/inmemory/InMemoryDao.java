@@ -34,11 +34,5 @@ public abstract class InMemoryDao<K, V> implements DAO<K, V> {
         return memory.containsKey(id);
     }
 
-    /**
-     * Returns the key used to identify the entity from its
-     * attributes.
-     * @param value
-     * @return
-     */
     protected abstract K getKey(V value);
 }

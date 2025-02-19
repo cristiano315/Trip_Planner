@@ -64,7 +64,7 @@ public class ModifyTripController implements Controller {
     }
 
     public void modifyCountry(Trip trip, ModifyTripBean bean) {
-        trip.setCountry(bean.getNewCountry());
+        trip.setCountry(DaoFactory.getInstance().getCountryDao().load(bean.getNewCountry()));
         trip.resetDaysList();
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         long duration = ChronoUnit.DAYS.between(trip.getStartDate(), trip.getEndDate());
@@ -91,7 +91,7 @@ public class ModifyTripController implements Controller {
     }
 
     public void modifyDayCity(Trip trip, TripDay day, AddDayToNewTripBean bean) {
-        day.setCity(bean.getCity());
+        day.setCity(trip.getCountry().getCities().getEntityByName(bean.getCity()));
         day.resetActivityInstanceList();
         GraphicCreateTripController graphicCreateTripController = GraphicControllerFactory.getGraphicControllerFactory().getGraphicCreateTripController();
         graphicCreateTripController.addActivityInstanceList(trip, day);
@@ -99,16 +99,16 @@ public class ModifyTripController implements Controller {
 
     public void removeActivity(TripDay day, AddActivityInstanceToDayBean bean) {
         //check activity is contained
-        if(!day.getActivityInstanceList().contains(bean.getActivity().getName())){
+        if(!day.getActivityInstanceList().contains(bean.getActivity())){
             throw new IllegalArgumentException("Activity not present");
         }
-        day.getActivityInstanceList().removeEntity(bean.getActivity().getName());
+        day.getActivityInstanceList().removeEntity(bean.getActivity());
     }
 
 
     public void addActivity(TripDay day, AddActivityInstanceToDayBean bean) {
         ActivityInstance activityInstance = DaoFactory.getInstance().getActivityInstanceDao().create(bean.getDate());
-        activityInstance.setActivity(bean.getActivity());
+        activityInstance.setActivity(DaoFactory.getInstance().getActivityDao().load(bean.getActivity()));
         day.getActivityInstanceList().addEntity(activityInstance);
     }
 

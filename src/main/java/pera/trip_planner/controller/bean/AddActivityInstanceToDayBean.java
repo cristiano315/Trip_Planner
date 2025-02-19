@@ -5,15 +5,15 @@ import pera.trip_planner.model.domain.Activity;
 import java.time.LocalDateTime;
 
 public class AddActivityInstanceToDayBean {
-    private final Activity activity;
+    private final String activity;
     private final LocalDateTime date;
 
-    public AddActivityInstanceToDayBean(final Activity activity, final LocalDateTime date) {
+    public AddActivityInstanceToDayBean(final String activity, final LocalDateTime date) {
         this.activity = activity;
         this.date = date;
     }
 
-    public Activity getActivity() {
+    public String getActivity() {
         return activity;
     }
 

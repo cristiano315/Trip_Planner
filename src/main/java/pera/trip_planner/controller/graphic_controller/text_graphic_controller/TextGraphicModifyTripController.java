@@ -48,18 +48,18 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                 controller.modifyName(trip, new ModifyTripBean(name, null, null, null));
                 break;
             case 2: //country
-                Country country;
+                String countryName;
                 view.showCountries();
                 while(true){
-                    String countryName = view.getString("Insert new country: ");
-                    country = DaoFactory.getInstance().getCountryDao().load(countryName);
+                    countryName = view.getString("Insert new country: ");
+                    Country country = DaoFactory.getInstance().getCountryDao().load(countryName);
                     if(country == null){
                         view.showMessage("Country not found, try again");
                     } else{
                         break;
                     }
                 }
-                controller.modifyCountry(trip, new ModifyTripBean(null, country, null, null));
+                controller.modifyCountry(trip, new ModifyTripBean(null, countryName, null, null));
                 break;
             case 3: //dates
                 LocalDate startDate = view.getDate("Insert new start date");
@@ -153,7 +153,7 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
                     break;
                 }
             }
-            controller.modifyDayCity(trip, day, new AddDayToNewTripBean(null, city, null));
+            controller.modifyDayCity(trip, day, new AddDayToNewTripBean(null, city.getName(), null));
         } else if (choice == 2){
             showAndModifyActivities(day);
         }
@@ -177,25 +177,26 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
     }
 
     private void deleteActivity(TripDay day){
-        Activity activity;
+        String activityName;
         while(true){
-            String activityName = view.getString("Insert the activity you want to delete: ");
-            activity = day.getCity().getActivities().getEntityByName(activityName);
+            activityName = view.getString("Insert the activity you want to delete: ");
+            Activity activity = day.getCity().getActivities().getEntityByName(activityName);
             if(activity == null){
                 view.showMessage(ACTIVITY_NOT_FOUND);
             } else{
                 break;
             }
         }
-        controller.removeActivity(day, new AddActivityInstanceToDayBean(activity, null));
+        controller.removeActivity(day, new AddActivityInstanceToDayBean(activityName, null));
     }
 
     private void insertActivity(TripDay day){
+        String activityName;
         Activity activity;
         LocalDateTime activityDateTime;
         while(true){
             view.showActivities(day.getCity());
-            String activityName = view.getString("Insert the activity you want to add: ");
+            activityName = view.getString("Insert the activity you want to add: ");
             activity = day.getCity().getActivities().getEntityByName(activityName);
             if(activity == null){
                 view.showMessage(ACTIVITY_NOT_FOUND);
@@ -216,6 +217,6 @@ public class TextGraphicModifyTripController implements GraphicModifyTripControl
             }
         }
 
-        controller.addActivity(day, new AddActivityInstanceToDayBean(activity, activityDateTime));
+        controller.addActivity(day, new AddActivityInstanceToDayBean(activityName, activityDateTime));
     }
 }

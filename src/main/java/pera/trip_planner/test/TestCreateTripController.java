@@ -47,7 +47,7 @@ public class TestCreateTripController { //cristiano pera
 
         LocalDateTime time = LocalDateTime.of(LocalDate.of(2022, 2, 2), LocalTime.of(10, 10));
 
-        controller.addActivityInstanceToDay(day, new AddActivityInstanceToDayBean(activity1, time));
+        controller.addActivityInstanceToDay(day, new AddActivityInstanceToDayBean(activity1.getName(), time));
 
         assertEquals(day.getActivityInstanceList().getList().get(0).getActivity().getName(), "activity");
         assertEquals(day.getActivityInstanceList().getList().get(0).getDateTime(), LocalDateTime.of(LocalDate.of(2022, 2, 2), LocalTime.of(10, 10)));

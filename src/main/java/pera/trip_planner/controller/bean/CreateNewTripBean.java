@@ -5,13 +5,13 @@ import pera.trip_planner.model.domain.Country;
 import java.time.LocalDate;
 
 public class CreateNewTripBean {
-    private final Country tripCountry;
+    private final String tripCountry;
     private final LocalDate tripStartDate;
     private final LocalDate tripEndDate;
     private final String tripName;
     private final long tripDuration;
 
-    public CreateNewTripBean(Country country, LocalDate startDate, LocalDate endDate, String name, long duration) {
+    public CreateNewTripBean(String country, LocalDate startDate, LocalDate endDate, String name, long duration) {
         this.tripCountry = country;
         this.tripStartDate = startDate;
         this.tripEndDate = endDate;
@@ -19,7 +19,7 @@ public class CreateNewTripBean {
         this.tripDuration = duration;
     }
 
-    public Country getTripCountry() {
+    public String getTripCountry() {
         return tripCountry;
     }
 

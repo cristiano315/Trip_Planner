@@ -44,7 +44,7 @@ public class CreateTripController implements Controller {
         }
 
         trip = tripDao.create(bean.getTripName());
-        trip.setCountry(bean.getTripCountry());
+        trip.setCountry(DaoFactory.getInstance().getCountryDao().load(bean.getTripCountry()));
         trip.setStartDate(bean.getTripStartDate());
         trip.setEndDate(bean.getTripEndDate());
         graphicController.addDays(trip, bean.getTripDuration());
@@ -53,7 +53,7 @@ public class CreateTripController implements Controller {
     public void addDayToNewTrip(Trip trip, AddDayToNewTripBean bean){
 
         TripDay tripDay = tripDayDao.create(bean.getDate());
-        tripDay.setCity(bean.getCity());
+        tripDay.setCity(trip.getCountry().getCities().getEntityByName(bean.getCity()));
         tripDay.setDayType(bean.getDayType());
         graphicController.addActivityInstanceList(trip, tripDay);
     }
@@ -61,7 +61,7 @@ public class CreateTripController implements Controller {
     public void addActivityInstanceToDay(TripDay tripDay, AddActivityInstanceToDayBean bean){
 
         ActivityInstance activityInstance = activityInstanceDao.create(bean.getDate());
-        activityInstance.setActivity(bean.getActivity());
+        activityInstance.setActivity(DaoFactory.getInstance().getActivityDao().load(bean.getActivity()));
         tripDay.addActivityInstance(activityInstance);
     }
 

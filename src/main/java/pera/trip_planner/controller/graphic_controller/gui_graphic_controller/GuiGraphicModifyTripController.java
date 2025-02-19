@@ -101,7 +101,7 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
         if(country == null){
             throw new IllegalArgumentException("Invalid country");
         } else{
-            controller.modifyCountry(currentTrip, new ModifyTripBean(null, country, null, null));
+            controller.modifyCountry(currentTrip, new ModifyTripBean(null, tripCountry, null, null));
         }
     }
 
@@ -153,7 +153,7 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
         if(activity == null){
             throw new IllegalArgumentException("Invalid activity");
         }
-        controller.removeActivity(currentDay, new AddActivityInstanceToDayBean(activity, null));
+        controller.removeActivity(currentDay, new AddActivityInstanceToDayBean(activityName, null));
         view.showAlert("Activity succesfully removed");
         view.showDayInfo(currentDay);
     }
@@ -170,7 +170,7 @@ public class GuiGraphicModifyTripController implements GraphicModifyTripControll
             view.showAlert("Activity is closed during that time, enter a valid one");
             return;
         }
-        controller.addActivity(currentTripDay, new AddActivityInstanceToDayBean(activity, activityDateTime));
+        controller.addActivity(currentTripDay, new AddActivityInstanceToDayBean(activityName, activityDateTime));
         view.showAlert("Activity added successfully");
         view.showDayInfo(currentDay);
     }

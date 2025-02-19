@@ -7,10 +7,10 @@ import java.time.LocalDate;
 
 public class AddDayToNewTripBean {
     private final DayOfWeek dayType;
-    private final City city;
+    private final String city;
     private final LocalDate date;
 
-    public AddDayToNewTripBean(DayOfWeek dayType, City city, LocalDate date) {
+    public AddDayToNewTripBean(DayOfWeek dayType, String city, LocalDate date) {
         this.dayType = dayType;
         this.city = city;
         this.date = date;
@@ -20,7 +20,7 @@ public class AddDayToNewTripBean {
         return dayType;
     }
 
-    public City getCity() {
+    public String getCity() {
         return city;
     }
 

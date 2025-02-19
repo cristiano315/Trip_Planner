@@ -8338,21 +8338,21 @@
         "description" : null,
         "activities" : {
           "list" : [ {
-            "name" : "prova",
+            "name" : "test",
             "description" : null,
             "location" : null,
             "announcements" : {
               "list" : [ ]
             }
           }, {
-            "name" : "prova2",
+            "name" : "test2",
             "description" : null,
             "location" : null,
             "announcements" : {
               "list" : [ ]
             }
           }, {
-            "name" : "prova3",
+            "name" : "test3",
             "description" : null,
             "location" : null,
             "announcements" : {

@@ -25,7 +25,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
     @Override
     public void createTrip() {
         String name;
-        Country country;
+        String countryName;
         LocalDate startDate;
         LocalDate endDate;
         long duration;
@@ -33,8 +33,8 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
         name = view.getString("Insert name for trip: ");
         view.showCountries();
         while(true){
-            String countryName = view.getString("Insert country for trip " + name + ": ");
-            country = DaoFactory.getInstance().getCountryDao().load(countryName);
+            countryName = view.getString("Insert country for trip " + name + ": ");
+            Country country = DaoFactory.getInstance().getCountryDao().load(countryName);
             if(country == null){
                 view.showMessage("Country not found, try again");
             } else{
@@ -49,29 +49,29 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             endDate = temp;
         }
         duration = ChronoUnit.DAYS.between(startDate, endDate);
-        CreateNewTripBean bean = new CreateNewTripBean(country, startDate, endDate, name, duration);
+        CreateNewTripBean bean = new CreateNewTripBean(countryName, startDate, endDate, name, duration);
         controller.createNewTrip(bean);
     }
 
     @Override
     public void addDays(Trip trip, long duration){
         DayOfWeek dayType;
-        City city;
+        String cityName;
         LocalDate currentDate;
         for(int i = 0; i < duration; i++) {
             currentDate = trip.getStartDate().plusDays(i);
             dayType = currentDate.getDayOfWeek();
             view.showCities(trip.getCountry());
             while (true) {
-                String cityName = view.getString("Insert city for day " + currentDate.toString() + ": ");
-                city = trip.getCountry().getCities().getEntityByName(cityName);
+                cityName = view.getString("Insert city for day " + currentDate.toString() + ": ");
+                City city = trip.getCountry().getCities().getEntityByName(cityName);
                 if (city == null) {
                     view.showMessage("City not found, try again");
                 } else {
                     break;
                 }
             }
-            AddDayToNewTripBean bean = new AddDayToNewTripBean(dayType, city, currentDate);
+            AddDayToNewTripBean bean = new AddDayToNewTripBean(dayType, cityName, currentDate);
             controller.addDayToNewTrip(trip, bean);
         }
         controller.storeTrip(trip);
@@ -97,7 +97,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
                     break;
                 }
             }
-            AddActivityInstanceToDayBean bean = new AddActivityInstanceToDayBean(activity, activityDateTime);
+            AddActivityInstanceToDayBean bean = new AddActivityInstanceToDayBean(activity.getName(), activityDateTime);
             controller.addActivityInstanceToDay(day, bean);
             choice = view.getChoice("Do you want to add more activities?");
         }
