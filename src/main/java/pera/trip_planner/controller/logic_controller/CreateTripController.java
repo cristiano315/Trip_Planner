@@ -7,6 +7,7 @@ import pera.trip_planner.controller.bean.CreateNewTripBean;
 import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.task.ShowTripTask;
+import pera.trip_planner.exception.InvalidUsageException;
 import pera.trip_planner.model.dao.*;
 import pera.trip_planner.model.domain.*;
 
@@ -69,7 +70,11 @@ public class CreateTripController implements Controller {
         User user;
         user = LoginController.getInstance().retrieveUser();
         if(user == null){
-            LoginController.getInstance().start();
+            try{
+                LoginController.getInstance().start();
+            } catch (InvalidUsageException e){
+                finishSavingToAccount(trip, LoginController.getInstance().retrieveUser());
+            }
         } else {
             finishSavingToAccount(trip, user);
         }

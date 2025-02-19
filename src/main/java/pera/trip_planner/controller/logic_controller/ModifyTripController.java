@@ -8,6 +8,7 @@ import pera.trip_planner.controller.bean.ViewTripBean;
 import pera.trip_planner.controller.graphic_controller.GraphicCreateTripController;
 import pera.trip_planner.controller.graphic_controller.GraphicModifyTripController;
 import pera.trip_planner.controller.task.CreateTripTask;
+import pera.trip_planner.exception.InvalidUsageException;
 import pera.trip_planner.model.dao.DaoFactory;
 import pera.trip_planner.model.dao.GraphicControllerFactory;
 import pera.trip_planner.model.dao.TripDao;

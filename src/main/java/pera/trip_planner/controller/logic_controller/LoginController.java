@@ -26,7 +26,7 @@ public class LoginController implements Controller {
     }
 
     @Override
-    public void start(){
+    public void start() throws InvalidUsageException{
         if(user == null){
             graphicController.selection();
         } else {

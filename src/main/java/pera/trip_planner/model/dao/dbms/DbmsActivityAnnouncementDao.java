@@ -78,7 +78,7 @@ public class DbmsActivityAnnouncementDao implements ActivityAnnouncementDao {
     }
 
     private void createTable() {
-        String createTableQuery = "CREATE TABLE IF NOT EXISTS activity_announcement (name TEXT NOT NULL, description TEXT, issuing_date DATE NOT NULL, PRIMARY KEY (name, issuing_date))";
+        String createTableQuery = "CREATE TABLE IF NOT EXISTS activity_announcement (name TEXT PRIMARY KEY, description TEXT NOT NULL, issuing_date DATE NOT NULL)";
         try(Statement stmt = conn.createStatement()) {
             stmt.execute(createTableQuery);
         } catch (SQLException e) {
