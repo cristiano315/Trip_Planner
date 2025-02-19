@@ -108,7 +108,7 @@ public class ModifyTripController implements Controller {
 
     public void addActivity(TripDay day, AddActivityInstanceToDayBean bean) {
         ActivityInstance activityInstance = DaoFactory.getInstance().getActivityInstanceDao().create(bean.getDate());
-        activityInstance.setActivity(DaoFactory.getInstance().getActivityDao().load(bean.getActivity()));
+        activityInstance.setActivity(day.getCity().getActivities().getEntityByName(bean.getActivity()));
         day.getActivityInstanceList().addEntity(activityInstance);
     }
 
