@@ -1,7 +1,5 @@
 package pera.trip_planner.controller.bean;
 
-import pera.trip_planner.model.domain.Country;
-
 import java.time.LocalDate;
 
 public class CreateNewTripBean {

@@ -1,7 +1,5 @@
 package pera.trip_planner.controller.bean;
 
-import pera.trip_planner.model.domain.City;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
