@@ -86,4 +86,24 @@ public abstract class GenericTextGraphicView {
         System.out.println(city.getActivities());
     }
 
+    public boolean getBooleanChoice(String message){
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while(true){
+            try{
+                System.out.println(message + " (y/n): ");
+                String choice = br.readLine();
+                if(choice.equals("y") || choice.equals("Y")){
+                    return true;
+                } else if(choice.equals("n") || choice.equals("N")){
+                    return false;
+                } else {
+                    System.out.println("Insert a valid choice");
+                }
+            } catch (IOException e){
+                System.out.println("Error reading value, try again");
+                br = new BufferedReader(new InputStreamReader(System.in));
+            }
+        }
+    }
+
 }

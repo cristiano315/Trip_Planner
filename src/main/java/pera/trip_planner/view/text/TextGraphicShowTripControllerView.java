@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class TextGraphicShowTripControllerView extends GenericTextGraphicView {
-    private String errorMessage = "Error reading value, try again";
+    private static final String ERROR_MESSAGE = "Error reading value, try again";
 
     public void showAvailableTrips(User user){
         TripList list = DaoFactory.getInstance().getTripDao().tripList();
@@ -67,28 +67,9 @@ public class TextGraphicShowTripControllerView extends GenericTextGraphicView {
                     System.out.println("Enter a valid choice");
                 }
             } catch (IOException e) {
-                System.out.println(errorMessage);
+                System.out.println(ERROR_MESSAGE);
             }
         }
     }
 
-    public boolean getBooleanChoice(String message){
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while(true){
-            try{
-                System.out.println(message + " (y/n): ");
-                String choice = br.readLine();
-                if(choice.equals("y") || choice.equals("Y")){
-                    return true;
-                } else if(choice.equals("n") || choice.equals("N")){
-                    return false;
-                } else {
-                    System.out.println("Insert a valid choice");
-                }
-            } catch (IOException e){
-                System.out.println(errorMessage);
-                br = new BufferedReader(new InputStreamReader(System.in));
-            }
-        }
-    }
 }

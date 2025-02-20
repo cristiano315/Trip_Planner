@@ -99,7 +99,7 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
             }
             AddActivityInstanceToDayBean bean = new AddActivityInstanceToDayBean(activity.getName(), activityDateTime);
             controller.addActivityInstanceToDay(day, bean);
-            choice = view.getChoice("Do you want to add more activities?");
+            choice = view.getBooleanChoice("Do you want to add more activities?");
         }
         controller.storeTripDay(trip, day);
     }
@@ -122,12 +122,12 @@ public class TextGraphicCreateTripController implements GraphicCreateTripControl
     @Override
     public void done(Trip trip) {
         if(!trip.isRegistered()){
-            boolean choice = view.getChoice("Trip succesfully created and saved, would you like to visualize it?");
+            boolean choice = view.getBooleanChoice("Trip succesfully created and saved, would you like to visualize it?");
             if(choice){
                 ShowTripController showTripController = ShowTripController.getInstance();
                 showTripController.viewTrip(new ViewTripBean(trip.getName()));
             }
-            choice = view.getChoice("Do you want to add the trip to your account?");
+            choice = view.getBooleanChoice("Do you want to add the trip to your account?");
             if(choice){
                 controller.saveToAccount(trip);
                 controller.finishSavingToAccount(trip, LoginController.getInstance().retrieveUser());
