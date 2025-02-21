@@ -26,12 +26,13 @@ public class GuiGraphicApplicationControllerView extends Application {
         });
         createScene();
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
     public static void createScene(){
         try{
-            scene = new Scene(loadFXML("view/demoSelector"), 1920, 1080);
+            scene = new Scene(loadFXML("view/demoSelector"), 600, 335);
         } catch (IOException e) {
             throw new GuiException("Error setting up gui");
         }

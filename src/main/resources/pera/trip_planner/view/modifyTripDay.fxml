@@ -7,43 +7,43 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicModifyTripControllerView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicModifyTripControllerView">
    <children>
-      <Label fx:id="tripNameDaysLabel" alignment="CENTER" layoutX="-4.0" layoutY="48.0" prefHeight="223.0" prefWidth="1928.0" text="Trip Name">
+      <Label fx:id="tripNameDaysLabel" alignment="CENTER" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="600.0" text="Trip Name">
          <font>
-            <Font size="96.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="112.0" layoutX="396.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="1090.0" />
-      <Label fx:id="dayInfoLabel" layoutX="398.0" layoutY="316.0" prefHeight="112.0" prefWidth="872.0" text="Day 1 - Monday">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="35.0" layoutX="123.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
+      <Label fx:id="dayInfoLabel" layoutX="123.0" layoutY="98.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="270.0" text="Day 1 - Monday">
          <font>
-            <Font size="77.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <ListView fx:id="addActivitiesListView" fixedCellSize="60.0" layoutX="396.0" layoutY="426.0" prefHeight="486.0" prefWidth="1090.0" />
-      <Button layoutX="398.0" layoutY="930.0" mnemonicParsing="false" onAction="#addActivity" prefHeight="119.0" prefWidth="504.0" style="-fx-background-color: red;" text="Add activity">
+      <ListView fx:id="addActivitiesListView" layoutX="123.0" layoutY="132.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="338.0" />
+      <Button layoutX="123.0" layoutY="288.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addActivity" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: red;" text="Add activity">
          <font>
-            <Font size="55.0" />
+            <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="982.0" layoutY="930.0" mnemonicParsing="false" onAction="#removeActivity" prefHeight="119.0" prefWidth="504.0" style="-fx-background-color: red;" text="Remove">
+      <Button layoutX="304.0" layoutY="288.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#removeActivity" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: red;" text="Remove">
          <font>
-            <Font size="55.0" />
+            <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="1256.0" layoutY="325.0" mnemonicParsing="false" onAction="#previousDay" prefHeight="89.0" prefWidth="92.0" text="&lt;-">
+      <Button layoutX="389.0" layoutY="101.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#previousDay" prefHeight="29.0" prefWidth="29.0" text="&lt;-">
          <font>
-            <Font size="37.0" />
+            <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="1366.0" layoutY="326.0" mnemonicParsing="false" onAction="#nextDay" prefHeight="89.0" prefWidth="92.0" text="-&gt;">
+      <Button layoutX="423.0" layoutY="101.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nextDay" prefHeight="29.0" prefWidth="29.0" text="-&gt;">
          <font>
-            <Font size="37.0" />
+            <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="1544.0" layoutY="934.0" mnemonicParsing="false" onAction="#done" prefHeight="112.0" prefWidth="354.0" text="Done">
+      <Button layoutX="479.0" layoutY="290.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#done" prefHeight="35.0" prefWidth="110.0" text="Done">
          <font>
-            <Font size="49.0" />
+            <Font size="15.0" />
          </font>
       </Button>
    </children>

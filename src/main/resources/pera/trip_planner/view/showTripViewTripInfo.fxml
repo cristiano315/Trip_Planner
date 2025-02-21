@@ -5,31 +5,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicShowTripControllerView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicShowTripControllerView">
    <children>
-      <Label fx:id="tripNameLabel" alignment="CENTER" layoutX="2.0" layoutY="78.0" prefHeight="153.0" prefWidth="1916.0" text="Trip Name" textAlignment="CENTER">
+      <Label fx:id="tripNameLabel" alignment="CENTER" layoutY="24.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="600.0" text="Trip Name" textAlignment="CENTER">
          <font>
-            <Font size="96.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="countryNameLabel" layoutX="150.0" layoutY="312.0" text="Country: Italy">
+      <Label fx:id="countryNameLabel" layoutX="46.0" layoutY="97.0" text="Country: Italy">
          <font>
-            <Font size="78.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="startDateLabel" layoutX="143.0" layoutY="493.0" text="Start date: 2022-02-02">
+      <Label fx:id="startDateLabel" layoutX="46.0" layoutY="153.0" text="Start date: 2022-02-02">
          <font>
-            <Font size="78.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="endDateLabel" layoutX="144.0" layoutY="667.0" text="End date: 2022-02-04">
+      <Label fx:id="endDateLabel" layoutX="46.0" layoutY="207.0" text="End date: 2022-02-04">
          <font>
-            <Font size="78.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="viewDaysButton" layoutX="1496.0" layoutY="852.0" mnemonicParsing="false" onAction="#viewFirstDay" prefHeight="183.0" prefWidth="371.0" text="View days">
+      <Button fx:id="viewDaysButton" layoutX="464.0" layoutY="264.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#viewFirstDay" prefHeight="57.0" prefWidth="115.0" text="View days">
          <font>
-            <Font size="59.0" />
+            <Font size="18.0" />
          </font>
       </Button>
    </children>

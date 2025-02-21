@@ -8,29 +8,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicLoginControllerView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicLoginControllerView">
    <children>
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="-3.0" layoutY="78.0" prefHeight="141.0" prefWidth="1919.0" text="LOGIN">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutY="24.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="600.0" text="LOGIN">
          <font>
-            <Font size="96.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameBox" layoutX="294.0" layoutY="344.0" prefHeight="154.0" prefWidth="1313.0" promptText="Username">
+      <TextField fx:id="usernameBox" layoutX="91.0" layoutY="107.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="407.0" promptText="Username">
          <font>
-            <Font size="71.0" />
+            <Font size="22.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordBox" layoutX="293.0" layoutY="597.0" prefHeight="154.0" prefWidth="1313.0" promptText="Password">
+      <PasswordField fx:id="passwordBox" layoutX="91.0" layoutY="185.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="407.0" promptText="Password">
          <font>
-            <Font size="71.0" />
+            <Font size="22.0" />
          </font>
       </PasswordField>
-      <Button fx:id="loginButton" layoutX="650.0" layoutY="898.0" mnemonicParsing="false" onAction="#executeLogin" prefHeight="117.0" prefWidth="657.0" style="-fx-background-color: RED;" text="Login">
+      <Button fx:id="loginButton" layoutX="201.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#executeLogin" prefHeight="36.0" prefWidth="204.0" style="-fx-background-color: RED;" text="Login">
          <font>
-            <Font size="58.0" />
+            <Font size="18.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="roleSelector" layoutX="826.0" layoutY="791.0" prefHeight="53.0" prefWidth="298.0" />
+      <ChoiceBox fx:id="roleSelector" layoutX="256.0" layoutY="245.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="92.0" />
    </children>
 </AnchorPane>

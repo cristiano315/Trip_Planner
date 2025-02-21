@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:controller="pera.trip_planner.view.gui.GuiGraphicApplicationControllerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pera.trip_planner.view.gui.GuiGraphicApplicationControllerView">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -24,16 +24,16 @@
    <children>
       <Label minWidth="-Infinity" prefHeight="112.0" prefWidth="385.0" text="SELECT MODE" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <font>
-            <Font size="61.0" />
+            <Font size="22.0" />
          </font>
       </Label>
       <Button fx:id="demoButton" mnemonicParsing="false" onAction="#setDemo" prefHeight="165.0" prefWidth="388.0" style="-fx-background-color: #813131;" text="DEMO" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
-            <Font size="40.0" />
+            <Font size="15.0" />
          </font></Button>
       <Button fx:id="fullButton" mnemonicParsing="false" onAction="#setFull" prefHeight="160.0" prefWidth="423.0" style="-fx-background-color: #813131;" text="FULL" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <font>
-            <Font size="40.0" />
+            <Font size="15.0" />
          </font></Button>
    </children>
 </GridPane>
